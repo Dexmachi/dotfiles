@@ -1,0 +1,51 @@
+2025-07-12T14:09:45.703Z - info: [ui] [AppStore] loading 4 repositories from store
+2025-07-12T14:09:45.779Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-07-12T14:09:46.359Z - info: [ui] [BranchPruner] Last prune took place 14 hours ago - skipping
+2025-07-12T14:09:47.423Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-07-12T14:09:47.658Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.6-arch1-1)
+2025-07-12T14:09:47.662Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-07-12T14:09:57.777Z - info: [ui] Executing pull: git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin (took 2.213s)
+2025-07-12T14:09:59.812Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.035s)
+2025-07-12T17:31:26.839Z - info: [ui] [AppStore] loading 4 repositories from store
+2025-07-12T17:31:26.843Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-07-12T17:31:26.887Z - info: [ui] [BranchPruner] Last prune took place 18 hours ago - skipping
+2025-07-12T17:31:27.125Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.6-arch1-1)
+2025-07-12T17:31:27.125Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-07-12T17:31:27.271Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-07-12T17:31:27.601Z - info: [ui] Stats reported.
+2025-07-12T17:31:30.601Z - info: [ui] Executing pull: git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin (took 2.015s)
+2025-07-12T17:31:32.632Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.030s)
+2025-07-12T17:33:14.228Z - info: [ui] [AppStore] loading 4 repositories from store
+2025-07-12T17:33:14.232Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-07-12T17:33:14.268Z - info: [ui] [BranchPruner] Last prune took place 18 hours ago - skipping
+2025-07-12T17:33:14.531Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.6-arch1-1)
+2025-07-12T17:33:14.533Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-07-12T17:33:14.652Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-07-12T17:33:19.736Z - info: [ui] Executing push: git push origin main:main --progress (took 1.868s)
+2025-07-12T17:33:21.742Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 2.005s)
+2025-07-12T17:33:23.732Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 1.990s)
+2025-07-12T17:43:52.467Z - info: [ui] [AppStore] loading 4 repositories from store
+2025-07-12T17:43:52.471Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-07-12T17:43:52.507Z - info: [ui] [BranchPruner] Last prune took place 18 hours ago - skipping
+2025-07-12T17:43:52.773Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.6-arch1-1)
+2025-07-12T17:43:52.774Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-07-12T17:43:52.898Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-07-12T17:43:55.811Z - info: [ui] Executing push: git push origin main:main --progress (took 1.855s)
+2025-07-12T17:43:55.814Z - error: [ui] `git push origin main:main --progress` exited with an unexpected code: 1.
+To github.com:Dexmachi/Dextall.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'github.com:Dexmachi/Dextall.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+(The error was parsed as 11: The repository has been updated since you last pulled. Try pulling before pushing.)
+2025-07-12T17:44:00.579Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 2.182s)
+2025-07-12T17:44:02.566Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 1.986s)
+2025-07-12T17:44:06.131Z - info: [ui] Executing pull: git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin (took 2.045s)
+2025-07-12T17:44:08.134Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.003s)
+2025-07-12T17:44:11.275Z - info: [ui] Executing push: git push origin main:main --progress (took 2.143s)
+2025-07-12T17:44:13.295Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 2.019s)
+2025-07-12T17:44:15.302Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.007s)

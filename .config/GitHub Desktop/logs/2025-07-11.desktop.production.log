@@ -1,0 +1,80 @@
+2025-07-11T17:12:42.150Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-07-11T17:12:42.357Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-07-11T17:12:44.004Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-07-11T17:12:44.644Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.6-arch1-1)
+2025-07-11T17:12:44.645Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-07-11T17:12:45.582Z - info: [ui] Stats reported.
+2025-07-11T17:12:50.282Z - info: [ui] Executing getStatus: git --no-optional-locks status --untracked-files=all --branch --porcelain=2 -z (took 7.156s)
+2025-07-11T17:12:51.361Z - info: [ui] Executing installGlobalLFSFilter: git lfs install --skip-repo (took 6.716s)
+2025-07-11T17:12:51.633Z - info: [ui] Executing getCommits: git log 4f4cd1eaf3fc5ce262d894119814c49ec33fa66a --date=raw --max-count=1 -z --format=%H%x00%h%x00%s%x00%b%x00%an <%ae> %ad%x00%cn <%ce> %cd%x00%P%x00%(trailers:unfold,only)%x00%D --no-show-signature --no-color -- (took 1.349s)
+2025-07-11T17:12:54.025Z - info: [ui] Executing getRecentBranches: git log -g --no-abbrev-commit --pretty=oneline HEAD -n 2500 -- (took 2.381s)
+2025-07-11T17:12:55.373Z - info: [ui] Executing getCommits: git log HEAD --date=raw --max-count=100 --skip=0 -z --format=%H%x00%h%x00%s%x00%b%x00%an <%ae> %ad%x00%cn <%ce> %cd%x00%P%x00%(trailers:unfold,only)%x00%D --no-show-signature --no-color -- (took 1.303s)
+2025-07-11T17:12:57.216Z - info: [ui] Executing getChangesFiles: git log 4f4cd1eaf3fc5ce262d894119814c49ec33fa66a -C -M -m -1 --no-show-signature --first-parent --raw --format=format: --numstat -z -- (took 1.839s)
+2025-07-11T17:12:57.637Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 8.146s)
+2025-07-11T17:12:59.603Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 1.966s)
+2025-07-11T17:13:59.801Z - info: [ui] Executing pull: git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin (took 2.317s)
+2025-07-11T17:14:01.770Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 1.968s)
+2025-07-11T17:14:09.036Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 1.982s)
+2025-07-11T17:14:11.048Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.011s)
+2025-07-11T17:14:11.175Z - info: [ui] [RepositoryIndicatorUpdater]: Refreshing sidebar indicators for 2 repositories took 0.4s of which 0.0s paused, total 0.4s
+2025-07-11T17:14:17.862Z - error: [ui] Could not load new contents for syntax highlighting
+Error: ENOENT: no such file or directory, open '/home/dexmachina/projetos/Foguete-de-pressao/src/static/grafico.png'
+2025-07-11T17:14:17.863Z - error: [ui] `git show HEAD:src/static/grafico.png` exited with an unexpected code: 128.
+fatal: path 'src/static/grafico.png' does not exist in 'HEAD'
+
+(The error was parsed as 33: The path does not exist on disk.)
+2025-07-11T17:14:18.499Z - error: [ui] Could not load old contents for syntax highlighting
+GitError: The path does not exist on disk.
+    at /home/dexmachina/webpack:/app/src/lib/git/core.ts:334:13
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at /home/dexmachina/webpack:/app/src/lib/trampoline/trampoline-environment.ts:124:7
+    at /home/dexmachina/webpack:/app/src/lib/trampoline/trampoline-tokens.ts:33:5
+    at async Promise.all (index 0)
+    at /home/dexmachina/webpack:/app/src/ui/diff/syntax-highlighting/index.ts:111:23
+    at GP.loadFileContentsIfNeeded (/home/dexmachina/webpack:/app/src/ui/diff/seamless-diff-switcher.tsx:283:11)
+2025-07-11T17:14:24.465Z - info: [ui] No submodules found. Skipping "git submodule status"
+2025-07-11T17:15:56.314Z - info: [ui] No submodules found. Skipping "git submodule status"
+2025-07-11T23:37:08.301Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-07-11T23:37:08.388Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-07-11T23:37:08.893Z - info: [ui] [BranchPruner] Last prune took place 6 hours ago - skipping
+2025-07-11T23:37:09.375Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-07-11T23:37:09.447Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.6-arch1-1)
+2025-07-11T23:37:09.448Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-07-11T23:37:11.789Z - info: [ui] Executing installGlobalLFSFilter: git lfs install --skip-repo (took 2.341s)
+2025-07-11T23:37:18.355Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 2.267s)
+2025-07-11T23:37:20.375Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.020s)
+2025-07-11T23:37:31.594Z - info: [ui] [RepositoryIndicatorUpdater]: Refreshing sidebar indicators for 2 repositories took 1.6s of which 0.5s paused, total 2.1s
+2025-07-11T23:37:56.016Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-07-11T23:37:56.284Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-07-11T23:37:56.285Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-07-11T23:37:56.335Z - info: [ui] [BranchPruner] Last prune took place 6 hours ago - skipping
+2025-07-11T23:37:56.556Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.6-arch1-1)
+2025-07-11T23:37:56.557Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-07-11T23:38:18.154Z - info: [ui] [RepositoryIndicatorUpdater]: Refreshing sidebar indicators for 2 repositories took 0.1s of which 0.3s paused, total 0.4s
+2025-07-11T23:38:19.235Z - info: [ui] [AppStore] adding repository at /home/dexmachina/projetos/Dextall to store
+2025-07-11T23:38:19.401Z - info: [ui] [BranchPruner] Last prune took place 6 hours ago - skipping
+2025-07-11T23:38:26.071Z - info: [ui] [Timing] Action 'checkout branch from list' for 'unb-mds/mapadaacessibilidade' took 0.104s
+2025-07-11T23:38:31.218Z - info: [ui] Executing push: git push origin instalacao --set-upstream --progress (took 2.344s)
+2025-07-11T23:38:33.198Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 1.979s)
+2025-07-11T23:38:35.224Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.026s)
+2025-07-11T23:38:40.114Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 1.981s)
+2025-07-11T23:38:42.099Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 1.985s)
+2025-07-11T23:43:12.080Z - info: [ui] [Timing] Action 'create commit' for 'unb-mds/mapadaacessibilidade' took 0.056s
+2025-07-11T23:43:15.960Z - info: [ui] Executing push: git push origin instalacao:instalacao --progress (took 2.089s)
+2025-07-11T23:43:17.951Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 1.984s)
+2025-07-11T23:43:19.951Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.000s)
+2025-07-11T23:43:39.452Z - info: [ui] [BranchPruner] Last prune took place 7 hours ago - skipping
+2025-07-11T23:43:40.508Z - info: [ui] Executing getRecentBranches: git log -g --no-abbrev-commit --pretty=oneline HEAD -n 2500 -- (took 1.032s)
+2025-07-11T23:43:42.258Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 2.806s)
+2025-07-11T23:43:44.280Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.021s)
+2025-07-11T23:43:49.571Z - info: [ui] [AppStore] adding repository at /home/dexmachina/projetos/Dextall to store
+2025-07-11T23:43:49.672Z - info: [ui] [BranchPruner] Last prune took place 7 hours ago - skipping
+2025-07-11T23:43:49.953Z - info: [ui] [BranchPruner] No branches to prune.
+2025-07-11T23:49:15.242Z - info: [ui] credential-helper: found GitHub credential for https://github.com/ in store
+2025-07-11T23:49:15.968Z - info: [ui] Executing push: git push origin instalacao --set-upstream --progress (took 1.029s)
+2025-07-11T23:49:22.677Z - info: [ui] [Timing] Action 'checkout branch from list' for 'Dexmachi/Dextall' took 0.118s
+2025-07-11T23:49:28.830Z - info: [ui] [Timing] Action 'checkout branch from list' for 'Dexmachi/Dextall' took 0.123s
+2025-07-11T23:52:05.698Z - info: [ui] [BranchPruner] Last prune took place 8 minutes ago - skipping
+2025-07-11T23:52:07.842Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 2.125s)
+2025-07-11T23:52:09.831Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 1.988s)
+2025-07-11T23:59:07.388Z - info: [ui] [RepositoryIndicatorUpdater]: Refreshing sidebar indicators for 3 repositories took 0.8s of which 299.4s paused, total 300.2s

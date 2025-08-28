@@ -1,0 +1,79 @@
+# -----------------------------------------------------
+# CUSTOMIZATION
+# -----------------------------------------------------
+ POSH=""
+
+# -----------------------------------------------------
+# oh-myzsh themes: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# -----------------------------------------------------
+ ZSH_THEME="powerlevel10k/powerlevel10k"
+ # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+
+# -----------------------------------------------------
+# oh-myzsh plugins
+# -----------------------------------------------------
+plugins=(
+    git
+    sudo
+    web-search
+    archlinux
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    fast-syntax-highlighting
+    copyfile
+    fzf-tab
+    copybuffer
+    dirhistory
+    rclone
+
+    zsh-job-queue
+    zsh-abbr
+)
+
+eval $(thefuck --alias)
+tre() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
+
+# keybinds
+bindkey '^F' autosuggest-accept
+
+# Set-up oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+export ZK_NOTEBOOK_DIR="$HOME/diario"
+
+# -----------------------------------------------------
+# Set-up FZF key bindings (CTRL R for fuzzy history finder)
+# -----------------------------------------------------
+source <(fzf --zsh)
+
+# zsh history
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+
+setopt extendedglob
+
+bindkey -v
+
+# fzf style
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+
+# -----------------------------------------------------
+# Prompt
+# -----------------------------------------------------
+# eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+
+autoload -Uz add-zsh-hook
+
+# eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/ml4w.toml)"
+
+# STARSHIP
+# eval "$(starship init zsh)"
+
+#p10k
+ [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Shipped Theme
+# eval "$(oh-my-posh init zsh --config /usr/share/oh-my-posh/themes/agnoster.omp.json)"

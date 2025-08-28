@@ -1,0 +1,56 @@
+2025-07-08T19:41:45.336Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-07-08T19:41:45.448Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-07-08T19:41:46.648Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.5-arch1-1)
+2025-07-08T19:41:46.649Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-07-08T19:41:48.403Z - info: [ui] Stats reported.
+2025-07-08T19:41:48.747Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-07-08T19:41:49.057Z - info: [ui] Executing getRecentBranches: git log -g --no-abbrev-commit --pretty=oneline HEAD -n 2500 -- (took 1.775s)
+2025-07-08T19:41:49.065Z - info: [ui] Executing getRecentBranches: git log -g --no-abbrev-commit --pretty=oneline HEAD -n 2500 -- (took 2.292s)
+2025-07-08T19:41:50.575Z - info: [ui] Executing getCommits: git log HEAD --date=raw --max-count=100 --skip=0 -z --format=%H%x00%h%x00%s%x00%b%x00%an <%ae> %ad%x00%cn <%ce> %cd%x00%P%x00%(trailers:unfold,only)%x00%D --no-show-signature --no-color -- (took 1.437s)
+2025-07-08T19:41:50.688Z - info: [ui] Executing installGlobalLFSFilter: git lfs install --skip-repo (took 4.039s)
+2025-07-08T19:42:07.635Z - info: [ui] Executing pull: git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin (took 9.867s)
+2025-07-08T19:42:07.638Z - error: [ui] `git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin` exited with an unexpected code: 1.
+Auto-merging .github/workflows/backendTest.yml
+CONFLICT (content): Merge conflict in .github/workflows/backendTest.yml
+Automatic merge failed; fix conflicts and then commit the result.
+
+(The error was parsed as 8: We found some conflicts while trying to merge. Please resolve the conflicts and commit the changes.)
+2025-07-08T19:42:41.934Z - info: [ui] Executing pull: git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin (took 2.025s)
+2025-07-08T19:42:41.935Z - error: [ui] `git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin` exited with an unexpected code: 1.
+Auto-merging .github/workflows/backendTest.yml
+CONFLICT (content): Merge conflict in .github/workflows/backendTest.yml
+Automatic merge failed; fix conflicts and then commit the result.
+
+(The error was parsed as 8: We found some conflicts while trying to merge. Please resolve the conflicts and commit the changes.)
+2025-07-08T19:43:16.040Z - info: [ui] Executing push: git push origin develop:develop --progress (took 2.164s)
+2025-07-08T19:43:18.068Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 2.027s)
+2025-07-08T19:43:20.136Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.067s)
+2025-07-08T23:18:31.498Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-07-08T23:18:31.503Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-07-08T23:18:31.544Z - info: [ui] [BranchPruner] Last prune took place 4 hours ago - skipping
+2025-07-08T23:18:31.844Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.5-arch1-1)
+2025-07-08T23:18:31.845Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-07-08T23:18:31.966Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-07-08T23:18:36.841Z - info: [ui] Executing pull: git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin (took 2.070s)
+2025-07-08T23:18:36.843Z - error: [ui] `git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin` exited with an unexpected code: 1.
+Auto-merging node_modules/.package-lock.json
+CONFLICT (add/add): Merge conflict in node_modules/.package-lock.json
+Auto-merging package-lock.json
+CONFLICT (add/add): Merge conflict in package-lock.json
+Auto-merging package.json
+CONFLICT (add/add): Merge conflict in package.json
+Automatic merge failed; fix conflicts and then commit the result.
+
+(The error was parsed as 8: We found some conflicts while trying to merge. Please resolve the conflicts and commit the changes.)
+2025-07-08T23:19:56.542Z - info: [ui] Executing push: git push origin develop:develop --progress (took 2.260s)
+2025-07-08T23:19:58.550Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 2.006s)
+2025-07-08T23:20:00.561Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.011s)
+2025-07-08T23:35:45.375Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-07-08T23:35:45.383Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-07-08T23:35:45.440Z - info: [ui] [BranchPruner] Last prune took place 4 hours ago - skipping
+2025-07-08T23:35:45.876Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.5-arch1-1)
+2025-07-08T23:35:45.878Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-07-08T23:35:45.957Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-07-08T23:41:19.297Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 2.240s)
+2025-07-08T23:41:21.335Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.038s)
+2025-07-08T23:41:39.378Z - info: [ui] [RepositoryIndicatorUpdater]: Refreshing sidebar indicators for 2 repositories took 5.0s of which 18.0s paused, total 23.0s

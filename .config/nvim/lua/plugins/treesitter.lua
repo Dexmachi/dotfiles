@@ -1,0 +1,38 @@
+return {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "css",
+        "bash",
+        "html",
+        "javascript",
+        "json",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "query",
+        "regex",
+        "tsx",
+        "dockerfile",
+        "typescript",
+        "vim",
+        "yaml",
+        "toml",
+        "rust",
+        "java",
+        "cpp",
+        "rust",
+        "go",
+      },
+      highlight = {
+        enable = true,
+      },
+      indent = {
+        enable = true,
+      },
+    },
+    auto_install = false,
+  },
+  --{ import = "lazyvim.plugins.extras.lang.json" },
+}

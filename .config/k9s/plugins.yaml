@@ -1,0 +1,9 @@
+plugins:
+  follow-logs:
+    shortCut: Ctrl-L
+    description: "Seguir logs do pod selecionado (kubectl logs -f)"
+    scopes:
+      - pods
+    command: sh -c 'kubectl logs -f $(echo {{.Name}}) -n {{.Namespace}}'
+    background: false
+

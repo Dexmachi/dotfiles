@@ -1,0 +1,5 @@
+cd projetos/Dextall
+cd projetos/dextall
+cd ~/projetos/Dextall
+ls
+open projetos/Ch-aronte/roles/sistema/vars/necessarios.yml | select necessarios

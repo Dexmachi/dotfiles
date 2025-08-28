@@ -1,0 +1,27 @@
+2025-06-16T13:03:26.135Z - info: [ui] [AppStore] loading 2 repositories from store
+2025-06-16T13:03:26.253Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-06-16T13:03:26.778Z - info: [ui] [BranchPruner] Last prune took place 21 hours ago - skipping
+2025-06-16T13:03:27.158Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-06-16T13:03:27.682Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.2-arch1-1)
+2025-06-16T13:03:27.683Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-16T13:03:29.033Z - info: [ui] Executing installGlobalLFSFilter: git lfs install --skip-repo (took 1.348s)
+2025-06-16T13:03:56.854Z - info: [ui] Executing clone: git -c init.defaultBranch=main clone --recursive --progress -- https://github.com/Dexmachi/Foguete-de-pressao.git /home/dexmachina/projetos/Foguete-de-pressao (took 1.167s)
+2025-06-16T13:03:56.862Z - info: [ui] [AppStore] adding repository at /home/dexmachina/projetos/Foguete-de-pressao to store
+2025-06-16T13:03:57.244Z - info: [ui] [BranchPruner] Last prune took place 21 hours ago - skipping
+2025-06-16T13:03:57.610Z - info: [ui] [BranchPruner] No branches to prune.
+2025-06-16T16:41:08.732Z - info: [main] Received possible protocol arguments: 3
+2025-06-16T16:41:13.221Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-06-16T16:41:13.222Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-06-16T16:41:13.674Z - info: [ui] [BranchPruner] Last prune took place 4 hours ago - skipping
+2025-06-16T16:41:14.227Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.2-arch1-1)
+2025-06-16T16:41:14.228Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-16T16:41:15.601Z - info: [ui] Executing installGlobalLFSFilter: git lfs install --skip-repo (took 1.373s)
+2025-06-16T16:41:18.752Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-06-16T16:41:20.229Z - info: [ui] Stats reported.
+2025-06-16T16:41:24.593Z - info: [ui] Executing pull: git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin (took 6.229s)
+2025-06-16T16:41:30.263Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 5.668s)
+2025-06-16T16:47:21.261Z - info: [ui] [RepositoryIndicatorUpdater]: Refreshing sidebar indicators for 2 repositories took 2.4s of which 0.0s paused, total 2.4s
+2025-06-16T16:47:35.379Z - info: [ui] No submodules found. Skipping "git submodule status"
+2025-06-16T16:47:40.624Z - info: [ui] No submodules found. Skipping "git submodule status"
+2025-06-16T16:47:47.990Z - info: [ui] No submodules found. Skipping "git submodule status"
+2025-06-16T17:12:03.000Z - info: [ui] [RepositoryIndicatorUpdater]: Refreshing sidebar indicators for 2 repositories took 6.0s of which 2.9s paused, total 8.9s

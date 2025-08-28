@@ -1,0 +1,94 @@
+2025-07-17T10:52:53.426Z - info: [ui] [AppStore] loading 4 repositories from store
+2025-07-17T10:52:53.524Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-07-17T10:52:54.904Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.6-arch1-1)
+2025-07-17T10:52:54.906Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-07-17T10:52:55.589Z - info: [ui] Executing getStatus: git --no-optional-locks status --untracked-files=all --branch --porcelain=2 -z (took 1.322s)
+2025-07-17T10:58:34.403Z - info: [ui] [AppStore] loading 4 repositories from store
+2025-07-17T10:58:34.407Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-07-17T10:58:34.509Z - info: [ui] [BranchPruner] Last prune took place 6 minutes ago - skipping
+2025-07-17T10:58:34.761Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.6-arch1-1)
+2025-07-17T10:58:34.761Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-07-17T10:58:39.908Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-07-17T10:58:40.365Z - info: [ui] Stats reported.
+2025-07-17T10:58:47.053Z - info: [ui] Executing getStatus: git --no-optional-locks status --untracked-files=all --branch --porcelain=2 -z (took 1.347s)
+2025-07-17T11:00:14.764Z - info: [ui] [AppStore] adding repository at /home/dexmachina/projetos/nvim-dots to store
+2025-07-17T11:00:29.729Z - info: [ui] credential-helper: found GitHub credential for https://github.com/ in store
+2025-07-17T11:00:30.547Z - info: [ui] Executing push: git push origin main --set-upstream --progress (took 6.334s)
+2025-07-17T11:00:35.990Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 5.441s)
+2025-07-17T11:00:41.423Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 5.426s)
+2025-07-17T11:00:55.821Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 139.657s)
+2025-07-17T11:00:55.823Z - error: [ui] `git fetch --progress --prune --recurse-submodules=on-demand origin` exited with an unexpected code: 128.
+
+sh: connect to host github.com port 22: Connection timed outfatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+(The error was parsed as 3: Authentication failed. Some common reasons include:
+
+- You are not logged in to your account: see File > Options.
+- You may need to log out and log back in to refresh your token.
+- You do not have permission to access this repository.
+- The repository is archived on GitHub. Check the repository settings to confirm you are still permitted to push commits.
+- If you use SSH authentication, check that your key is added to the ssh-agent and associated with your account.
+- If you use SSH authentication, ensure the host key verification passes for your repository hosting service.
+- If you used username / password authentication, you might need to use a Personal Access Token instead of your account password. Check the documentation of your repository hosting service.)
+2025-07-17T11:01:08.100Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 139.751s)
+2025-07-17T11:01:08.101Z - error: [ui] `git fetch --progress --prune --recurse-submodules=on-demand origin` exited with an unexpected code: 128.
+
+sh: connect to host github.com port 22: Connection timed outfatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+(The error was parsed as 3: Authentication failed. Some common reasons include:
+
+- You are not logged in to your account: see File > Options.
+- You may need to log out and log back in to refresh your token.
+- You do not have permission to access this repository.
+- The repository is archived on GitHub. Check the repository settings to confirm you are still permitted to push commits.
+- If you use SSH authentication, check that your key is added to the ssh-agent and associated with your account.
+- If you use SSH authentication, ensure the host key verification passes for your repository hosting service.
+- If you used username / password authentication, you might need to use a Personal Access Token instead of your account password. Check the documentation of your repository hosting service.)
+2025-07-17T11:02:10.709Z - info: [ui] credential-helper: found GitHub credential for https://github.com/ in store
+2025-07-17T11:02:11.718Z - info: [ui] Executing push: git push origin main:main --progress (took 6.299s)
+2025-07-17T11:02:17.163Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 5.444s)
+2025-07-17T11:02:17.172Z - error: [ui] `git fetch --progress --prune --recurse-submodules=on-demand origin` exited with an unexpected code: 255.
+error: cannot open '.git/FETCH_HEAD': No such file or directory
+fatal: Unable to read current working directory: No such file or directory
+
+2025-07-17T11:02:17.737Z - error: [ui] Branch fast-forwarding failed
+Error: ENOENT: Git failed to execute. This typically means that the path provided doesn't exist or that the Git executable could not be found which could indicate a problem with the packaging of dugite. Verify that resolveGitBinary returns a valid path to the git binary.
+    at /home/dexmachina/webpack:/app/node_modules/dugite/build/lib/exec.js:37:20
+    at exithandler (node:child_process:430:5)
+    at ChildProcess.errorhandler (node:child_process:442:5)
+    at ChildProcess.emit (node:events:518:28)
+    at Process.ChildProcess._handle.onexit (node:internal/child_process:291:12)
+    at onErrorNT (node:internal/child_process:483:16)
+    at processTicksAndRejections (node:internal/process/task_queues:82:21)
+2025-07-17T22:25:48.392Z - info: [ui] [AppStore] loading 5 repositories from store
+2025-07-17T22:25:48.973Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-07-17T22:25:49.427Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-07-17T22:25:49.428Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.6-arch1-1)
+2025-07-17T22:25:49.428Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-07-17T22:25:50.132Z - info: [ui] [BranchPruner] Last prune took place 11 hours ago - skipping
+2025-07-17T22:25:51.278Z - info: [ui] Executing installGlobalLFSFilter: git lfs install --skip-repo (took 1.883s)
+2025-07-17T22:25:52.188Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 2.055s)
+2025-07-17T22:25:54.208Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.019s)
+2025-07-17T22:25:57.344Z - info: [ui] [BranchPruner] Last prune took place 12 hours ago - skipping
+2025-07-17T22:26:07.139Z - info: [ui] Executing push: git push origin main:main --progress (took 1.883s)
+2025-07-17T22:26:07.141Z - error: [ui] `git push origin main:main --progress` exited with an unexpected code: 1.
+To github.com:Dexmachi/Dextall.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'github.com:Dexmachi/Dextall.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+(The error was parsed as 11: The repository has been updated since you last pulled. Try pulling before pushing.)
+2025-07-17T22:26:10.848Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 2.256s)
+2025-07-17T22:26:12.892Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.043s)
+2025-07-17T22:26:13.329Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 5.722s)
+2025-07-17T22:26:15.362Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.032s)

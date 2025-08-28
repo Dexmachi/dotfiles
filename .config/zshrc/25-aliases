@@ -1,0 +1,71 @@
+# -----------------------------------------------------
+# ALIASES
+# -----------------------------------------------------
+
+# -----------------------------------------------------
+# SOURCES
+# -----------------------------------------------------
+source ~/.config/zshrc/scripts/resources.sh
+
+# -----------------------------------------------------
+# General
+# -----------------------------------------------------
+alias c='clear'
+alias fastfetch='hyfetch --ascii-file /home/dexmachina/.config/fastfetch/dionysus.txt'
+alias nf='hyfetch --ascii-file /home/dexmachina/.config/fastfetch/dionysus.txt'
+alias pf='hyfetch --ascii-file /home/dexmachina/.config/fastfetch/dionysus.txt'
+alias ff='hyfetch --ascii-file /home/dexmachina/.config/fastfetch/dionysus.txt'
+alias pls='nu -c "ls ~/projetos"'
+alias ls="eza -a --icons=always"
+alias ll="eza -a --icons=always --long"
+alias lt='eza -a --tree --level=1 --icons=always'
+alias shtd='systemctl poweroff'
+alias v='nvim'
+alias vim='nvim'
+alias ts='~/.config/ml4w/scripts/arch/snapshot.sh'
+alias wifi='nmtui'
+
+# -----------------------------------------------------
+# ML4W Apps
+# -----------------------------------------------------
+alias ml4w='flatpak run com.ml4w.welcome'
+alias ml4w-settings='flatpak run com.ml4w.settings'
+alias ml4w-calendar='flatpak run com.ml4w.calendar'
+alias ml4w-hyprland='flatpak run com.ml4w.hyprlandsettings'
+alias ml4w-sidebar='flatpak run com.ml4w.sidebar'
+alias ml4w-options='ml4w-hyprland-setup -m options'
+alias ml4w-diagnosis='~/.config/hypr/scripts/diagnosis.sh'
+alias ml4w-hyprland-diagnosis='~/.config/hypr/scripts/diagnosis.sh'
+alias ml4w-qtile-diagnosis='~/.config/ml4w/qtile/scripts/diagnosis.sh'
+alias ml4w-update='~/.config/ml4w/update.sh'
+
+# -----------------------------------------------------
+# Window Managers
+# -----------------------------------------------------
+
+alias Qtile='startx'
+# Hyprland with Hyprland
+
+# -----------------------------------------------------
+# Scripts
+# -----------------------------------------------------
+alias ascii='~/.config/ml4w/scripts/figlet.sh'
+
+# -----------------------------------------------------
+# Qtile
+# -----------------------------------------------------
+alias res1='xrandr --output DisplayPort-0 --mode 2560x1440 --rate 120'
+alias res2='xrandr --output DisplayPort-0 --mode 1920x1080 --rate 120'
+alias setkb='setxkbmap de;echo "Keyboard set back to de."'
+
+# ------------------------------------------------------
+# Dex´s shtcts
+# ------------------------------------------------------
+
+alias dclr='sudo pacman -Rns $(pacman -Qdtq) 2>/dev/null || echo "Nenhum pacote RATO encontrado."'
+alias dfc='sudo pacman -Scc && yay -Scc && paru -Scc'
+alias dcnf='echo "entrando nas suas configs..." && cd && nvim .config'
+alias qqera='bat .config/zshrc/25-aliases'
+alias RR='cd && cd projetos/Dex_RR && python Roleta_Russa.py'
+alias iss='cd && echo "printando seus projetos neste DeusExx..." && ls ~/projetos && read "projeto?Qual projeto deseja ver as issues? " && cd projetos/$projeto && gh issue list && cd'
+alias cheet='tldr --list | fzf --preview "tldr {1} --color=always" --preview-window=right,70% | xargs tldr'

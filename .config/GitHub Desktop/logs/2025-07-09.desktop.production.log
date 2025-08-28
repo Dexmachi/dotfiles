@@ -1,0 +1,11 @@
+2025-07-09T01:24:53.708Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-07-09T01:24:53.713Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-07-09T01:24:53.762Z - info: [ui] [BranchPruner] Last prune took place 6 hours ago - skipping
+2025-07-09T01:24:54.244Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-07-09T01:24:54.246Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.5-arch1-1)
+2025-07-09T01:24:54.249Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-07-09T01:24:58.515Z - info: [ui] Executing pull: git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin (took 2.208s)
+2025-07-09T01:25:00.536Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.021s)
+2025-07-09T01:25:03.979Z - info: [ui] Executing push: git push origin develop:develop --progress (took 2.112s)
+2025-07-09T01:25:06.056Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 2.071s)
+2025-07-09T01:25:08.067Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 2.011s)

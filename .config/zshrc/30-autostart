@@ -1,0 +1,20 @@
+# -----------------------------------------------------
+# AUTOSTART
+# -----------------------------------------------------
+
+# -----------------------------------------------------
+# Fastfetch
+# -----------------------------------------------------
+if [[ $(tty) == *"pts"* ]]; then
+  # ff
+    autoload -Uz compinit && compinit -C
+else
+    echo
+    if [ -f /bin/hyprctl ]; then
+        hyfetch --ascii-file /home/dexmachina/.config/fastfetch/dionysus.txt
+        echo "use o comando 'Hyprland' para rodar o hyprland"
+    fi
+fi
+eval "$(zoxide init --cmd cd  zsh)"
+
+

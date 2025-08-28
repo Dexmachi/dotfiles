@@ -1,0 +1,84 @@
+# ~/.omp.toml
+# Convertido automaticamente de .p10k.zsh com estilo rainbow e icons pequenos
+
+[global]
+console_title_template = "{{ .Shell }} - {{ .Folder }}"
+transient_prompt = true
+final_space = true
+
+[palette]
+black = "#282a36"
+red = "#ff5c57"
+green = "#5af78e"
+yellow = "#f3f99d"
+blue = "#57c7ff"
+magenta = "#ff6ac1"
+cyan = "#9aedfe"
+white = "#f1f1f0"
+gray = "#686868"
+
+[blocks]
+
+# Linha 1 esquerda
+[[blocks]]
+type = "prompt"
+alignment = "left"
+segments = ["os", "path", "git"]
+
+# Linha 2 direita
+[[blocks]]
+type = "rprompt"
+alignment = "right"
+segments = ["status", "executiontime", "background", "direnv"]
+
+# Linha 2 esquerda com prompt symbol
+[[blocks]]
+type = "prompt"
+alignment = "left"
+newline = true
+segments = ["text"]
+
+[[segments.os]]
+style = "powerline"
+foreground = "black"
+background = "green"
+template = ""
+
+[[segments.path]]
+style = "powerline"
+foreground = "white"
+background = "blue"
+template = "  {{ .Path }}"
+[segments.path.properties]
+style = "agnoster"
+
+[[segments.git]]
+style = "powerline"
+foreground = "black"
+background = "magenta"
+template = " {{ .Branch }}{{ if .Working.Changed }}*{{ end }}"
+
+[[segments.status]]
+style = "plain"
+foreground = "red"
+template = "✘ {{ .Code }}"
+
+[[segments.executiontime]]
+style = "plain"
+foreground = "cyan"
+template = "⏱ {{ .FormattedMs }}"
+
+[[segments.background]]
+style = "plain"
+foreground = "yellow"
+template = " {{ .Count }}"
+
+[[segments.direnv]]
+style = "plain"
+foreground = "blue"
+template = "⛬ {{ .Status }}"
+
+[[segments.text]]
+style = "plain"
+foreground = "green"
+template = "❯"

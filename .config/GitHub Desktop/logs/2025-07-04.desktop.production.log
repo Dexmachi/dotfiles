@@ -1,0 +1,7 @@
+2025-07-04T13:59:24.192Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-07-04T13:59:24.222Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-07-04T13:59:24.994Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-07-04T13:59:25.820Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.4-arch2-1)
+2025-07-04T13:59:25.820Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-07-04T13:59:26.393Z - info: [ui] Stats reported.
+2025-07-04T13:59:26.936Z - info: [ui] Executing installGlobalLFSFilter: git lfs install --skip-repo (took 1.115s)

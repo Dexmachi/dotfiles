@@ -1,0 +1,46 @@
+2025-06-18T13:58:45.641Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-06-18T13:58:45.646Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-06-18T13:58:47.556Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.2-arch1-1)
+2025-06-18T13:58:47.557Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-18T13:58:49.261Z - info: [ui] Executing installGlobalLFSFilter: git lfs install --skip-repo (took 1.714s)
+2025-06-18T13:58:50.988Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-06-18T13:58:53.740Z - info: [ui] Stats reported.
+2025-06-18T13:58:57.607Z - info: [ui] Executing pull: git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin (took 1.738s)
+2025-06-18T13:59:03.272Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 5.663s)
+2025-06-18T13:59:05.056Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 6.196s)
+2025-06-18T13:59:10.757Z - info: [ui] [Timing] Action 'checkout branch from list' for 'unb-mds/mapadaacessibilidade' took 0.530s
+2025-06-18T13:59:10.760Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 5.699s)
+2025-06-18T13:59:10.760Z - info: [ui] [RepositoryIndicatorUpdater]: Refreshing sidebar indicators for 2 repositories took 12.6s of which 0.0s paused, total 12.6s
+2025-06-18T13:59:18.895Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 5.457s)
+2025-06-18T13:59:24.315Z - info: [ui] No submodules found. Skipping "git submodule status"
+2025-06-18T13:59:25.284Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 6.389s)
+2025-06-18T13:59:25.589Z - error: [ui] Could not load new contents for syntax highlighting
+Error: ENOENT: no such file or directory, open '/home/dexmachina/projetos/mapadaacessibilidade/app/frontend/node_modules/@babel/compat-data/corejs3-shipped-proposals.js'
+2025-06-18T13:59:46.097Z - error: [ui] Could not load new contents for syntax highlighting
+Error: ENOENT: no such file or directory, open '/home/dexmachina/projetos/mapadaacessibilidade/app/frontend/node_modules/@eslint/config-helpers/dist/esm/index.d.ts'
+2025-06-18T13:59:55.942Z - error: [ui] Could not load new contents for syntax highlighting
+Error: ENOENT: no such file or directory, open '/home/dexmachina/projetos/mapadaacessibilidade/app/frontend/node_modules/caniuse-lite/data/features/battery-status.js'
+2025-06-18T13:59:56.319Z - error: [ui] Could not load new contents for syntax highlighting
+Error: ENOENT: no such file or directory, open '/home/dexmachina/projetos/mapadaacessibilidade/app/frontend/node_modules/caniuse-lite/data/features/broadcastchannel.js'
+2025-06-18T14:00:26.121Z - error: [ui] Could not load new contents for syntax highlighting
+Error: ENOENT: no such file or directory, open '/home/dexmachina/projetos/mapadaacessibilidade/app/frontend/node_modules/flat-cache/src/utils.js'
+2025-06-18T14:00:31.601Z - error: [ui] Could not load new contents for syntax highlighting
+Error: ENOENT: no such file or directory, open '/home/dexmachina/projetos/mapadaacessibilidade/app/frontend/node_modules/lucide-react/dist/esm/icons/accessibility.js'
+2025-06-18T14:01:17.067Z - error: [ui] Could not load new contents for syntax highlighting
+Error: ENOENT: no such file or directory, open '/home/dexmachina/projetos/mapadaacessibilidade/app/frontend/node_modules/lucide-react/dist/esm/icons/panel-left-inactive.js'
+2025-06-18T14:01:34.389Z - error: [ui] Could not load new contents for syntax highlighting
+Error: ENOENT: no such file or directory, open '/home/dexmachina/projetos/mapadaacessibilidade/app/frontend/node_modules/lucide-react/dist/esm/icons/text.js.map'
+2025-06-18T14:01:50.406Z - error: [ui] Could not load new contents for syntax highlighting
+Error: ENOENT: no such file or directory, open '/home/dexmachina/projetos/mapadaacessibilidade/app/frontend/node_modules/tailwindcss/dist/types-B254mqw1.d.mts'
+2025-06-18T14:02:01.917Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 5.663s)
+2025-06-18T14:02:07.371Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 5.453s)
+2025-06-18T14:14:27.079Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-06-18T14:14:27.089Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-06-18T14:14:27.142Z - info: [ui] [BranchPruner] Last prune took place 16 minutes ago - skipping
+2025-06-18T14:14:27.678Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.2-arch1-1)
+2025-06-18T14:14:27.682Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-18T14:14:32.561Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-06-18T14:14:40.863Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 5.915s)
+2025-06-18T14:14:46.583Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 5.719s)
+2025-06-18T14:14:55.105Z - info: [ui] Executing pull: git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin (took 1.499s)
+2025-06-18T14:15:00.648Z - info: [ui] Executing updateRemoteHEAD: git remote set-head -a origin (took 5.529s)

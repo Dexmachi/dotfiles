@@ -1,0 +1,56 @@
+2025-06-21T17:35:53.294Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-06-21T17:35:53.375Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-06-21T17:35:54.429Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-06-21T17:35:54.832Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.2-arch1-1)
+2025-06-21T17:35:54.833Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-21T17:35:55.043Z - info: [ui] Executing getStatus: git --no-optional-locks status --untracked-files=all --branch --porcelain=2 -z (took 1.020s)
+2025-06-21T17:35:55.438Z - info: [ui] Stats reported.
+2025-06-21T17:35:56.144Z - info: [ui] Executing getCommits: git log e3b7bef3c8e434992eab15116ec853dd3552dd25 --date=raw --max-count=1 -z --format=%H%x00%h%x00%s%x00%b%x00%an <%ae> %ad%x00%cn <%ce> %cd%x00%P%x00%(trailers:unfold,only)%x00%D --no-show-signature --no-color -- (took 1.099s)
+2025-06-21T17:35:56.151Z - info: [ui] Executing getCommits: git log e3b7bef3c8e434992eab15116ec853dd3552dd25 --date=raw --max-count=1 -z --format=%H%x00%h%x00%s%x00%b%x00%an <%ae> %ad%x00%cn <%ce> %cd%x00%P%x00%(trailers:unfold,only)%x00%D --no-show-signature --no-color -- (took 1.100s)
+2025-06-21T17:35:58.640Z - info: [ui] Executing installGlobalLFSFilter: git lfs install --skip-repo (took 3.808s)
+2025-06-21T17:36:06.010Z - info: [ui] [RepositoryIndicatorUpdater]: Refreshing sidebar indicators for 2 repositories took 2.0s of which 0.0s paused, total 2.0s
+2025-06-21T17:36:52.005Z - info: [ui] [Timing] Action 'create commit' for 'Dexmachi/Foguete-de-pressao' took 0.170s
+2025-06-21T17:36:54.510Z - info: [ui] credential-helper: found GitHub credential for https://github.com/ in store
+2025-06-21T17:36:55.560Z - info: [ui] Executing push: git push origin historico --set-upstream --progress (took 1.343s)
+2025-06-21T17:37:24.267Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-06-21T17:37:24.273Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-06-21T17:37:24.309Z - info: [ui] [BranchPruner] Last prune took place 1 minute ago - skipping
+2025-06-21T17:37:24.551Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.2-arch1-1)
+2025-06-21T17:37:24.551Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-21T17:37:24.698Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-06-21T17:37:30.380Z - info: [ui] [Timing] Action 'checkout branch from list' for 'Dexmachi/Foguete-de-pressao' took 0.187s
+2025-06-21T17:37:52.687Z - info: [ui] No submodules found. Skipping "git submodule status"
+2025-06-21T17:38:18.060Z - info: [ui] [Timing] Action 'checkout branch from list' for 'Dexmachi/Foguete-de-pressao' took 0.141s
+2025-06-21T17:38:25.773Z - info: [ui] [Timing] Action 'checkout branch from list' for 'Dexmachi/Foguete-de-pressao' took 0.113s
+2025-06-21T17:38:27.712Z - info: [ui] credential-helper: found GitHub credential for https://github.com/ in store
+2025-06-21T17:38:28.602Z - info: [ui] Executing push: git push origin main:main --progress (took 1.177s)
+2025-06-21T17:38:54.655Z - info: [ui] [Timing] Action 'checkout branch from list' for 'Dexmachi/Foguete-de-pressao' took 0.127s
+2025-06-21T17:39:04.693Z - info: [ui] [Timing] Action 'checkout branch from list' for 'Dexmachi/Foguete-de-pressao' took 0.136s
+2025-06-21T17:39:54.255Z - info: [ui] [RepositoryIndicatorUpdater]: Refreshing sidebar indicators for 2 repositories took 0.7s of which 0.0s paused, total 0.7s
+2025-06-21T17:40:18.603Z - error: [ui] `git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin` exited with an unexpected code: 2.
+error: Your local changes to the following files would be overwritten by merge:
+	src/templates/Frontend.html
+Please commit your changes or stash them before you merge.
+error: The following untracked working tree files would be overwritten by merge:
+	src/static/favicon.ico
+	src/static/grafico_teste.png
+	src/tests/test_grafico.py
+	src/tests/test_movimento.py
+Please move or remove them before you merge.
+Aborting
+Merge with strategy ort failed.
+
+(The error was parsed as 54: null)
+2025-06-21T17:40:28.531Z - error: [ui] `git -c rebase.backend=merge pull --ff --recurse-submodules --progress origin` exited with an unexpected code: 1.
+CONFLICT (modify/delete): src/static/grafico.png deleted in 3c349bbc1d6af9c6b35b3f445be986bf30a43b1b and modified in HEAD.  Version HEAD of src/static/grafico.png left in tree.
+Automatic merge failed; fix conflicts and then commit the result.
+
+(The error was parsed as 8: We found some conflicts while trying to merge. Please resolve the conflicts and commit the changes.)
+2025-06-21T17:41:17.583Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-06-21T17:41:17.587Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-06-21T17:41:17.624Z - info: [ui] [BranchPruner] Last prune took place 5 minutes ago - skipping
+2025-06-21T17:41:17.710Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.2-arch1-1)
+2025-06-21T17:41:17.711Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-21T17:41:18.022Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-06-21T17:41:22.154Z - info: [ui] Executing clone: git -c init.defaultBranch=main clone --recursive --progress -- https://github.com/Dexmachi/Foguete-de-pressao.git /home/dexmachina/projetos/Foguete-de-pressao (took 1.295s)
+2025-06-21T17:41:22.245Z - info: [ui] [BranchPruner] Last prune took place 5 minutes ago - skipping

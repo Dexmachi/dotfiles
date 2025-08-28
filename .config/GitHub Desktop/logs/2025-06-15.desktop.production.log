@@ -1,0 +1,48 @@
+2025-06-15T15:38:12.437Z - info: [ui] [AppStore] loading 0 repositories from store
+2025-06-15T15:38:12.474Z - info: [ui] [Welcome] no sign in step found. ignoring...
+2025-06-15T15:38:12.494Z - info: [ui] [Welcome] no sign in step found. ignoring...
+2025-06-15T15:38:12.497Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.2-arch1-1)
+2025-06-15T15:38:12.498Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-15T15:38:12.517Z - info: [ui] [Welcome] no sign in step found. ignoring...
+2025-06-15T15:38:12.855Z - info: [ui] Opt in reported.
+2025-06-15T15:38:12.995Z - info: [ui] [Welcome] no sign in step found. ignoring...
+2025-06-15T15:38:14.486Z - info: [ui] [Welcome] advancing to step: SignInToDotComWithBrowser
+2025-06-15T15:38:14.487Z - info: [ui] [SignInStore] initializing OAuth flow
+2025-06-15T15:38:14.491Z - info: [main] opening in browser: https://github.com/login/oauth/authorize?client_id=3a723b10ac5575cc5bb9&scope=repo%20user%20workflow&state=9c8c04f2-3349-490d-a05e-cb9a3eb8ae9b
+2025-06-15T15:38:14.492Z - info: [ui] [Welcome] current sign in state not found. ignoring...
+2025-06-15T15:38:15.540Z - info: [ui] [Welcome] kind Authentication is the same as Authentication. ignoring...
+2025-06-15T15:38:16.965Z - info: [main] Received possible protocol arguments: 4
+2025-06-15T15:38:16.966Z - info: [main] Processing protocol url
+2025-06-15T15:38:16.974Z - info: [ui] [Welcome] kind Authentication is the same as Authentication. ignoring...
+2025-06-15T15:38:17.148Z - info: [main] Received possible protocol arguments: 2
+2025-06-15T15:38:17.154Z - info: [main] Processing protocol url
+2025-06-15T15:38:17.849Z - info: [ui] [SignInStore] account resolved
+2025-06-15T15:38:17.850Z - info: [ui] [AppStore] adding account Dexmachi (Caio Rocha) to store
+2025-06-15T15:38:17.857Z - info: [ui] [Welcome] advancing to step: ConfigureGit
+2025-06-15T15:38:17.899Z - info: [ui] [Welcome] no sign in step found. ignoring...
+2025-06-15T15:38:29.571Z - info: [ui] [Welcome] no sign in step found. ignoring...
+2025-06-15T15:38:29.899Z - info: [ui] [Welcome] no sign in step found. ignoring...
+2025-06-15T15:38:29.974Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-06-15T15:38:30.977Z - info: [ui] [Welcome] no sign in step found. ignoring...
+2025-06-15T15:39:41.528Z - info: [ui] Executing clone: git -c init.defaultBranch=main clone --recursive --progress -- https://github.com/unb-mds/mapadaacessibilidade.git /home/dexmachina/Documents/GitHub/mapadaacessibilidade (took 1.179s)
+2025-06-15T15:39:41.548Z - info: [ui] [AppStore] adding repository at /home/dexmachina/Documents/GitHub/mapadaacessibilidade to store
+2025-06-15T15:39:42.133Z - info: [ui] [BranchPruner] No branches to prune.
+2025-06-15T15:39:51.304Z - info: [ui] [RepositoryIndicatorUpdater]: Refreshing sidebar indicators for 1 repositories took 0.9s of which 0.0s paused, total 0.9s
+2025-06-15T15:40:13.463Z - info: [ui] [AppStore] loading 0 repositories from store
+2025-06-15T15:40:13.470Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-06-15T15:40:13.527Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.2-arch1-1)
+2025-06-15T15:40:13.528Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-15T15:40:13.889Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-06-15T15:40:14.027Z - info: [ui] Stats reported.
+2025-06-15T15:40:32.929Z - info: [ui] Executing clone: git -c init.defaultBranch=main clone --recursive --progress -- https://github.com/unb-mds/mapadaacessibilidade.git /home/dexmachina/projetos/mapadaacessibilidade (took 1.280s)
+2025-06-15T15:40:32.950Z - info: [ui] [AppStore] adding repository at /home/dexmachina/projetos/mapadaacessibilidade to store
+2025-06-15T15:40:33.154Z - info: [ui] [BranchPruner] Last prune took place 1 minute ago - skipping
+2025-06-15T15:41:05.738Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-06-15T15:41:05.786Z - info: [ui] [AppStore] loading 1 repositories from store
+2025-06-15T15:41:05.786Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-06-15T15:41:05.834Z - info: [ui] [BranchPruner] Last prune took place 1 minute ago - skipping
+2025-06-15T15:41:06.027Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.2-arch1-1)
+2025-06-15T15:41:06.028Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-15T15:41:37.374Z - info: [ui] Executing clone: git -c init.defaultBranch=main clone --recursive --progress -- https://github.com/oalbertocavalcante/acessa-mapa-comunidade.git /home/dexmachina/projetos/acessa-mapa-comunidade (took 1.038s)
+2025-06-15T15:41:37.383Z - info: [ui] [AppStore] adding repository at /home/dexmachina/projetos/acessa-mapa-comunidade to store
+2025-06-15T15:41:37.450Z - info: [ui] [BranchPruner] Last prune took place 2 minutes ago - skipping

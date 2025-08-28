@@ -1,0 +1,49 @@
+2025-06-23T12:40:59.306Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-06-23T12:40:59.350Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-06-23T12:41:01.040Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-06-23T12:41:01.446Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.3-arch1-1)
+2025-06-23T12:41:01.447Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-23T12:41:02.055Z - info: [ui] Stats reported.
+2025-06-23T12:41:03.663Z - info: [ui] Executing installGlobalLFSFilter: git lfs install --skip-repo (took 2.219s)
+2025-06-23T12:41:19.784Z - info: [ui] [Timing] Action 'create commit' for 'Dexmachi/Foguete-de-pressao' took 0.148s
+2025-06-23T12:41:21.458Z - info: [ui] credential-helper: found GitHub credential for https://github.com/ in store
+2025-06-23T12:41:22.376Z - info: [ui] Executing push: git push origin historico:historico --progress (took 1.241s)
+2025-06-23T12:56:09.166Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-06-23T12:56:09.171Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-06-23T12:56:09.208Z - info: [ui] [BranchPruner] Last prune took place 15 minutes ago - skipping
+2025-06-23T12:56:09.508Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.3-arch1-1)
+2025-06-23T12:56:09.509Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-23T12:56:09.649Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-06-23T12:57:51.382Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-06-23T12:57:51.389Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-06-23T12:57:51.425Z - info: [ui] [BranchPruner] Last prune took place 17 minutes ago - skipping
+2025-06-23T12:57:51.700Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.3-arch1-1)
+2025-06-23T12:57:51.702Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-23T12:57:51.799Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-06-23T12:57:58.479Z - info: [ui] [Timing] Action 'checkout branch from list' for 'Dexmachi/Foguete-de-pressao' took 0.000s
+2025-06-23T12:58:08.325Z - info: [ui] [Timing] Action 'checkout branch from list' for 'Dexmachi/Foguete-de-pressao' took 0.090s
+2025-06-23T12:58:22.176Z - info: [ui] [Timing] Action 'checkout branch from list' for 'Dexmachi/Foguete-de-pressao' took 0.124s
+2025-06-23T13:02:03.851Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-06-23T13:02:03.855Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-06-23T13:02:03.890Z - info: [ui] [BranchPruner] Last prune took place 21 minutes ago - skipping
+2025-06-23T13:02:04.264Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.3-arch1-1)
+2025-06-23T13:02:04.265Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-23T13:02:04.418Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-06-23T13:04:20.331Z - info: [ui] Executing fetch: git fetch --progress --prune --recurse-submodules=on-demand origin (took 1.361s)
+2025-06-23T13:04:21.373Z - info: [ui] [RepositoryIndicatorUpdater]: Refreshing sidebar indicators for 2 repositories took 3.5s of which 0.0s paused, total 3.5s
+2025-06-23T13:07:28.914Z - info: [ui] [Timing] Action 'checkout branch from list' for 'Dexmachi/Foguete-de-pressao' took 0.169s
+2025-06-23T13:07:34.706Z - info: [ui] [Timing] Action 'checkout branch from list' for 'Dexmachi/Foguete-de-pressao' took 0.138s
+2025-06-23T18:00:51.604Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-06-23T18:00:51.609Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-06-23T18:00:51.662Z - info: [ui] [BranchPruner] Last prune took place 5 hours ago - skipping
+2025-06-23T18:00:52.133Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
+2025-06-23T18:00:52.250Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.3-arch1-1)
+2025-06-23T18:00:52.252Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-23T18:01:22.940Z - info: [ui] [RepositoryIndicatorUpdater]: Refreshing sidebar indicators for 2 repositories took 0.3s of which 0.0s paused, total 0.3s
+2025-06-23T18:01:23.432Z - info: [ui] No submodules found. Skipping "git submodule status"
+2025-06-23T18:20:13.717Z - info: [ui] [AppStore] loading 3 repositories from store
+2025-06-23T18:20:13.720Z - info: [ui] [AppStore] found account: Dexmachi (Caio Rocha)
+2025-06-23T18:20:13.769Z - info: [ui] [BranchPruner] Last prune took place 19 minutes ago - skipping
+2025-06-23T18:20:14.111Z - info: [ui] launching: 3.4.13-linux1 (Linux 6.15.3-arch1-1)
+2025-06-23T18:20:14.115Z - info: [ui] execPath: '/opt/github-desktop/github-desktop'
+2025-06-23T18:20:14.221Z - info: [ui] Subscribed 'Dexmachi' to Alive channel
