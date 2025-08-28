@@ -1,2 +1,4 @@
 .config/rclone/
 .config/kdeconnect/trusted_devices
+.config/kdeconnect/certificate.pem
+.config/kdeconnect/privateKey.pem
