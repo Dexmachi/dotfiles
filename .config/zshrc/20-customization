@@ -55,8 +55,6 @@ setopt hist_ignore_space
 
 setopt extendedglob
 
-bindkey -v
-
 # fzf style
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 

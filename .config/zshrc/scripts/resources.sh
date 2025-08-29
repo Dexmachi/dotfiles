@@ -4,7 +4,7 @@ workon() {
 
   while true; do
     project=$(fd --base-directory="$project_dir" -d 1 -t d | fzf --header="Selecione um projeto existente." \
-      --preview "eza -T --icons --level=2 --color=always $project_dir$realpath/{}" \
+      --preview "eza -T -a --icons --level=2 --color=always $project_dir$realpath/{}" \
       --preview-window=right:70%)
 
     if [[ -d "$project_dir/$project" && -n "$project" ]]; then
