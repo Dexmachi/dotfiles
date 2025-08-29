@@ -1,4 +1,4 @@
-# Minhas dotfiles para arch linux + hyprlad
+# Minhas dotfiles para arch linux + hyprland
 
 - completo com configuração kitty e multi layout
 
