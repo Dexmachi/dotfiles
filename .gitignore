@@ -3,3 +3,5 @@
 .config/kdeconnect/certificate.pem
 .config/kdeconnect/privateKey.pem
 .config/zsh/.zsh_history
+.config/ml4w/cache
+.config/ml4w/cache
