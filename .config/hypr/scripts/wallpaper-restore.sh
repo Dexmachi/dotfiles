@@ -15,24 +15,24 @@
 # -----------------------------------------------------
 
 defaultwallpaper="$HOME/wallpaper/default.jpg"
-cachefile="$HOME/.config/ml4w/cache/current_wallpaper"
+cachefile="$HOME/.cache/ml4w/hyprland-dotfiles/current_wallpaper"
 
 # -----------------------------------------------------
 # Get current wallpaper
 # -----------------------------------------------------
 
 if [ -f "$cachefile" ]; then
-    sed -i "s|~|$HOME|g" "$cachefile"
-    wallpaper=$(cat $cachefile)
-    if [ -f $wallpaper ]; then
-        echo ":: Wallpaper $wallpaper exists"
-    else
-        echo ":: Wallpaper $wallpaper does not exist. Using default."
-        wallpaper=$defaultwallpaper
-    fi
-else
-    echo ":: $cachefile does not exist. Using default wallpaper."
+  sed -i "s|~|$HOME|g" "$cachefile"
+  wallpaper=$(cat $cachefile)
+  if [ -f $wallpaper ]; then
+    echo ":: Wallpaper $wallpaper exists"
+  else
+    echo ":: Wallpaper $wallpaper does not exist. Using default."
     wallpaper=$defaultwallpaper
+  fi
+else
+  echo ":: $cachefile does not exist. Using default wallpaper."
+  wallpaper=$defaultwallpaper
 fi
 
 # -----------------------------------------------------
