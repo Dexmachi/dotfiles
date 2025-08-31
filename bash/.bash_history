@@ -498,3 +498,12 @@ cd b
 cd backend/
 npm run tests
 zsh
+rm .zsh_history
+ls
+ls -a
+cd
+rm .zsh_history 
+cd dot
+cd Dotfiles/configurations/
+ls
+stow -t ~ zsh
