@@ -1,0 +1,3 @@
+# Sidepad configuration for zen-browser
+SIDEPAD_APP="zen-browser --no-remote -P 'Base' --name dotfiles-sidepad"
+SIDEPAD_CLASS="dotfiles-sidepad"
