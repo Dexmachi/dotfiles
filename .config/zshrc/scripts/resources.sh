@@ -9,7 +9,7 @@ workon() {
 
     if [[ -d "$project_dir/$project" && -n "$project" ]]; then
       echo "entrou no projeto: $project"
-      nvim "$project_dir/$project"
+      cd && cd "$project_dir/$project" && nvim .
       break
     fi
 
@@ -43,7 +43,7 @@ newWorkon() {
     else
       mkdir -p "$full_path"
       echo "Criado novo projeto: $project"
-      nvim "$full_path"
+      cd && cd "$full_path" && nvim .
     fi
     break
   done
