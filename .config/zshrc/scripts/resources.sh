@@ -18,8 +18,6 @@ workon() {
   done
 }
 
-alias dprj='workon'
-
 newWorkon() {
   local project_dir=~/projetos
   local project
@@ -32,7 +30,8 @@ newWorkon() {
       --preview "eza -T --icons --level=2 --color=always $project_dir$realpath/{}" \
       --preview-window=right:70% \
       --header="Digite para criar um novo projeto." \
-      --print-query | tail -n 1)
+      --print-query \
+      --multi | tail -n 1)
 
     [[ -z "$project" ]] && echo "Cancelado." && return
 
@@ -49,7 +48,37 @@ newWorkon() {
   done
 }
 
-alias dcp='newWorkon'
+newWorkonGum() {
+  figlet -f smslant "Projetos"
+  local project_dir=~/projetos
+  local choice
+  local project
+
+  mkdir -p "$project_dir"
+
+  # 1. Pergunta ao usuário qual ação deseja realizar com `gum choose`
+  choice=$(gum choose "📂 Selecionar projeto existente" "✨ Criar novo projeto")
+
+  # 2. Executa a lógica baseada na escolha
+  case "$choice" in
+  "📂 Selecionar projeto existente")
+    workon
+    ;;
+
+  "✨ Criar novo projeto")
+    # Usa `gum input` para obter o nome do novo projeto
+    newWorkon
+    ;;
+
+  *)
+    # Caso o usuário cancele a escolha inicial
+    echo "❌ Operação cancelada."
+    return 1
+    ;;
+  esac
+}
+
+alias dprj='newWorkonGum'
 
 # utilitários nushell
 nls() {

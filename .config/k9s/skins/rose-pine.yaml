@@ -4,7 +4,7 @@
 
 # Styles...
 foreground: &foreground "#e0def4"
-background: &background "#19172455"
+background: &background "#191724"
 current_line: &current_line "#26233a"
 selection: &selection "#26233a"
 comment: &comment "#6272a4"
