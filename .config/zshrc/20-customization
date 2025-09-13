@@ -37,7 +37,7 @@ compinit
 # PLUGINS (OMZ + externos)
 # -----------------------------------------------------
 # --- OMZ PLUGINS ---
-plugins (
+plugins=(
     git
     sudo
     web-search
@@ -48,7 +48,8 @@ plugins (
 )
 
 zinit ice wait lucid
-for plugin in $plugins do
+for plugin in $plugins
+do
   zinit snippet "OMZP::$plugin"
 done
 
