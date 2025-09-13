@@ -5,6 +5,7 @@ return {
       ensure_installed = {
         "css",
         "bash",
+        "latex",
         "html",
         "javascript",
         "json",
@@ -25,6 +26,7 @@ return {
         "rust",
         "go",
       },
+      auto_install = true,
       highlight = {
         enable = true,
       },
@@ -32,7 +34,6 @@ return {
         enable = true,
       },
     },
-    auto_install = false,
   },
   --{ import = "lazyvim.plugins.extras.lang.json" },
 }
