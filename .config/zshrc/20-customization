@@ -10,9 +10,23 @@ fi
 source "${XDG_DATA_HOME:-$HOME/.local/share}/zinit/bin/zinit.zsh"
 
 # -----------------------------------------------------
-# THEME (Powerlevel10k)
+# Prompt
 # -----------------------------------------------------
-zinit ice lucid
+# eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
+
+autoload -Uz add-zsh-hook
+
+# eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/ml4w.toml)"
+
+# STARSHIP
+# zinit ice lucid
+# eval "$(starship init zsh)"
+
+
+# Shipped Theme
+# eval "$(oh-my-posh init zsh --config /usr/share/oh-my-posh/themes/agnoster.omp.json)" -----------------------------------------------------
+
+#p10k
 zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -23,26 +37,20 @@ compinit
 # PLUGINS (OMZ + externos)
 # -----------------------------------------------------
 # --- OMZ PLUGINS ---
-zinit ice wait lucid
-zinit snippet OMZP::git
+plugins (
+    git
+    sudo
+    web-search
+    archlinux
+    copyfile
+    copybuffer
+    dirhistory
+)
 
 zinit ice wait lucid
-zinit snippet OMZP::sudo
-
-zinit ice wait lucid
-zinit snippet OMZP::web-search
-
-zinit ice wait lucid
-zinit snippet OMZP::archlinux
-
-zinit ice wait lucid
-zinit snippet OMZP::copyfile
-
-zinit ice wait lucid
-zinit snippet OMZP::copybuffer
-
-zinit ice wait lucid
-zinit snippet OMZP::dirhistory
+for plugin in $plugins do
+  zinit snippet "OMZP::$plugin"
+done
 
 # --- PLUGINS EXTERNOS ---
 zinit light zsh-users/zsh-autosuggestions
