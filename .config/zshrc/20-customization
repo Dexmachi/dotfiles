@@ -56,6 +56,8 @@ done
 # --- PLUGINS EXTERNOS ---
 zinit light zsh-users/zsh-autosuggestions
 
+zinit load zsh-users/zsh-history-substring-search
+
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 zinit ice wait lucid

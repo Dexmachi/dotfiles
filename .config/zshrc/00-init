@@ -13,3 +13,7 @@ export KUBECONFIG=~/.kube/config
 
 export PATH='/home/dexmachina/.krew/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/home/dexmachina/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:/home/dexmachina/.cargo/bin/:/home/dexmachina/.cargo/bin/'
 export KUBECTL_ENABLE_EXTERNAL_PLUGINS_AS_SUBCOMMANDS=true
+
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=none
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=none
+export HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
