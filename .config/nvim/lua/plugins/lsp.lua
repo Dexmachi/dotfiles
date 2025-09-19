@@ -20,7 +20,7 @@ return {
   --INFO: stylers
 
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ensure_installed = stylers,
     },
@@ -29,7 +29,7 @@ return {
   --INFO: servers
 
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     opts = {
       ensure_installed = servers,
     },

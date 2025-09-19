@@ -56,8 +56,7 @@ done
 # --- PLUGINS EXTERNOS ---
 zinit light zsh-users/zsh-autosuggestions
 
-zinit load zsh-users/zsh-history-substring-search
-
+zinit light zsh-users/zsh-history-substring-search
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 zinit ice wait lucid
@@ -75,6 +74,9 @@ tre() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
 
 # keybinds
 bindkey '^F' autosuggest-accept
+
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
 
 # Notebook Dir
 export ZK_NOTEBOOK_DIR="$HOME/diario"

@@ -2,4 +2,4 @@ k9s:
   refreshRate: 2
   maxConnRetry: 5
   ui:
-    skin: 
+    skin: evd

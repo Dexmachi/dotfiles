@@ -88,7 +88,7 @@ case "$1" in
 "suspend")
   echo ":: Suspend"
   sleep 0.5
-  systemctl suspend
+  systemctl hibernate
   ;;
 "hibernate")
   echo ":: Hibernate"
