@@ -1,2 +1,22 @@
 @import 'colors.css';
 
+* { font-weight: 500; }
+
+@define-color theme_base_color @window_bg_color;
+@define-color insensitive_base_color @window_bg_color;
+@define-color theme_bg_color @window_bg_color;
+@define-color theme_selected_bg_color {{colors.secondary_container.default.hex}};
+@define-color insensitive_bg_color @window_bg_color;
+@define-color theme_unfocused_bg_color @window_bg_color;
+@define-color theme_unfocused_selected_bg_color @window_bg_color;
+
+@define-color theme_fg_color @window_fg_color;
+@define-color theme_unfocused_selected_fg_color @window_fg_color;
+@define-color insensitive_fg_color @window_fg_color;
+@define-color theme_selected_fg_color @window_fg_color;
+@define-color theme_unfocused_fg_color @window_fg_color;
+@define-color theme_text_color @window_fg_color;
+@define-color theme_unfocused_text_color @window_fg_color;
+
+@define-color borders @window_bg_color;
+@define-color unfocused_borders @window_bg_color;

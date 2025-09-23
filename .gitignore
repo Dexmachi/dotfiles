@@ -22,3 +22,12 @@
 .config/peazip
 .config/qBittorrent
 .config/spotify
+.config/calcurse
+.config/gh
+.config/glab-cli
+.config/go/telemetry/local
+.config/helm
+.config/kde.org
+.config/kustomize/plugin/khelm.mgoltzsche.github.com/v2/chartrenderer
+.config/marstui
+.config/millennium

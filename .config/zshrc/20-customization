@@ -90,6 +90,11 @@ if command -v fzf &>/dev/null; then
   zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 fi
 
+eval $(glab completion --shell zsh)
+
+zstyle ':fzf-tab:complete:glab:*' script "${_glab_completion}"
+zstyle ':fzf-tab:complete:glab:*:*' fzf-flags '--layout=reverse --info=inline'
+
 # -----------------------------------------------------
 # HISTORY SETTINGS
 # -----------------------------------------------------

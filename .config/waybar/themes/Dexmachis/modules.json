@@ -214,7 +214,7 @@
   // Clock
   "clock": {
     "format": "{:%H:%M %a}",
-    "on-click": "flatpak run com.ml4w.calendar",
+    "on-click": "hyprctl dispatch exec 'kitty --class calendario --title calendario -e calcurse'",
     "timezone": "",
     "tooltip": false
   },

@@ -130,7 +130,7 @@ THEME_PREF=$(grep -E '^gtk-application-prefer-dark-theme=' "$SETTINGS_FILE" | aw
 # -----------------------------------------------------
 
 echo ":: Execute wallust with $used_wallpaper"
-$HOME/.cargo/bin/wallust run -k -t 22 -p dark -c lab $used_wallpaper
+$HOME/.cargo/bin/wallust run --config-dir /home/dexmachina/.config/wallust $used_wallpaper
 
 # -----------------------------------------------------
 # Execute matugen
