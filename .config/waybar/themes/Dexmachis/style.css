@@ -40,7 +40,6 @@
 window#waybar {
   background: @blur_background;
   border-bottom: 0px solid #ffffff;
-  /* color: #FFFFFF; */
   transition-property: background-color;
   transition-duration: 0.5s;
   border: 1px solid black;
@@ -54,7 +53,6 @@ window#waybar {
 #workspaces {
   background: @surface_container_lowest;
   margin: 3px 1px 3px 1px;
-  padding: 0px 0px;
   border-radius: 10px;
   border: 1px solid black;
   font-weight: bold;
@@ -73,7 +71,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-  color: @on_primary;
+  color: @surface_container_lowest;
   background: @on_primary;
   border-radius: 15px;
   min-width: 15px;
