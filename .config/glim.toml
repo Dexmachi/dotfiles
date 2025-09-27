@@ -1,0 +1,4 @@
+gitlab_url = "https://gitlab.com/api/v4"
+gitlab_token = "glpat-E4vODe_3qftkC4NLO6cFdm86MQp1Omhkb21oCw.01.121xdprq5"
+log_level = "Info"
+animations = true

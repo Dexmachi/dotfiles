@@ -1,0 +1,981 @@
+#!/usr/bin/env bash
+# aurroamer - package browser in bash, because why not
+# copyright (c) 2025 therock
+# 951 lines, this is bash what am i doing
+# SPDX-License-Identifier: MIT
+set -euo pipefail
+
+fastmode=false
+
+VERSION="3.0.0-6"
+
+if [[ "${1-}" == "--version" || "${1-}" == "-v" ]]; then
+    echo "aurroamer $VERSION"
+    echo "note: this version is frozen, unless bugs arise or upstream changes force updates, it will stay in a similiar state"
+    exit 0
+fi
+
+aurpackages=$(mktemp)
+repopackages=$(mktemp)
+total=$(mktemp)
+
+config_dir="${XDG_CONFIG_HOME:-$HOME/.config}/aurroamer"
+hooks_dir="$config_dir/hooks.d"
+favorites_file="$config_dir/favorites.txt"
+ignore_file="$config_dir/ignore.txt"
+cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}"
+repo_cache="$cache_dir/repo-cache.txt"
+cachedaur="$cache_dir/aurroamer-cache.txt"
+
+mkdir -p "$hooks_dir"
+touch "$favorites_file"
+touch "$ignore_file"
+
+mode=""
+	
+require_binary() {
+   if ! command -v "$1" > /dev/null; then
+	echo "error: required binary '$1' is not installed"
+	exit 1
+   fi
+}
+
+require_binary fzf
+require_binary pacman
+require_binary curl
+require_binary gunzip
+
+cleanup() {
+    rm -rf "$aurpackages" "$repopackages" "$total" "$pkgbuild" > /dev/null
+}
+trap 'cleanup; exit 130' INT
+trap 'cleanup' EXIT
+pkgbuild=""
+
+detect_aur_helper() {
+    for helper in yay paru trizen pikaur; do
+        if command -v "$helper" > /dev/null; then
+            echo "$helper"
+            return
+        fi
+    done
+    echo ""
+}
+
+aur_helper=$(detect_aur_helper)
+
+load_cache() {
+    for source in aur repo; do
+        if [[ "$source" == "aur" ]]; then
+            cachefile="$cachedaur"
+            outpath="$aurpackages"
+            fetch_cmd="curl -Lsk https://aur.archlinux.org/packages.gz | gunzip > \"$outpath\""
+            fetch_msg="downloading list of all known aur packages"
+        else
+            cachefile="$repo_cache"
+            outpath="$repopackages"
+            fetch_cmd="pacman -Slq > \"$outpath\""
+            fetch_msg="downloading list of all official repo packages"
+        fi
+
+        if [[ -f "$cachefile" ]]; then
+            last_modified_sec=$(stat -c %Y "$cachefile")
+            last_modified_fmt=$(date -d @"$last_modified_sec" "+%Y-%m-%d %H:%M")
+            age_seconds=$(($(date +%s) - last_modified_sec))
+
+            if (( age_seconds > 259200 )); then
+                echo "$source cache is older than 3 days (last updated: $last_modified_fmt)"
+                if [[ "$fastmode" == true ]]; then
+                    echo "using stale $source cache due to fast mode"
+                elif [ -t 0 ]; then
+                    read -rp ">> " usecache
+                    usecache="${usecache:-y}"
+                    if [[ "$usecache" =~ ^[Nn]$ ]]; then
+                        echo "$fetch_msg"
+                        if ! eval "$fetch_cmd"; then
+                            echo "failed to fetch $source package list"
+                            exit 1
+                        fi
+                        cp "$outpath" "$cachefile"
+                        continue
+                    fi
+                fi
+                cp "$cachefile" "$outpath"
+            else
+                cp "$cachefile" "$outpath"
+            fi
+        else
+            if [[ "$fastmode" == true ]]; then
+                echo "$source cache not found — fast mode requires existing cache"
+                echo "tip: run 'aurroamer --refresh' to create the cache first."
+                exit 1
+            fi
+            echo "no cached $source package list found"
+            echo "$fetch_msg"
+            if ! eval "$fetch_cmd"; then
+                echo "failed to fetch $source package list"
+                exit 1
+            fi
+            cp "$outpath" "$cachefile"
+        fi
+    done
+    if [[ -s "$aurpackages" && -s "$repopackages" ]]; then
+       grep -vxFf "$repopackages" "$aurpackages" > "${aurpackages}.tmp" &&
+        mv "${aurpackages}.tmp" "$aurpackages"
+    fi
+}
+
+preview_package() {
+    local pkgtype="$1"
+    local pkgname="$2"
+    echo "[previewing $pkgname]"
+    if [[ -n "$aur_helper" ]]; then
+        "$aur_helper" -Si "$pkgname"
+    else
+	pacman -Si --color=always "$pkgname"
+    fi
+}
+
+install_package() {
+    local pkgtype="$1"
+    local pkgname="$2"
+    echo "[installing $pkgname]"
+    run_pre_install_hook "$pkgname"
+    if [[ "$pkgtype" == "[official]" ]]; then
+        sudo pacman -S "$pkgname"
+    elif [[ "$pkgtype" == "[aur]" && -n "$aur_helper" ]]; then
+        "$aur_helper" -S "$pkgname"
+    fi
+    run_post_install_hook "$pkgname"
+}
+
+generate_fzf_input() {
+    local mode="$1"
+    case "$mode" in
+        1)
+            fzf_input=$(awk '{printf "[official] %s\n", $0}' "$repopackages")
+            ;;
+        2)
+            fzf_input=$(awk '{printf "[aur]      %s\n", $0}' "$aurpackages")
+            ;;
+        3)
+            fzf_input=$( (awk '{printf "[aur]      %s\n", $0}' "$aurpackages"; awk '{printf "[official] %s\n", $0}' "$repopackages") )
+            ;;
+        4)
+            fzf_input=$(cat "$favorites_file")
+            ;;
+        search:*)
+    	    search_term="${mode#search:}"
+    	    IFS=' ' read -r -a terms <<< "$search_term"
+    	    fzf_input=$(awk '{printf "[aur]      %s\n", $0}' "$aurpackages"; awk '{printf "[official] %s\n", $0}' "$repopackages")
+    	    for term in "${terms[@]}"; do
+        	fzf_input=$(printf '%s\n' "$fzf_input" | grep -iF -- "$term" || true)
+    	    done
+            if [[ -z "$fzf_input" ]]; then
+            echo "no results found for: $search_term" >&2
+            exit 1
+            fi
+    	    ;;
+
+        *)
+            fzf_input=""
+            ;;
+    esac
+}
+
+run_post_install_hook() {
+    local pkgname="$1"
+    local hook="$hooks_dir/post_install_$pkgname"
+    if [[ -x "$hook" ]]; then
+        echo "post-install hook found for $pkgname"
+        echo "WARNING: running arbitrary code from $hook"
+        echo "do you want to run this? [y/N]"
+        read -rp ">> " run_hook
+        if [[ "$run_hook" =~ ^[Yy]$ ]]; then
+            "$hook"
+        else
+            echo "skipping post-install hook"
+        fi
+    fi
+}
+
+run_pre_install_hook() {
+    local pkgname="$1"
+    local hook="$hooks_dir/pre_install_$pkgname"
+    if [[ -x "$hook" ]]; then
+        echo "pre-install hook found for $pkgname"
+        echo "WARNING: running arbitrary code from $hook"
+        echo "do you want to run this? [y/N]"
+        read -rp ">> " run_hook
+        if [[ "$run_hook" =~ ^[Yy]$ ]]; then
+            "$hook"
+        else
+            echo "skipping pre-install hook"
+        fi
+    fi
+}
+
+if [[ "${1-}" == "--group" || "${1-}" == "-g" ]]; then
+  shift || true
+  cmd="${1-}"
+  group="${2-}"
+  if [[ -z "$cmd" ]]; then
+    echo "[!] usage: --group <command> <group> [packages...]"
+    exit 1
+  fi
+  shift || true
+  shift || true
+
+  group_dir="${XDG_CONFIG_HOME:-$HOME/.config}/aurroamer/groups"
+  mkdir -p "$group_dir"
+  group_file="$group_dir/$group.txt"
+
+  case "$cmd" in
+    create)
+      if [[ -z "$group" ]]; then
+        echo "[!] usage: --group create <name>"
+        exit 1
+      fi
+      if [[ -f "$group_file" ]]; then
+        echo "[!] group '$group' already exists"
+      else
+        touch "$group_file"
+        echo "[+] created group '$group'"
+      fi
+      ;;
+
+    delete)
+      if [[ -z "$group" ]]; then
+        echo "[!] usage: --group delete <name>"
+        exit 1
+      fi
+      if [[ -f "$group_file" ]]; then
+        rm "$group_file"
+        echo "[+] deleted group '$group'"
+      else
+        echo "[!] group '$group' does not exist"
+      fi
+      ;;
+
+    add)
+      if [[ -z "$group" || "$#" -eq 0 ]]; then
+        echo "[!] usage: --group add <name> <packages...>"
+        exit 1
+      fi
+      if [[ ! -f "$group_file" ]]; then
+        echo "[!] group '$group' does not exist"
+        exit 1
+      fi
+      for pkg in "$@"; do
+        grep -qxF "$pkg" "$group_file" || echo "$pkg" >> "$group_file"
+      done
+      echo "[+] added: $* to group '$group'"
+      ;;
+
+    remove)
+      if [[ -z "$group" || "$#" -eq 0 ]]; then
+        echo "[!] usage: --group remove <name> <packages...>"
+        exit 1
+      fi
+      if [[ ! -f "$group_file" ]]; then
+        echo "[!] group '$group' does not exist"
+        exit 1
+      fi
+      for pkg in "$@"; do
+        sed -i "/^$pkg$/d" "$group_file"
+      done
+      echo "[+] removed: $* from group '$group'"
+      ;;
+
+    listpkgs)
+      if [[ -z "$group" ]]; then
+        echo "[!] usage: --group listpkgs <name>"
+        exit 1
+      fi
+      if [[ -f "$group_file" ]]; then
+        echo "[*] packages in $group:"
+        cat "$group_file"
+      else
+        echo "[!] group '$group' not found"
+      fi
+      ;;
+    list)
+    echo "[*] available groups:"
+    ls "$group_dir" | sed 's/\.txt$//'
+    exit 0
+    ;;
+
+    install)
+      if [[ -z "$group" ]]; then
+        echo "[!] usage: --group install <name>"
+        exit 1
+      fi
+      if [[ -f "$group_file" ]]; then
+        echo "[+] installing group '$group'"
+        xargs -a "$group_file" "$aur_helper" -S --needed
+      else
+        echo "[!] group '$group' not found"
+      fi
+      ;;
+
+    rename)
+     if [[ -z "$group" || -z "${1-}" ]]; then
+        echo "[!] usage: --group rename <old> <new>"
+        exit 1
+     fi
+      old="$group"
+      new="${1-}"
+      new_file="$group_dir/$new.txt"
+      if [[ -z "$old" || -z "$new" ]]; then
+         echo "[!] usage: --group rename <old> <new>"
+    	 exit 1
+      fi
+      if [[ -f "$new_file" ]]; then
+        echo "[!] group '$new' already exists"
+        exit 1
+      fi
+      mv "$group_file" "$new_file"
+      echo "[+] renamed group '$old' to '$new'"
+      ;;
+
+    *)
+      echo "[!] unknown group command: $cmd"
+      ;;
+  esac
+  exit 0
+fi
+
+if [[ "${1-}" == "--snapshot" || "${1-}" == "-s" ]]; then
+  shift || true
+  cmd="${1-}"
+  if [[ -z "$cmd" ]]; then
+    echo "[!] usage: --snapshot <command> [name] [other]"
+    exit 1
+  fi
+  shift || true
+
+  snapshot_dir="${XDG_CONFIG_HOME:-$HOME/.config}/aurroamer/snapshots"
+  mkdir -p "$snapshot_dir"
+
+  case "$cmd" in
+    rename)
+      old="${1-}"
+      new="${2-}"
+      if [[ -z "$old" || -z "$new" ]]; then
+        echo "[!] usage: --snapshot rename <old> <new>"
+        exit 1
+      fi
+      file_old="$snapshot_dir/$old.txt"
+      file_new="$snapshot_dir/$new.txt"
+      if [[ ! -f "$file_old" ]]; then
+        echo "[!] snapshot '$old' does not exist"
+        exit 1
+      fi
+      if [[ -f "$file_new" ]]; then
+        echo "[!] snapshot '$new' already exists"
+        exit 1
+      fi
+      mv "$file_old" "$file_new"
+      echo "[+] renamed snapshot '$old' to '$new'"
+      ;;
+
+    save)
+	snapshot_name="${1-}"
+	if [[ -z "$snapshot_name" ]]; then
+  	   echo "[!] usage: --snapshot save <name>"
+  	   exit 1
+	fi
+      snapshot_file="$snapshot_dir/$snapshot_name.txt"
+      pacman -Qqe > "$snapshot_file"
+      echo "[+] snapshot '$snapshot_name' saved"
+      ;;
+
+restore)
+  snapshot_name="${1-}"
+
+  if [[ -z "$snapshot_name" ]]; then
+    echo "[!] usage: --snapshot restore <name> [--dry-run|--purge]"
+    exit 1
+  fi
+
+  snapshot_file="$snapshot_dir/$snapshot_name.txt"
+
+  if [[ ! -f "$snapshot_file" ]]; then
+    echo "[!] snapshot '$snapshot_name' not found"
+    exit 1
+  fi
+
+  echo "[*] restoring snapshot '$snapshot_name'"
+
+  echo "[+] installing missing packages from snapshot"
+  xargs -a "$snapshot_file" "$aur_helper" -S --needed
+
+  current_pkgs="$(mktemp)"
+  pacman -Qqen | sort > "$current_pkgs"
+  sorted_snapshot="$(mktemp)"
+  sort "$snapshot_file" > "$sorted_snapshot"
+
+  to_remove="$(comm -13 "$sorted_snapshot" "$current_pkgs")"
+
+  if [[ -z "$to_remove" ]]; then
+    echo "[*] no extra packages to remove"
+  else
+    echo "[!] the following packages are installed but not in the snapshot:"
+    echo "$to_remove"
+    
+      echo "[!] WARNING: you are about to remove these packages"
+      echo "continue? [y/N]"
+      read -rp ">> " confirm
+      if [[ "$confirm" =~ ^[Yy]$ ]]; then
+        sudo pacman -Rns $to_remove
+      else
+        echo "[*] aborted removal"
+      fi
+    fi
+
+  rm -f "$current_pkgs" "$sorted_snapshot"
+  ;;    
+    delete)
+      snapshot_name="${1-}"
+      if [[ -z "$snapshot_name" ]]; then
+        echo "[!] usage: --snapshot delete <name>"
+        exit 1
+      fi
+      snapshot_file="$snapshot_dir/$snapshot_name.txt"
+      if [[ ! -f "$snapshot_file" ]]; then
+        echo "[!] snapshot '$snapshot_name' not found"
+        exit 1
+      fi
+      rm "$snapshot_file"
+      echo "[+] snapshot '$snapshot_name' deleted"
+      ;;
+
+    diff)
+      snapA="${1-}"
+      snapB="${2-}"
+      if [[ -z "$snapA" || -z "$snapB" ]]; then
+        echo "[!] usage: --snapshot diff <a> <b>"
+        exit 1
+      fi
+      fileA="$snapshot_dir/$snapA.txt"
+      fileB="$snapshot_dir/$snapB.txt"
+      if [[ ! -f "$fileA" || ! -f "$fileB" ]]; then
+        echo "[!] one or both snapshots not found"
+        exit 1
+      fi
+      echo "[+] comparing '$snapA' to '$snapB'"
+      comm -3 <(sort "$fileA") <(sort "$fileB") | sed 's/^\t/+ /; s/^/- /'
+      ;;
+
+    list)
+      echo "[*] available snapshots:"
+      ls "$snapshot_dir" | sed 's/\.txt$//'
+      ;;
+    listpkgs)
+      snapshot_name="$1"
+      if [[ -z "$snapshot_name" ]]; then
+         echo "[!] usage: --snapshot listpkgs <name>"
+         exit 1
+     fi
+     snapshot_file="$snapshot_dir/$snapshot_name.txt"
+     if [[ ! -f "$snapshot_file" ]]; then
+        echo "[!] snapshot '$snapshot_name' not found"
+        exit 1
+     fi
+     echo "[*] packages in $snapshot_name"
+     cat "$snapshot_file"
+     ;;
+    *)
+      echo "[!] unknown snapshot command: $cmd"
+      ;;
+  esac
+  exit 0
+fi
+
+
+if [[ "${1-}" == "--edit-favorites" || "${1-}" == "-ef" ]]; then
+    ${EDITOR:-nano} "$favorites_file"
+    exit
+fi
+
+if [[ "${1-}" == "--edit-ignore" || "${1-}" == "-ei" ]]; then
+    ${EDITOR:-nano} "$ignore_file"
+    exit
+fi
+
+if [[ "${1-}" == "--refresh" || "${1-}" == "-r" ]]; then
+    echo "refreshing aur cache"
+    if ! curl -Lsk https://aur.archlinux.org/packages.gz | gunzip > "$cachedaur"; then
+        echo "failed to update AUR cache"
+        exit 1
+    fi
+    echo "refreshing repo cache"
+    if ! pacman -Slq > "$repo_cache"; then
+        echo "failed to update repo cache"
+        exit 1
+    fi
+    echo "cache refreshed"
+    exit 0
+fi
+
+if [[ "${1-}" == "--list-hooks" || "${1-}" == "-lh" ]]; then
+
+    if [[ -n "${2-}" ]]; then
+        hook_path="$hooks_dir/${2}"
+        if [[ ! -e "$hook_path" ]]; then
+            echo "hook '$2' not found in $hooks_dir"
+        elif [[ ! -r "$hook_path" ]]; then
+            echo "hook '$2' exists but is not readable"
+        elif [[ ! -s "$hook_path" ]]; then
+            echo "hook '$2' is empty"
+        else
+            echo "contents of $2:"
+            echo "----------------------------------------"
+            cat "$hook_path"
+            echo "----------------------------------------"
+        fi
+    else
+            echo "hooks with [+] are executable and will run, those with [-] lack executable permissions and won't run"
+            echo
+        for hook in "$hooks_dir"/{pre,post}_install_*; do
+            [[ -e "$hook" ]] || continue
+            if [[ -x "$hook" ]]; then
+                echo "[+] $(basename "$hook")"
+            else
+                echo "[-] $(basename "$hook")"
+            fi
+        done
+    fi
+
+    exit
+fi
+
+if [[ "${1-}" == "--help" || "${1-}" == "-h" ]]; then
+    cat <<EOF
+aurroamer - browse AUR and official packages with fzf
+
+    usage:
+
+    aurroamer                    	          launch interactive mode
+    aurroamer --version         / -v     	  show installed version
+    aurroamer --help            / -h              show this message
+    aurroamer --clear           / -c              clears stored package list cache
+    aurroamer --refresh         / -r              refreshes stored cache
+    aurroamer --search          / -se <term>      search for packages by name (1 and 2 terms supported)
+    aurroamer --preview         / -p  <name>      preview given package info
+    aurroamer --install         / -i  <name>      install given package
+    aurroamer --fast            / -f              uses both caches even if theyre old (>3 days)
+    aurroamer --edit-ignore     / -ei             open ignore.txt in a text editor
+    aurroamer --edit-favorites  / -ef             open favorites.txt in a text editor
+    aurroamer --list-hooks      / -lh  <hook>     lists given hook content or all hook names if run with no args
+    aurroamer --open-pkgbuild   / -ob  <pkg>      open the pkgbuild for given package
+    aurroamer --snapshot        / -s   <args>     snapshot utility
+    aurroamer --group           / -g   <args>     package group utility
+    
+ group management:
+  aurroamer -g create <name>
+  aurroamer -g delete <name>
+  aurroamer -g add <name> <pkgs...>
+  aurroamer -g remove <name> <pkgs...>
+  aurroamer -g list
+  aurroamer -g listpkgs <name>
+  aurroamer -g install <name>
+  aurroamer -g rename <old> <new>
+
+snapshot managements:
+  aurroamer -s save <name>
+  aurroamer -s restore <name>
+  aurroamer -s delete <name>
+  aurroamer -s rename <old> <new>
+  aurroamer -s diff <a> <b>
+  aurroamer -s list
+  aurroamer -s listpkgs <name>
+
+  hint: to select multiple packages in fzf press tab
+  hint:
+  hint: post-install hooks:     ~/.config/aurroamer/hooks.d/post_install_<pkgname>
+  hint: pre-install hooks       ~/.config/aurroamer/hooks.d/pre_install_<pkgname>
+  hint: favorites packages:     ~/.config/aurroamer/favorites.txt
+  hint: ignored packages:       ~/.config/aurroamer/ignore.txt
+  hint: this went from ~350 lines to ~920 in a day, i dont know why or how, enjoy, i guess
+
+EOF
+    exit 0
+fi
+
+if [[ "${1-}" == "--clear" || "${1-}" == "-c" ]]; then
+    echo "deleted cached package lists"
+    rm -f "$cachedaur" "$repo_cache" 2>/dev/null || echo "no cache to delete, or other error"
+    exit 0
+fi
+
+if [[ "${1-}" == "--preview" || "${1-}" == "-p" ]]; then
+    if [[ -z "${2-}" ]]; then
+        echo "error: --preview requires a package name"
+        exit 1
+    fi
+    load_cache
+    pkgname="$2"
+    if pacman -Si "$pkgname" &>/dev/null; then
+        preview_package "[official]" "$pkgname"
+        exit
+    elif grep -qxF "$pkgname" "$aurpackages"; then
+        preview_package "[aur]" "$pkgname"
+        exit
+    else
+        echo "error: package '$pkgname' not found in cache"
+        exit 1
+    fi
+fi
+
+if [[ "${1-}" == "--open-pkgbuild" || "${1-}" == "-ob" ]]; then
+    pkg="${2-}"
+    if [[ -z "$pkg" ]]; then
+        echo "error: no package name provided"
+        exit 1
+    fi
+
+    editor="${EDITOR:-nano}"
+
+    echo "getting PKGBUILD for '$pkg'"
+
+    pkgbuild="$(mktemp -d)"
+    cd "$pkgbuild"
+
+    if "$aur_helper" -G "$pkg" --quiet; then
+        cd "$pkg" || exit 1
+        echo "done, opening PKGBUILD for $pkg"
+        sleep 1.5
+        "$editor" PKGBUILD
+        rm -rf "$pkgbuild"
+    else
+        echo "failed to get PKGBUILD for $pkg"
+        rm -rf "$pkgbuild"
+        exit 1
+    fi
+   exit
+fi
+
+if [[ "${1-}" == "--install" || "${1-}" == "-i" ]]; then
+    if [[ -z "${2-}" ]]; then
+        echo "error: --install requires a package name"
+        exit 1
+    fi
+    load_cache
+    pkgname="$2"
+    if pacman -Si "$pkgname" &>/dev/null; then
+        install_package "[official]" "$pkgname"
+        exit
+    elif grep -qxF "$pkgname" "$aurpackages"; then
+        install_package "[aur]" "$pkgname"
+        exit
+    else
+        echo "error: package '$pkgname' not found in cache"
+        exit 1
+    fi
+fi
+
+if [[ "${1-}" == "--fast" || "${1-}" == "-f" ]]; then
+    fastmode=true
+    echo "fast mode: using cached package lists"
+fi  
+
+load_cache
+
+
+if ! [ -t 1 ]; then
+    echo "error: aurroamer requires an interactive terminal"
+    exit 1
+fi
+
+if [[ -z "$aur_helper" ]]; then
+    echo "warning: no supported aur helper found — aur packages cannot be interacted with"
+    sleep 1
+else
+    echo "using aur helper: $aur_helper"
+fi
+
+echo "making a list of known official packages"
+if [[ -s "$ignore_file" ]]; then
+    grep -vxFf "$ignore_file" "$aurpackages" > "${aurpackages}.tmp" && mv "${aurpackages}.tmp" "$aurpackages"
+    grep -vxFf "$ignore_file" "$repopackages" > "${repopackages}.tmp" && mv "${repopackages}.tmp" "$repopackages"
+fi
+
+sort -o "$aurpackages" "$aurpackages"
+sort -o "$repopackages" "$repopackages"
+
+aur_count=$(wc -l < "$aurpackages")
+repo_count=$(wc -l < "$repopackages")
+total_count=$((aur_count + repo_count))
+echo
+echo "official package count: $repo_count"
+echo "aur package count: $aur_count"
+echo "total package count: $total_count"
+
+echo
+
+
+if [[ "${1-}" == "--search" || "${1-}" == "-se" ]]; then
+    if [[ -z "${2-}" ]]; then
+        echo "error: --search requires a term"
+        exit 1
+    fi
+    load_cache
+    mode="search:$2"
+else
+    echo "browse which packages?"
+    echo "1) official only"
+    echo "2) aur only"
+    echo "3) all"
+    echo "4) favorites"
+    read -rp ">> " mode
+fi
+generate_fzf_input "$mode"
+echo
+
+if [ "${mode}" != 4 ]; then
+fzf_args=(
+  --multi
+  --preview 'aurroamer --preview {2}'
+  --preview-label='alt-p: toggle description, alt-b/B: toggle PKGBUILD, alt-j/k: scroll, tab: multi-select, F11: maximize'
+  --preview-label-pos='bottom'
+  --preview-window 'down:55%:wrap'
+  --bind 'alt-p:toggle-preview'
+  --bind 'alt-d:preview-half-page-down,alt-u:preview-half-page-up'
+  --bind 'alt-k:preview-up,alt-j:preview-down'
+  --bind 'alt-b:change-preview:yay -Gpa {2} | tail -n +5'
+  --bind 'alt-B:change-preview:yay -Siia {2}'
+  --color 'pointer:green,marker:green'
+)
+else
+fzf_args=(
+  --multi
+  --preview 'aurroamer --preview {1}'
+  --preview-label='alt-p: toggle description, alt-b/B: toggle PKGBUILD, alt-j/k: scroll, tab: multi-select, F11: maximize'
+  --preview-label-pos='bottom'
+  --preview-window 'down:55%:wrap'
+  --bind 'alt-p:toggle-preview'
+  --bind 'alt-d:preview-half-page-down,alt-u:preview-half-page-up'
+  --bind 'alt-k:preview-up,alt-j:preview-down'
+  --bind 'alt-b:change-preview:yay -Gpa {1} | tail -n +5'
+  --bind 'alt-B:change-preview:yay -Siia {1}'
+  --color 'pointer:green,marker:green'
+)
+fi
+
+while true; do
+selection=$(echo "$fzf_input" | fzf "${fzf_args[@]}")
+if [[ -z "$selection" ]]; then
+    echo "no selection made or fzf exited"
+    exit
+fi
+    [[ -z "$selection" ]] && exit 0
+
+    mapfile -t selected_lines <<< "$selection"
+
+    if (( ${#selected_lines[@]} > 1 )); then
+        while true; do
+            clear
+            echo "you selected multiple packages:"
+            echo
+            for line in "${selected_lines[@]}"; do
+                echo "  - $line"
+            done
+            echo
+
+            echo "choose an option:"
+            echo "1) preview package info (first)"
+            echo "2) install individually"
+            echo "3) back to package list"
+            echo "4) add all to favorites"
+            echo "5) remove all from favorites"
+            echo "6) bulk install all"
+            echo "7) refresh package list"
+            echo "8) add all to ignore list"
+            echo "9) remove all from ignore list"
+            read -rp ">> " choice
+
+            case "$choice" in
+                1)
+                    clear
+                    line="${selected_lines[0]}"
+                    pkgtype="${line%% *}"
+                    pkgname="${line#* }"
+                    pkgname="${pkgname#"${pkgname%%[![:space:]]*}"}"
+                    preview_package "$pkgtype" "$pkgname"
+                    read -n 1 -s -r -p "press any key to return"
+                    ;;
+                2)
+                    clear
+                    for line in "${selected_lines[@]}"; do
+                        pkgtype="${line%% *}"
+                        pkgname="${line#* }"
+                        pkgname="${pkgname#"${pkgname%%[![:space:]]*}"}"
+                        install_package "$pkgtype" "$pkgname"
+                    done
+                    read -n 1 -s -r -p "press any key to return"
+                    ;;
+                3)
+                    clear
+                    break
+                    ;;
+                4)
+                    clear
+                    for line in "${selected_lines[@]}"; do
+                        pkgname="${line#* }"
+                        pkgname="${pkgname#"${pkgname%%[![:space:]]*}"}"
+                        echo "$pkgname" >> "$favorites_file"
+                    done
+                    sort -u -o "$favorites_file" "$favorites_file"
+                    echo "packages added to favorites"
+                    read -n 1 -s -r -p "press any key to return"
+                    ;;
+                5)
+                    clear
+                    for line in "${selected_lines[@]}"; do
+                        pkgname="${line#* }"
+                        pkgname="${pkgname#"${pkgname%%[![:space:]]*}"}"
+                        sed -i "\|^$(printf '%s' "$pkgname")\$|d" "$favorites_file"
+                    done
+                    echo "packages removed from favorites"
+                    read -n 1 -s -r -p "press any key to return"
+                    ;;
+                6)
+                    clear
+                    official_pkgs=()
+                    aur_pkgs=()
+                    for line in "${selected_lines[@]}"; do
+                        pkgtype="${line%% *}"
+                        pkgname="${line#* }"
+                        pkgname="${pkgname#"${pkgname%%[![:space:]]*}"}"
+                        if [[ "$pkgtype" == "[official]" ]]; then
+                            official_pkgs+=("$pkgname")
+                        elif [[ "$pkgtype" == "[aur]" ]]; then
+                            aur_pkgs+=("$pkgname")
+                        fi
+                    done
+                    echo "[bulk installing selected packages]"
+                    if [[ ${#official_pkgs[@]} -gt 0 ]]; then
+                        sudo pacman -S "${official_pkgs[@]}"
+                    fi
+                    if [[ ${#aur_pkgs[@]} -gt 0 && -n "$aur_helper" ]]; then
+                        "$aur_helper" -S "${aur_pkgs[@]}"
+                    fi
+                    read -n 1 -s -r -p "press any key to return"
+                    ;;
+                7)
+                    clear
+    	            echo "refreshing package lists"
+    		    load_cache
+    		    generate_fzf_input "$mode"
+    		    pacman -Slq > "$repo_cache"
+    		    sort -o "$aurpackages" "$aurpackages"
+    	            sort -o "$repopackages" "$repopackages"
+    	            generate_fzf_input "$mode"
+   		    echo "lists refreshed, press any key to return"
+    		    read -n 1 -s -r
+    		    clear
+    	  	    ;;
+    	  	8)
+                    clear
+                    for line in "${selected_lines[@]}"; do
+                        pkgname="${line#* }"
+                        pkgname="${pkgname#"${pkgname%%[![:space:]]*}"}"
+                        echo "$pkgname" >> "$ignore_file"
+                    done
+                    sort -u -o "$ignore_file" "$ignore_file"
+                    echo "packages added to ignore list"
+                    read -n 1 -s -r -p "press any key to return"
+                    ;;
+                9)
+                    clear
+                    for line in "${selected_lines[@]}"; do
+                        pkgname="${line#* }"
+                        pkgname="${pkgname#"${pkgname%%[![:space:]]*}"}"
+                        sed -i "\|^$(printf '%s' "$pkgname")\$|d" "$ignore_file"
+                    done
+                    echo "packages removed from ignore list"
+                    read -n 1 -s -r -p "press any key to return"
+                    ;;   
+                *)
+                    clear
+                    echo "invalid option"
+                    read -n 1 -s -r -p "press any key to return"
+                    ;;
+            esac
+        done
+    else
+        line="${selected_lines[0]}"
+        pkgtype="${line%% *}"
+        pkgname="${line#* }"
+        pkgname="${pkgname#"${pkgname%%[![:space:]]*}"}"
+
+        while true; do
+            echo "choose an option:"
+            echo "1) preview package info"
+            echo "2) refresh package list"
+            echo "3) install package"
+            echo "4) back to package list"
+            if grep -Fxq "$pkgname" "$favorites_file"; then
+                echo "6) remove from favorites"
+            else
+                echo "5) add to favorites"
+            fi
+            echo "7) add to ignore list"
+            echo "8) remove from ignore list"
+            read -rp ">> " choice
+
+            case "$choice" in
+                1)
+                    clear
+                    preview_package "$pkgtype" "$pkgname"
+                    read -n 1 -s -r -p "press any key to return"
+                    clear
+                    ;;
+                2)
+                    clear
+    	            echo "refreshing package lists"
+    		    load_cache
+    		    generate_fzf_input "$mode"
+    		    pacman -Slq > "$repopackages"
+    		    sort -o "$aurpackages" "$aurpackages"
+    		    sort -o "$repopackages" "$repopackages"
+    		    generate_fzf_input "$mode"
+                    echo "lists refreshed, press any key to return"
+		    read -n 1 -s -r
+		    clear
+		    ;;
+                3)
+                    clear
+                    install_package "$pkgtype" "$pkgname"
+                    read -n 1 -s -r -p "press any key to return"
+                    clear
+                    ;;
+                4)
+                    clear
+                    break
+                    ;;
+                5)
+                    clear
+                    echo "$pkgname" >> "$favorites_file"
+                    sort -u -o "$favorites_file" "$favorites_file"
+                    echo "$pkgname added to favorites"
+                    read -n 1 -s -r -p "press any key to return"
+                    clear
+                    ;;
+                6)
+                    clear
+                    sed -i "\|^$(printf '%s' "$pkgname")\$|d" "$favorites_file"
+                    echo "$pkgname removed from favorites"
+                    read -n 1 -s -r -p "press any key to return"
+                    clear
+                    ;;
+                *)
+                    clear
+                    echo "invalid option"
+                    read -n 1 -s -r -p "press any key to return"
+                    ;;
+            esac
+        done
+    fi
+done

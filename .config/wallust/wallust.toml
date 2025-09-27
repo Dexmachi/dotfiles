@@ -10,3 +10,6 @@ kitty.target = '~/.config/kitty/colors-wallust.conf'
 
 starship.template = 'paleta.toml'
 starship.target = '~/.config/starship.toml'
+
+#ghostty.template = 'ghostty'
+#ghostty.target = '~/.cache/wallust/ghostty.conf'

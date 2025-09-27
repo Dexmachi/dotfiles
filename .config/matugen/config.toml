@@ -50,3 +50,7 @@ output_path = '~/.cache/wal/sequences'
 input_path = '~/.config/matugen/templates/ohmyposh-colors.json'
 output_path = '~/.config/ohmyposh/colors.json'
 post_hook = "jq --slurpfile palette ~/.config/ohmyposh/colors.json '. + $palette[0]' ~/.config/ohmyposh/EDM115-newline.omp.json > /tmp/new_theme.json && mv /tmp/new_theme.json ~/.config/ohmyposh/EDM115-newline.omp.json"
+
+#[templates.ghostty_ui]
+#input_path = '~/.config/matugen/templates/ghostty'
+#output_path = '~/.cache/matugen/gostty-ui.conf'

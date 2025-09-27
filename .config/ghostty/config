@@ -1,0 +1,7 @@
+theme = "tema-wallust-matugen.conf"
+
+font-size = 12
+
+font-family = "Maple Mono NF CN"
+font-family-italic = "Maple Mono NF CN Italic"
+font-family-bold-italic = "Maple Mono NF CN Bold Italic"

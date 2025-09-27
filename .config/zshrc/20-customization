@@ -34,7 +34,7 @@ autoload -Uz compinit
 compinit
 
 # -----------------------------------------------------
-# PLUGINS (OMZ + externos)
+# PLUGINS
 # -----------------------------------------------------
 # --- OMZ PLUGINS ---
 plugins=(
