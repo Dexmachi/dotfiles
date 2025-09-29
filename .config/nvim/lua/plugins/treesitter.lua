@@ -5,7 +5,6 @@ return {
       ensure_installed = {
         "css",
         "bash",
-        "latex",
         "html",
         "javascript",
         "json",

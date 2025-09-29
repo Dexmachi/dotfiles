@@ -3,6 +3,7 @@
 local servers = {
   "clangd",
   "lua_ls",
+  "ts_ls",
   "html",
   "cssls",
   "marksman",
@@ -50,11 +51,6 @@ return {
         update_in_insert = false,
         severity_sort = true,
       })
-
-      local handlers = {
-        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-        ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
-      }
 
       local lspconfig = require("lspconfig")
       --INFO: carregando os lsps settados em servers
