@@ -86,7 +86,7 @@ window#waybar {
 }
 
 #workspaces button:hover {
-  color: @textcolor1;
+  color: @surface_container_lowest;
   background: @on_tertiary;
   border-radius: 15px;
 }
