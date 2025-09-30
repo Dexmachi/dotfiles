@@ -70,6 +70,10 @@ window#waybar {
   transition: all 0.3s ease-in-out;
 }
 
+#workspaces button.empty {
+  color: @on_tertiary;
+}
+
 #workspaces button.active {
   color: @surface_container_lowest;
   background: @on_primary;
