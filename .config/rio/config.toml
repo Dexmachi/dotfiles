@@ -289,12 +289,11 @@ program = "/bin/zsh"
 # Create custom Key bindings for Rio terminal
 # More information in: https://raphamorim.io/rio/docs/key-bindings
 # Example:
-# [bindings]
-# keys = [
-#   { key = "q", with = "super", action = "Quit" },
-#   # Send escape sequence to clear screen
-#   { key = "l", with = "control", esc = "\u001b[2J\u001b[H" }
-# ]
+[bindings]
+keys = [
+  { key = "q", with = "super", action = "Quit" },
+  { key = "l", with = "control", esc = "\u001b[2J\u001b[H" }
+]
 
 # Platform
 #
