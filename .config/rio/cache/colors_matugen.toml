@@ -1,0 +1,10 @@
+[colors]
+background = '#19120d'
+foreground  = '#efdfd6'
+
+# Cursor
+cursor = '#efdfd6'
+
+# Selection
+selection-foreground = '#422c1a'
+selection-background = '#e4c0a6'

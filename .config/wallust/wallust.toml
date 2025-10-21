@@ -13,3 +13,6 @@ starship.target = '~/.config/starship.toml'
 
 #ghostty.template = 'ghostty'
 #ghostty.target = '~/.cache/wallust/ghostty.conf'
+
+rio.template = 'rio'
+rio.target = '~/.config/rio/cache/colors_wallust.toml'

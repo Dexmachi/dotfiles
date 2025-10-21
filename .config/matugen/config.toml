@@ -62,3 +62,7 @@ output_path = '~/.config/qt5ct/style-colors.conf'
 #[templates.ghostty_ui]
 #input_path = '~/.config/matugen/templates/ghostty'
 #output_path = '~/.cache/matugen/gostty-ui.conf'
+
+[templates.rio]
+input_path = '~/.config/matugen/templates/rio'
+output_path = '~/.config/rio/cache/colors_matugen.toml'

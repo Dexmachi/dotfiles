@@ -20,7 +20,7 @@
 # (windows: C:\Users\USER\AppData\Local\rio\themes\dracula.toml)
 #
 # Example:
-# theme = "dracula"
+theme = "dexmachina.toml"
 
 # Padding-x
 # define x axis padding (default is 0)
@@ -155,11 +155,11 @@ opacity = 0.85
 # • filters: A list of paths to RetroArch slang shaders. Might not work with OpenGL.
 #
 # Example:
-[renderer]
-performance = "high"
-backend = "automatic"
+# [renderer]
+# performance = "high"
+# backend = "automatic"
 # disable-unfocused-render = false
-level = 1
+# level = 1
 # filters = []
 
 # Keyboard
@@ -187,56 +187,32 @@ use-kitty-keyboard-protocol = true
 # will always look for regular font bounds whene
 #
 # You can also set family on root to overwrite all fonts.
-[fonts]
-family = "Maple Mono NF CN"
-size = 14
-weight = 400
-#
-# You can also specify extra fonts to load
-# [fonts]
-# extras = [{ family = "Microsoft JhengHei" }]
-#
-# In case you want to specify any font feature:
-# [fonts]
-# features = ["ss02", "ss03", "ss05", "ss19"]
-#
-# Note: Font features do not have support to live reload on configuration,
-# so to reflect your changes, you will need to close and reopen Rio.
-#
-# You can also disable font hinting. Font hinting is enabled by default.
-# [fonts]
-# hinting = false
-#
-# You can also map the specified Unicode codepoints to a particular font.
-# [fonts]
-# symbol-map = [
-#   { start = "2297", end = "2299", font-family = "Cascadia Code NF" }
-# ]
-#
-# Simple example:
-# [fonts]
-# 
-#
-# [fonts.regular]
-# family = "cascadiamono"
-# style = "Normal"
-# weight = 400
-#
-# [fonts.bold]
-# family = "cascadiamono"
-# style = "Normal"
-# weight = 800
-#
-# [fonts.italic]
-# family = "cascadiamono"
-# style = "Italic"
-# weight = 400
-#
-# [fonts.bold-italic]
-# family = "cascadiamono"
-# style = "Italic"
-# weight = 800
+[bell]
+visual = false
+audio = true
 
+[fonts]
+size = 15
+use-drawable-chars = true
+[fonts.regular]
+family = "Maple Mono NF CN"
+style = "Normal"
+weight = 500
+
+[fonts.bold]
+family = "Maple Mono NF CN"
+style = "Normal"
+weight = 900
+
+[fonts.italic]
+family = "Maple Mono NF CN"
+style = "Italic"
+weight = 500
+
+[fonts.bold-italic]
+family = "Maple Mono NF CN"
+style = "Italic"
+weight = 900
 # Scroll
 #
 # You can change how many lines are scrolled each time by setting this option.
@@ -309,28 +285,9 @@ program = "/bin/zsh"
 # program = "/opt/homebrew/bin/tmux"
 # args = ["new-session", "-c", "/var/www"]
 
-# Colors
-#
-# Colors definition will overwrite any property in theme
-# (considering if theme folder does exists and is being used)
-#
-# Example:
-# [colors]
-# background = '#0F0D0E'
-# foreground = '#F9F4DA'
-# cursor = '#F38BA3'
-# tabs = '#443d40'
-# tabs-active = '#F38BA3'
-# green = '#0BA95B'
-# red = '#ED203D'
-# blue = '#12B5E5'
-# yellow = '#FCBA28'
-
 # Bindings
-#
 # Create custom Key bindings for Rio terminal
 # More information in: https://raphamorim.io/rio/docs/key-bindings
-#
 # Example:
 # [bindings]
 # keys = [

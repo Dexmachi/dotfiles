@@ -139,10 +139,16 @@ $HOME/.cargo/bin/wallust run --config-dir /home/dexmachina/.config/wallust $used
 _writeLog "Execute matugen with $used_wallpaper"
 if [ "$THEME_PREF" -eq 1 ]; then
   matugen image $used_wallpaper -m "dark"
+  cat ~/.cache/matugen/gostty-ui.conf >~/.config/ghostty/themes/tema-wallust-matugen.conf
+  cat ~/.config/rio/cache/colors_matugen.toml >~/.config/rio/themes/dexmachina.toml
 else
   matugen image $used_wallpaper -m "light"
+  cat ~/.cache/matugen/gostty-ui.conf >~/.config/ghostty/themes/tema-wallust-matugen.conf
+  cat ~/.config/rio/cache/colors_matugen.toml >~/.config/rio/themes/dexmachina.toml
 fi
 
+cat ~/.cache/wallust/ghostty.conf >>~/.config/ghostty/themes/tema-wallust-matugen.conf
+cat ~/.config/rio/cache/colors_wallust.toml >>~/.config/rio/themes/dexmachina.toml
 # -----------------------------------------------------
 # Reload Waybar
 # -----------------------------------------------------
