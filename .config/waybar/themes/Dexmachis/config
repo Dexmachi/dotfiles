@@ -52,7 +52,7 @@
         "custom/updates",
         "pulseaudio",
 //"backlight",
-        "bluetooth",
+//        "bluetooth",
         "battery", 
 //"network",
         //"group/hardware",

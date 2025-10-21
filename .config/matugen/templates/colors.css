@@ -1,7 +1,8 @@
-/*
-* Css Colors
-* Generated with Matugen
-*/
+*{
+  font-weight: 500;
+  font-family: 'Maple Mono NF CF', monospace;
+}
+
 @define-color blur_background {{colors.surface.default.rgba | set_alpha: 0.3}};
 @define-color blur_background8 {{colors.surface.default.rgba | set_alpha: 0.8}};
 <* for name, value in colors *>
