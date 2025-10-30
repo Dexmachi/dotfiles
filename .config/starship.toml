@@ -45,10 +45,10 @@ text_color = "#EDF2F4"
 text_light = "#26272A"
 
 [palettes.pywal]
-arrow      = "#5F6B67"
-os         = "#73A08C"
-os_admin   = "#7C8B84"
-directory  = "#73A08C"
+arrow      = "#8A4B1C"
+os         = "#FD8F1D"
+os_admin   = "#AC855D"
+directory  = "#FD8F1D"
 time = "#B3BCFD"
 node = "#a5e6ba"
 git = "#f17f29"
@@ -59,8 +59,8 @@ java = "#F86279"
 rust = "#ffdac6"
 clang = "#caf0f8"
 duration = "#ce4257"
-text_color = "#628878"
-text_light = "#73A08C"
+text_color = "#E07E1D"
+text_light = "#FD8F1D"
 
 [username]
 style_user = 'bold os'
