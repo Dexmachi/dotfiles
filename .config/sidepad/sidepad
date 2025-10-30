@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
-#    _____    __                 __
-#   / __(_)__/ /__ ___  ___ ____/ /
-#  _\ \/ / _  / -_) _ \/ _ `/ _  /
+#   _____    __                  __
+#  / __(_)__/ /__ ___  ___ ____/ /
+# _\ \/ / _  / -_) _ \/ _ `/ _  /
 # /___/_/\_,_/\__/ .__/\_,_/\_,_/
 #               /_/
 # Main Script
 
 # --- Configuration ---
 WINDOW_CLASS="dotfiles-sidepad"
+WINDOW_INITIAL_TITLE="dotfiles-sidepad"
 HIDDEN_LEFT_GAP=0
 VISIBLE_LEFT_GAP=20
 TARGET_WIDTH=500
@@ -21,26 +22,27 @@ HIDE_REQUESTED=0
 # --- Help Function ---
 show_help() {
   echo "Usage: $0 [options]"
-  echo "Please make sure that you're using the class only once."
+  echo "Please make sure that you're using the class or initialTitle only once."
   echo "The window must be in floating mode."
   echo ""
   echo "Options:"
-  echo "  --class <name>         Override the window class (Default: $WINDOW_CLASS)"
-  echo "  --hidden-gap <px>      Override the hidden left gap (Default: $HIDDEN_LEFT_GAP)"
-  echo "  --visible-gap <px>     Override the visible left gap (Default: $VISIBLE_LEFT_GAP)"
-  echo "  --width <px>           Override the target width (Default: $TARGET_WIDTH)"
-  echo "  --width-max <px>       Override the maximum target width (Default: $TARGET_WIDTH_MAX)"
-  echo "  --top-gap <px>         Override the top gap (Default: $TOP_GAP)"
-  echo "  --bottom-gap <px>      Override the bottom gap (Default: $BOTTOM_GAP)"
-  echo "  --hide                 Force the window to the hidden state."
-  echo "  --kill                 Kills the running app with WINDOW_CLASS."
-  echo "  --test                 Test for running app with WINDOW_CLASS."
-  echo "  -h, --help             Display this help and exit"
+  echo "  --class <name>          Override the window class (Default: $WINDOW_CLASS)"
+  echo "  --title <name>          Override the window initial title (Default: $WINDOW_INITIAL_TITLE)"
+  echo "  --hidden-gap <px>       Override the hidden left gap (Default: $HIDDEN_LEFT_GAP)"
+  echo "  --visible-gap <px>      Override the visible left gap (Default: $VISIBLE_LEFT_GAP)"
+  echo "  --width <px>            Override the target width (Default: $TARGET_WIDTH)"
+  echo "  --width-max <px>        Override the maximum target width (Default: $TARGET_WIDTH_MAX)"
+  echo "  --top-gap <px>          Override the top gap (Default: $TOP_GAP)"
+  echo "  --bottom-gap <px>       Override the bottom gap (Default: $BOTTOM_GAP)"
+  echo "  --hide                  Force the window to the hidden state."
+  echo "  --kill                  Kills the running app."
+  echo "  --test                  Test for running app."
+  echo "  -h, --help              Display this help and exit"
   exit 0
 }
 
 test_sidepad() {
-  if ! hyprctl clients -j | jq -e --arg class "$WINDOW_CLASS" '.[] | select(.class == $class)' >/dev/null; then
+  if ! hyprctl clients -j | jq -e --arg class "$WINDOW_CLASS" --arg initialTitle "$WINDOW_INITIAL_TITLE" '.[] | select(.class == $class or .initialTitle == $initialTitle)' >/dev/null; then
     echo "1"
     return 1
   else
@@ -51,16 +53,13 @@ test_sidepad() {
 
 init_sidepad() {
   # Check if the window already exists, if not launch it
-  if ! hyprctl clients -j | jq -e --arg class "$WINDOW_CLASS" '.[] | select(.class == $class)' >/dev/null; then
+  if ! hyprctl clients -j | jq -e --arg class "$WINDOW_CLASS" --arg initialTitle "$WINDOW_INITIAL_TITLE" '.[] | select(.class == $class or .initialTitle == $initialTitle)' >/dev/null; then
     notify-send "Sidepad will be initialized with" "$1"
-    if [[ "$WINDOW_CLASS" == "dotfiles-sidepad" ]]; then
-      eval "$1 --class $WINDOW_CLASS" &
-    else
-      eval "$1" &
-    fi
+    eval "$1" &
+
     # Wait for the window to appear, with a timeout
-    for i in {1..50}; do # ~2 seconds timeout
-      if hyprctl clients -j | jq -e --arg class "$WINDOW_CLASS" '.[] | select(.class == $class)' >/dev/null; then
+    for i in {1..100}; do # ~10 seconds timeout
+      if hyprctl clients -j | jq -e --arg class "$WINDOW_CLASS" --arg initialTitle "$WINDOW_INITIAL_TITLE" '.[] | select(.class == $class or .initialTitle == $initialTitle)' >/dev/null; then
         break
       fi
       sleep 0.1
@@ -69,12 +68,18 @@ init_sidepad() {
 }
 
 kill_sidepad() {
-  WINDOW_PID=$(hyprctl clients -j | jq -r --arg class "$WINDOW_CLASS" '.[] | select(.class == $class) | .pid')
+  # --- CORREÇÃO SINTAXE JQ ---
+  # Envolve a expressão em colchetes `[...]` para criar um array antes de pegar o índice `[0]`.
+  WINDOW_PID=$(hyprctl clients -j | jq -r \
+    --arg class "$WINDOW_CLASS" \
+    --arg initialTitle "$WINDOW_INITIAL_TITLE" \
+    '[ .[] | select(.class == $class or .initialTitle == $initialTitle) ][0] | .pid // empty')
+
   if [ -n "$WINDOW_PID" ] && [ "$WINDOW_PID" -ne -1 ]; then
-    echo "Killing process with PID $WINDOW_PID for window class '$WINDOW_CLASS'."
+    echo "Killing process with PID $WINDOW_PID for '$WINDOW_CLASS' or '$WINDOW_INITIAL_TITLE'."
     kill "$WINDOW_PID"
   else
-    echo "Error: Window with class '$WINDOW_CLASS' not found or has no valid PID." >&2
+    echo "Error: Window with class '$WINDOW_CLASS' or title '$WINDOW_INITIAL_TITLE' not found." >&2
   fi
   sleep 1
   exit 0
@@ -86,84 +91,74 @@ while [[ $# -gt 0 ]]; do
   case $key in
   --class)
     WINDOW_CLASS="$2"
-    shift
-    shift
+    shift 2
     ;;
-
+  --title)
+    WINDOW_INITIAL_TITLE="$2"
+    shift 2
+    ;;
   --hidden-gap)
     HIDDEN_LEFT_GAP="$2"
-    shift
-    shift
+    shift 2
     ;;
-
   --visible-gap)
     VISIBLE_LEFT_GAP="$2"
-    shift
-    shift
+    shift 2
     ;;
-
   --width)
     TARGET_WIDTH="$2"
-    shift
-    shift
+    shift 2
     ;;
-
   --width-max)
     TARGET_WIDTH_MAX="$2"
-    shift
-    shift
+    shift 2
     ;;
-
   --top-gap)
     TOP_GAP="$2"
-    shift
-    shift
+    shift 2
     ;;
-
   --bottom-gap)
     BOTTOM_GAP="$2"
-    shift
-    shift
+    shift 2
     ;;
-
   --hide)
     HIDE_REQUESTED=1
     shift
     ;;
-
   --test)
     test_sidepad
     exit 0
     ;;
-
   --kill)
     kill_sidepad
     ;;
-
   --init)
     SIDEPAD_APP="$2"
     init_sidepad "$SIDEPAD_APP"
     HIDE_REQUESTED=1
     shift 2
     ;;
-
   -h | --help)
     show_help
     ;;
-
   *)
-    # unknown option
     shift
     ;;
   esac
 done
 
 # --- Get Window and Monitor Info ---
-WINDOW_INFO=$(hyprctl clients -j | jq --arg class "$WINDOW_CLASS" '.[] | select(.class == $class)')
+# --- CORREÇÃO SINTAXE JQ ---
+# Envolve a expressão em colchetes `[...]` para criar um array antes de pegar o índice `[0]`.
+WINDOW_INFO=$(hyprctl clients -j | jq \
+  --arg class "$WINDOW_CLASS" \
+  --arg initialTitle "$WINDOW_INITIAL_TITLE" \
+  '[ .[] | select(.class == $class or .initialTitle == $initialTitle) ][0]')
+
 MONITOR_INFO=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true)')
 
-if [ -z "$WINDOW_INFO" ]; then
-  echo "Error: Window with class '$WINDOW_CLASS' not found. Is the window open?"
+if [ -z "$WINDOW_INFO" ] || [ "$WINDOW_INFO" == "null" ]; then
+  echo "Error: Window with class '$WINDOW_CLASS' or title '$WINDOW_INITIAL_TITLE' not found. Is the window open?"
   exit 1
 fi
 
@@ -208,15 +203,11 @@ if ((WINDOW_X < 0)); then
 
 # Case 3: Window is visible, so toggle its width and correct its position.
 else
-  # Ensure vertical position and height are correct
   PIXELS_TO_MOVE_Y=$((TOP_GAP - WINDOW_Y))
   TARGET_HEIGHT=$((MONITOR_HEIGHT - TOP_GAP - BOTTOM_GAP))
   HEIGHT_CHANGE=$((TARGET_HEIGHT - WINDOW_HEIGHT))
-
-  # Don't move horizontally
   PIXELS_TO_MOVE_X=0
 
-  # Calculate width change
   if ((WINDOW_WIDTH == TARGET_WIDTH)); then
     echo "--- Expanding width to max ---"
     WIDTH_CHANGE=$((TARGET_WIDTH_MAX - WINDOW_WIDTH))

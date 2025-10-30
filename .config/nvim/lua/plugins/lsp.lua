@@ -54,10 +54,16 @@ return {
 
       local lspconfig = require("lspconfig")
       --INFO: carregando os lsps settados em servers
+      lspconfig.asm_lsp.setup({
+        on_attach = function(client, bufnr)
+          local buf_map = function(mode, lhs, rhs, opts)
+            vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, silent = true, noremap = true, desc = opts.desc })
+          end
+        end,
+      })
       for _, server in ipairs(servers) do
         lspconfig[server].setup({ handlers = handlers, on_attach = on_attach })
       end
-
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
