@@ -69,4 +69,8 @@ return {
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
     end,
   },
+  {
+    "lark-parser/vim-lark-syntax",
+    ft = "lark", -- This tells LazyVim to load the plugin for 'lark' file types
+  },
 }

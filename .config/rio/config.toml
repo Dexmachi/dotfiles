@@ -1,12 +1,12 @@
 theme = "dexmachina.toml"
 
 padding-x = 10
-padding-y = [10, 1]
+padding-y = [5, 1]
 
 confirm-before-quit = false
 
 [cursor]
-shape = 'block'
+shape = 'underline'
 blinking = true
 blinking-interval = 500
 
@@ -48,10 +48,5 @@ weight = 900
 [shell]
 program = "/bin/zsh"
 
-[bindings]
-keys = [
-  { key = "l", with = "control | shift", esc = "\u001b[2J\u001b[H" },
-#  { key = "q", with = "super", action = "Quit" },
-  { key = "l", with = "control", esc = "^Wl" }
-]
-
+[renderer]
+#filters =[ "NewPixieCrt", "/home/dexmachina/Downloads/slang-shaders/crt/newpixie-crt.slangp" ]

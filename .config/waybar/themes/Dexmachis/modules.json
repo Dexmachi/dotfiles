@@ -197,7 +197,7 @@
   // Clock
   "clock": {
     "format": "{:%H:%M %a}",
-    "on-click": "hyprctl dispatch exec 'EDITOR=nvim kitty --class calendario --title calendario -e calcurse'",
+    "on-click": "hyprctl dispatch exec 'EDITOR=nvim rio --title-placeholder calendario -e calcurse'",
     "timezone": "",
     "tooltip": false
   },
