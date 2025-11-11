@@ -1,0 +1,3 @@
+chobolo_file: Ch-obolos/dex/dex-migrating.yml
+secrets_file: Ch-obolos/dex/secrets_custom-plug-dex.yml
+sops_config: Ch-obolos/dex/sops-config.yml
