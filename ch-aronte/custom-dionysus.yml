@@ -1,14 +1,13 @@
-pacotes:
-  - 8bitdo-ultimate-controller-udev
+packages:
   - ansible-lint
+  - hyprtoolkit
+  - jrnl
+  - prismlauncher
   - argocd
-  - astroterm-bin
   - atuin
-  - aurroamer
   - baobab
   - bat
   - bc
-  - bibata-cursor-theme-bin
   - blueman
   - bluez-utils
   - bottom
@@ -16,29 +15,29 @@ pacotes:
   - brightnessctl
   - btop
   - cachyos-keyring
+  - blanket
   - cachyos-mirrorlist
   - cachyos-v3-mirrorlist
   - cachyos-v4-mirrorlist
   - calcurse
-  - catppuccin-gtk-theme-mocha
   - cava
-  - cbonsai
   - chafa
-  - checkupdates-with-aur
-  - citra-appimage
   - claude-code
   - cliphist
   - cmake
-  - cmatrix-git
   - cpio
+  - cronie
   - cython
   - deno
+  - dotnet-sdk
+  - dotnet-runtime-bin
   - discover
   - docker
   - downgrade
   - duf
   - dunst
   - efibootmgr
+  - evtest
   - exfat-utils
   - eza
   - fastfetch
@@ -49,44 +48,40 @@ pacotes:
   - flatpak
   - fuse2
   - fzf
+  - gamescope
   - gdb
   - gimp
   - git-filter-repo
   - github-cli
-  - github-desktop-bin
   - gitui
   - glab
   - glim
   - gnome-calculator
   - gnome-keyring
+  - gnome-online-accounts
   - gnome-text-editor
   - go
   - grim
   - grimblast-git
-  - gruvbox-gtk-theme-git
+  - grub
   - gtk4
   - gum
   - gvfs
   - helm
   - heroic-games-launcher-bin
   - htop
-  - hunspell-pt-br
   - hyfetch
   - hypridle
+  - hyprland-protocols
   - hyprlock
   - hyprpicker
-  - hyprshade
-  - icat
   - imagemagick
   - imv
   - innoextract
   - jdk8-openjdk
   - jq
   - k9s
-  - kdeconnect
   - kdenlive
-  - keyb
-  - kind
   - kitty
   - kitty-shell-integration
   - kitty-terminfo
@@ -94,39 +89,29 @@ pacotes:
   - kubectl
   - kubetui
   - kustomize
-  - lazydocker
   - lazygit
-  - lazyjournal
   - lib32-libffi
   - lib32-libpulse
+  - lib32-nvidia-utils
   - lib32-openal
   - libadwaita
   - libffi
+  - libfm-qt
   - librsync
   - libvdpau-va-gl
-  - linux-cachyos
-  - linux-cachyos-headers
-  - linux-firmware
   - lldb
-  - localsend-bin
   - loupe
   - luarocks
   - man-db
   - man-pages
-  - maplemono-nf-cn-unhinted
   - marksman
-  - matugen-bin
   - mesa-utils
-  - millennium
-  - minecraft-launcher
   - mission-center
   - mkdocs
   - mkdocs-material
   - mpv
   - nautilus
-  - nautilus-open-any-terminal
   - ncdu
-  - neovim
   - network-manager-applet
   - nm-connection-editor
   - noto-fonts-cjk
@@ -141,39 +126,34 @@ pacotes:
   - nwg-look
   - obs-studio
   - obsidian
-  - olympus
   - onefetch
   - onlyoffice-bin
   - openssl-1.1
   - openvpn
+  - os-prober
   - otf-font-awesome
   - packagekit-qt6
-  - pacseek
   - papirus-icon-theme
   - paru
-  - paru-debug
   - pavucontrol
-  - peazip
   - pipewire
   - pipewire-pulse
-  - pkhex-bin
   - pokemon-colorscripts-git
   - poketex
   - polkit-gnome
-  - polymc-git
-  - posting
   - power-profiles-daemon
   - protonplus
-  - python-ansibug
+  - python-aiohttp-oauthlib
   - python-beautifulsoup4
   - python-debugpy
   - python-evdev
   - python-flask
   - python-flask-cors
-  - python-folium
   - python-gobject
+  - python-httplib2
   - python-linkify-it-py
   - python-matplotlib
+  - python-oauth2client
   - python-pandas
   - python-pip
   - python-screeninfo
@@ -192,34 +172,29 @@ pacotes:
   - rust
   - ryujinx
   - sddm
-  - shell-color-scripts-git
+  - shellcheck
+  - shfmt
+  - sudo
+  - sops
   - silicon
   - slurp
   - smartmontools
   - socat
-  - spicetify-cli
-  - spicetify-themes-git
-  - spotify
   - sshs
   - starship
   - steam
-  - steamcmd
   - stow
   - strace
-  - sudachi-bin
   - superfile
   - swaync
   - swww
-  - tdf
   - tealdeer
   - tectonic
   - telegram-desktop
-  - terminal-rain-lightning
   - testdisk
   - thefuck
   - tree
   - tree-sitter-cli
-  - ttc-monocraft
   - ttf-dejavu
   - ttf-fira-code
   - ttf-fira-sans
@@ -230,30 +205,167 @@ pacotes:
   - unrar
   - uv
   - uwsm
-  - vencord
+  - vdirsyncer
   - ventoy-bin
   - virtualbox
   - vlc
   - vulkan-radeon
-  - walker-bin
-  - wallust
+  - vulkan-tools
   - waybar
   - waypaper
   - wget
   - wine
   - wine-mono
-  - winetricks
   - wlogout
-  - wlr-layout-ui
   - wlr-randr
   - xclip
   - xdg-desktop-portal-gtk
   - xf86-video-ati
-  - yay-git
-  - yay-git-debug
   - yazi
   - zen-browser-bin
   - zk
   - zoxide
-  - zsh
+  - yq
+  - rio
+  - kde-gtk-config
+  - tcpdump
+  - python-passlib
+  - gemini-cli
+  - qt5ct
+  - wireguard-tools
+  - xdg-desktop-portal-hyprland
+  - gtk-vnc
+  - python-regex
+  - inetutils
+  - python-omegaconf
+  - remmina
+
+baseOverride:
+  - linux-cachyos-headers
+  - linux-cachyos
+  - linux-firmware
+  - base
+  - base-devel
+  - networkmanager
+  - openssh
+  - git
+  - ansible
+  - neovim
+  - vim
+  - vi
+  - nano
+
+aurHelpers:
+  - yay
+  - paru
+
+aurPackages:
+  - 1password-cli
+  - b-coin
+  - aurroamer
+  - aurutils
+  - bibata-cursor-theme-bin
+  - catppuccin-gtk-theme-mocha
+  - cbonsai
+  - citra-appimage
+  - cmatrix-git
+  - evince-no-gnome
+  - gnu-netcat
+  - gruvbox-gtk-theme-git
+  - hunspell-pt-br
+  - hyprshade
+  - icat
+  - kind
+  - localsend-bin
+  - maple-mono-nf-cn
+  - matugen-bin
+  - millennium
+  - minecraft-launcher
+  - modrinth-app
+  - nautilus-open-any-terminal
+  - paru-debug
+  - peazip
+  - posting
+  - python-ansibug
+  - python-folium
+  - rarsm
+  - remmina-plugin-ultravnc
+  - shell-color-scripts-git
+  - spicetify-cli
+  - spotify
+  - sudachi-bin
+  - tdf
+  - ttc-monocraft
+  - tuios-bin
+  - velero-bin
+  - vencord
+  - wallust
+  - wlr-layout-ui
+  - yaru-icon-theme
   - zsh-abbr
+
+users:
+  - name: "dexmachina"
+    shell: "zsh"
+    groups:
+      - wheel
+      - input
+
+secrets:
+  sec_mode: sops
+  sec_file: "/home/dexmachina/projetos/Ch-aOS/Ch-aronte/Ch-obolos/dex/secrets_custom-plug-dex.yml"
+  sec_sops: "/home/dexmachina/projetos/Ch-aOS/Ch-aronte/Ch-obolos/dex/sops-config.yml"
+
+bootloader: grub
+partitioning:
+  disk: "/dev/sdb"
+  partitions:
+    - name: chronos
+      important: boot
+      size: 1GB
+      mountpoint: "/boot"
+      part: 1
+      type: vfat
+
+    - name: Moira
+      important: swap
+      size: 4GB
+      part: 2
+      type: linux-swap
+
+    - name: dionysus_root
+      important: root
+      size: 46GB
+      mountpoint: "/"
+      part: 3
+      type: ext4
+
+    - name: dionysus_home
+      important: home
+      size: 100%
+      mountpoint: "/home"
+      part: 4
+      type: ext4
+
+repos:
+  managed:
+    core: true
+    extras: true
+    unstable: false
+
+  third_party:
+    - name: cachyos-core-v3
+      include: /etc/pacman.d/cachyos-v3-mirrorlist
+      distribution: "arch"
+
+    - name: cachyos-extra-v3
+      include: /etc/pacman.d/cachyos-v3-mirrorlist
+      distribution: "arch"
+
+    - name: cachyos-v3
+      include: /etc/pacman.d/cachyos-v3-mirrorlist
+      distribution: "arch"
+
+    - name: cachyos
+      include: /etc/pacman.d/cachyos-mirrorlist
+      distribution: "arch"
