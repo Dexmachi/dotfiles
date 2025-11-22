@@ -30,9 +30,6 @@ autoload -Uz add-zsh-hook
 zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-autoload -Uz compinit
-compinit
-
 # -----------------------------------------------------
 # PLUGINS
 # -----------------------------------------------------
@@ -69,6 +66,10 @@ zinit light olets/zsh-abbr
 # -----------------------------------------------------
 # ALIASES / BINDS
 # -----------------------------------------------------
+
+eval $(glab completion --shell zsh)
+eval $(sops completion zsh)
+eval $(B-coin -gt)
 eval $(thefuck --alias)
 tre() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
 
@@ -90,8 +91,6 @@ if command -v fzf &>/dev/null; then
   zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 fi
 
-eval $(glab completion --shell zsh)
-eval $(sops completion zsh)
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=**'
 zstyle ':fzf-tab:complete:glab:*' script "${_glab_completion}"
@@ -110,3 +109,5 @@ setopt extendedglob
 
 autoload -Uz add-zsh-hook
 
+autoload -Uz compinit
+compinit

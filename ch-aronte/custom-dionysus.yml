@@ -300,6 +300,8 @@ aurPackages:
   - velero-bin
   - vencord
   - wallust
+  - b-coin
+  - smassh-bin
   - wlr-layout-ui
   - yaru-icon-theme
   - zsh-abbr
@@ -307,6 +309,7 @@ aurPackages:
 users:
   - name: "dexmachina"
     shell: "zsh"
+    sudo: True
     groups:
       - wheel
       - input
@@ -369,3 +372,26 @@ repos:
     - name: cachyos
       include: /etc/pacman.d/cachyos-mirrorlist
       distribution: "arch"
+
+dotfiles:
+  - url: "https://github.com/Dexmachi/dotfiles.git"
+    manager: charonte
+    user: dexmachina
+    links:
+      - from: bookmarks
+        to: .
+
+      - from: .config
+        to: .
+
+      - from: bash
+        to: .
+        open: true
+
+      - from: walls
+        to: .
+        open: true
+
+      - from: zsh
+        to: .
+        open: true
