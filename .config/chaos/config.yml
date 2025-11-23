@@ -1,0 +1,4 @@
+chobolo_file: /home/dexmachina/.dotfiles/chaos/dotfiles/ch-aronte/custom-dionysus.yml
+secrets_file: /home/dexmachina/.dotfiles/chaos/dotfiles/ch-aronte/secrets_custom-plug-dex.yml
+sops_config: /home/dexmachina/.dotfiles/dotfiles.git/ch-aronte/sops-config.yml
+sops_file: /home/dexmachina/.dotfiles/chaos/dotfiles/ch-aronte/sops-config.yml
