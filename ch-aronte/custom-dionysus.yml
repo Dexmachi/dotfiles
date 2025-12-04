@@ -1,5 +1,10 @@
 packages:
   - ansible-lint
+  - arch-install-scripts
+  - retroarch
+  - retroarch-assets-glui
+  - retroarch-assets-ozone
+  - retroarch-assets-xmb
   - hyprtoolkit
   - jrnl
   - prismlauncher
@@ -30,7 +35,6 @@ packages:
   - cython
   - deno
   - dotnet-sdk
-  - dotnet-runtime-bin
   - discover
   - docker
   - downgrade
@@ -236,8 +240,10 @@ packages:
   - xdg-desktop-portal-hyprland
   - gtk-vnc
   - python-regex
+  - jdk17-openjdk
   - inetutils
   - python-omegaconf
+  - gitlogue
   - remmina
 
 baseOverride:
@@ -261,7 +267,11 @@ aurHelpers:
 
 aurPackages:
   - 1password-cli
-  - b-coin
+  - chaos-dotfiles
+  - ch-aos
+  - dotnet-runtime-bin
+  - retroarch-assets-sounds
+  - ch-aronte
   - aurroamer
   - aurutils
   - bibata-cursor-theme-bin
@@ -300,7 +310,6 @@ aurPackages:
   - velero-bin
   - vencord
   - wallust
-  - b-coin
   - smassh-bin
   - wlr-layout-ui
   - yaru-icon-theme
@@ -375,7 +384,8 @@ repos:
 
 dotfiles:
   - url: "https://github.com/Dexmachi/dotfiles.git"
-    manager: charonte
+    pull: True
+    branch: "main"
     user: dexmachina
     links:
       - from: bookmarks
@@ -395,3 +405,22 @@ dotfiles:
       - from: zsh
         to: .
         open: true
+
+mirrors:
+  countries:
+    - "br"
+    - "us"
+  count: 25
+
+services:
+  - name: NetworkManager
+    dense_service: true
+
+  - name: bluetooth.service
+
+  - name: sshd
+
+  - name: nvidia
+    dense_service: true
+
+  - name: sddm.service

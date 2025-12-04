@@ -15,6 +15,6 @@ else
         echo "use o comando 'Hyprland' para rodar o hyprland"
     fi
 fi
-eval "$(zoxide init --cmd cd  zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
 

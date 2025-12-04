@@ -14,6 +14,8 @@ source "${XDG_DATA_HOME:-$HOME/.local/share}/zinit/bin/zinit.zsh"
 # -----------------------------------------------------
 # eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
+autoload -Uz compinit
+compinit
 autoload -Uz add-zsh-hook
 
 # eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/ml4w.toml)"
@@ -69,7 +71,6 @@ zinit light olets/zsh-abbr
 
 eval $(glab completion --shell zsh)
 eval $(sops completion zsh)
-eval $(B-coin -gt)
 eval $(thefuck --alias)
 tre() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
 
@@ -108,6 +109,3 @@ setopt hist_ignore_space
 setopt extendedglob
 
 autoload -Uz add-zsh-hook
-
-autoload -Uz compinit
-compinit
