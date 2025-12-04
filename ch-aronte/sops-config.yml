@@ -1,8 +1,0 @@
-# This was created by the Ch-aronte project
-creation_rules:
-  - path_regex: (.*)?secrets_.*\.yml$
-    pgp: >-
-      0DEE1E3B758249FCFC573913529E8F90A6D61355
-
-  - path_regex: .*\.local/share/chaos/ramblings/.*\.yml$
-    pgp: 0DEE1E3B758249FCFC573913529E8F90A6D61355
