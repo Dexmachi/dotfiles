@@ -1,3 +1,16 @@
 secrets_file: /home/dexmachina/.dotfiles/chaos/dotfiles/.config/chaos/secrets.yml
 chobolo_file: /home/dexmachina/.dotfiles/chaos/dotfiles/.config/chaos/custom-dionysus.yml
 sops_file: /home/dexmachina/.dotfiles/chaos/dotfiles/.config/chaos/sops-config.yml
+secret_providers:
+  default: bws.age
+  bws:
+    age_id: 70a30e5b-92b8-4be8-a3dd-b3bf00e2c208
+    gpg_id: 7ebfb741-2aa8-474e-a3d1-b3bf010b5aee
+    vault_id: 776dcc06-5fe4-497e-88a0-b3c101412272
+    project_id: 6e4176f5-faf2-4199-a19b-b3bd016085e3
+  bw:
+    organization_id: def0b785-842a-4ef4-a85a-b3ba0000080f
+    collection_id: a1abc960-54ea-4de4-a5c0-b3ba0000ab37
+    gpg_id: 538c7786-f0d2-4c51-93f3-b3bf010acd1f
+    age_id: 488195b3-d6a8-4433-b816-b3bf0109e47c
+    vault_id: e6a1d1d9-2ca4-4ebe-bde5-b3c101415513
