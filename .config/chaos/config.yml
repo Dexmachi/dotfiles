@@ -1,6 +1,6 @@
-secrets_file: /home/dexmachina/.dotfiles/chaos/dotfiles/.config/chaos/secrets.yml
-chobolo_file: /home/dexmachina/.dotfiles/chaos/dotfiles/.config/chaos/custom-dionysus.yml
-sops_file: /home/dexmachina/.dotfiles/chaos/dotfiles/.config/chaos/sops-config.yml
+secrets_file: /home/dexmachina/.config/chaos/secrets.yml
+chobolo_file: /home/dexmachina/.config/chaos/custom-dionysus.yml
+sops_file: /home/dexmachina/.config/chaos/sops-config.yml
 secret_providers:
   default: bws.age
   bws:
