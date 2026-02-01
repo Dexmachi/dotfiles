@@ -1,15 +1,13 @@
 return {
   {
-    -- Desativa o blink.cmp explicitamente
     "saghen/blink.cmp",
     enabled = false,
     optional = true,
   },
 
   {
-    -- nvim-cmp configurado manualmente
     "hrsh7th/nvim-cmp",
-    main = "lazyvim.util.cmp", -- importante para LazyVim integrar corretamente
+    main = "lazyvim.util.cmp",
     enabled = true,
     event = "InsertEnter",
     dependencies = {
@@ -101,7 +99,6 @@ return {
           })(...)
         end
       end
-      -- Cmdline config
       cmp.setup.cmdline("/", {
         mapping = cmp.mapping.preset.cmdline(),
         sources = { { name = "buffer" } },

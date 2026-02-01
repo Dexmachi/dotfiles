@@ -1,11 +1,13 @@
 secrets_file: /home/dexmachina/.config/chaos/secrets.yml
 chobolo_file: /home/dexmachina/.config/chaos/custom-dionysus.yml
 sops_file: /home/dexmachina/.config/chaos/sops-config.yml
+limani: chrima
 secret_providers:
   default: bws.age
   bws:
     age_id: 196d32ab-4194-479a-b23e-b3c70009da9c
     gpg_id: abee5306-83c9-43b8-a5b4-b3c6017f5e9c
+    my_ch_key: 52cb8cff-8708-4fe7-85ac-b3e100220871
     vault_id: 776dcc06-5fe4-497e-88a0-b3c101412272
     project_id: 6e4176f5-faf2-4199-a19b-b3bd016085e3
   bw:
