@@ -1,17 +1,16 @@
 local servers = {
   "clangd",
   "lua_ls",
-  "tsserver",
   "html",
   "cssls",
   "marksman",
   "bashls",
   "gopls",
+  "ruff",
   "ansiblels",
   "pyright",
   "jsonls",
   "eslint",
-  "asm_lsp",
 }
 
 local tools = {
@@ -21,6 +20,9 @@ local tools = {
   "black",
   "isort",
   "prettier",
+  "gofumpt",
+  "goimports-reviser",
+  "golines",
   "shellcheck",
   "flake8",
   "ansible-lint",
@@ -28,10 +30,17 @@ local tools = {
 
 return {
   {
-    "mason-org/mason.nvim",
-    opts = { ensure_installed = tools },
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = {
+      ensure_installed = vim.list_extend(vim.deepcopy(servers), tools),
+      auto_update = false,
+      run_on_start = true,
+    },
   },
-
+  {
+    "mason-org/mason.nvim",
+    config = true,
+  },
   {
     "mason-org/mason-lspconfig.nvim",
     opts = { ensure_installed = servers },
@@ -65,6 +74,16 @@ return {
         lspconfig[server].setup({ on_attach = on_attach })
       end
     end,
+  },
+
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        python = { "ruff_format", "ruff_fix", "ruff_organize_imports" },
+        go = { "gofumpt", "goimports-reviser", "golines" },
+      },
+    },
   },
 
   {

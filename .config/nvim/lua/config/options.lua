@@ -3,3 +3,10 @@
 -- Add any additional options here
 vim.opt.spell = true
 vim.opt.spelllang = { "pt_br", "en" }
+
+local opt = vim.opt
+
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.smartindent = true
