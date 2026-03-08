@@ -53,6 +53,8 @@ return {
           NormalFloat = { fg = "#a3c8f1", bg = "NONE" },
           FloatBorder = { fg = "#9dcff9", bg = "NONE" },
           FloatTitle = { fg = "#ff8ebd", bg = "NONE", style = { "bold" } },
+          CmpHoverNormal = { fg = "#93E1D4", bg = "#292628" },
+          Transparent = { bg = "NONE" },
           --          WinSeparator = { fg = "#ff6fa5" },
           --          LineNr = { fg = "#d38aa4", bg = "NONE" },
           CursorLineNr = { fg = "#f86ea7", style = { "bold" } },

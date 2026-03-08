@@ -1,4 +1,3 @@
-# This was created 
 creation_rules:
   - path_regex: (.*)?secrets.*\.yml$
     key_groups:

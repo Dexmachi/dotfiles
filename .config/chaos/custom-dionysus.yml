@@ -1,8 +1,18 @@
 packages:
   - ansible-lint
+  - perf
   - arch-install-scripts
+  - libtraceevent
+  - libpfm
+  - elfutils
   - retroarch
+  - turbostat
   - retroarch-assets-glui
+  - gst-plugin-va
+  - gst-plugins-bad
+  - oath-toolkit
+  - pulumi
+  - xorg-xhost
   - retroarch-assets-ozone
   - retroarch-assets-xmb
   - hyprtoolkit
@@ -27,7 +37,6 @@ packages:
   - calcurse
   - cava
   - chafa
-  - claude-code
   - cliphist
   - cmake
   - cpio
@@ -39,6 +48,7 @@ packages:
   - docker
   - downgrade
   - duf
+  - glm
   - dunst
   - efibootmgr
   - evtest
@@ -48,7 +58,6 @@ packages:
   - fd
   - ffmpegthumbnailer
   - figlet
-  - fish
   - flatpak
   - fuse2
   - fzf
@@ -73,7 +82,6 @@ packages:
   - gvfs
   - helm
   - heroic-games-launcher-bin
-  - htop
   - hyfetch
   - hypridle
   - hyprland-protocols
@@ -96,7 +104,6 @@ packages:
   - lazygit
   - lib32-libffi
   - lib32-libpulse
-  - lib32-nvidia-utils
   - lib32-openal
   - libadwaita
   - libffi
@@ -124,7 +131,6 @@ packages:
   - npm
   - ntp
   - nushell
-  - nvidia-dkms
   - nvidia-settings
   - nwg-dock-hyprland
   - nwg-look
@@ -147,6 +153,71 @@ packages:
   - polkit-gnome
   - power-profiles-daemon
   - protonplus
+  - proton-vpn-gtk-app
+  - age
+  - asciinema
+  - bcc
+  - bitwarden
+  - bitwarden-cli
+  - cachyos-st-config
+  - cups
+  - cups-filters
+  - dolphin-emu
+  - dotnet-runtime-bin
+  - electron36
+  - fwupd
+  - jujutsu
+  - glew
+  - gst-plugin-pipewire
+  - intel-ucode
+  - kooha
+  - lazyjj
+  - lib32-libdisplay-info
+  - libcupsfilters
+  - libnma-gtk4
+  - libnss_nis
+  - libppd
+  - libspng
+  - libwebsockets
+  - lprint
+  - mbedtls2
+  - miniupnpc
+  - networkmanager-openvpn
+  - networkmanager-vpn-plugin-openvpn
+  - nvidia-535xx-dkms
+  - pappl
+  - proton-vpn-daemon
+  - python
+  - python-bcc
+  - python-dbus-fast
+  - python-fido2
+  - python-gevent
+  - python-gnupg
+  - python-proton-core
+  - python-proton-keyring-linux
+  - python-proton-vpn-api-core
+  - python-proton-vpn-local-agent
+  - python-pycups
+  - python-pyopenssl
+  - python-sentry_sdk
+  - python-typer
+  - qpdf
+  - rbw
+  - rofi-rbw
+  - sfml
+  - system-config-printer
+  - systemd-resolvconf
+  - throttled
+  - traceroute
+  - ttf-hack
+  - ttf-jetbrains-mono
+  - ttyd
+  - vault
+  - vhs
+  - vulkan-intel
+  - wtype
+  - xf86-input-wacom
+  - zram-generator
   - python-aiohttp-oauthlib
   - python-beautifulsoup4
   - python-debugpy
@@ -211,7 +282,6 @@ packages:
   - uwsm
   - vdirsyncer
   - ventoy-bin
-  - virtualbox
   - vlc
   - vulkan-radeon
   - vulkan-tools
@@ -258,7 +328,7 @@ baseOverride:
   - ansible
   - neovim
   - vim
-  - vi
+  - ex-vi-compat
   - nano
 
 aurHelpers:
@@ -266,12 +336,23 @@ aurHelpers:
   - paru
 
 aurPackages:
+  - pinta
+  - diffnav
   - 1password-cli
-  - chaos-dotfiles
-  - ch-aos
-  - dotnet-runtime-bin
+  - asciinema-agg-bin
+  - bws-bin
+  - gobw-bin
+  - howdy-git
+  - k6-bin
+  - libinput-gestures
+  - linux-enable-ir-emitter
+  - lisgd
+  - pyinfra
+  - terminal-rain-lightning
+  - wvkbd
+  - protonvpn-cli-community
+  - protonvpn-applet
   - retroarch-assets-sounds
-  - ch-aronte
   - aurroamer
   - aurutils
   - bibata-cursor-theme-bin
@@ -281,7 +362,6 @@ aurPackages:
   - cmatrix-git
   - evince-no-gnome
   - gnu-netcat
-  - gruvbox-gtk-theme-git
   - hunspell-pt-br
   - hyprshade
   - icat
@@ -289,29 +369,19 @@ aurPackages:
   - localsend-bin
   - maple-mono-nf-cn
   - matugen-bin
-  - millennium
-  - minecraft-launcher
-  - modrinth-app
   - nautilus-open-any-terminal
-  - paru-debug
   - peazip
-  - posting
-  - python-ansibug
   - python-folium
   - rarsm
-  - remmina-plugin-ultravnc
   - shell-color-scripts-git
   - spicetify-cli
   - spotify
-  - sudachi-bin
-  - tdf
   - ttc-monocraft
   - tuios-bin
   - velero-bin
   - vencord
   - wallust
   - smassh-bin
-  - wlr-layout-ui
   - yaru-icon-theme
   - zsh-abbr
 
