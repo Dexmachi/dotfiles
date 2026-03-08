@@ -397,6 +397,22 @@ secrets:
   sec_mode: sops
   sec_file: "/home/dexmachina/projetos/Ch-aOS/Ch-aronte/Ch-obolos/dex/secrets_custom-plug-dex.yml"
   sec_sops: "/home/dexmachina/projetos/Ch-aOS/Ch-aronte/Ch-obolos/dex/sops-config.yml"
+  templates:
+  - from: templates/ssh_priv.j2
+    to: ".ssh/id_ed25519"
+    owner: dexmachina
+    mode: 0600
+    escape: False
+    vars:
+      - ssh
+
+  - from: templates/ssh_pub.j2
+    to: ".ssh/id_ed25519.pub"
+    owner: dexmachina
+    mode: 0600
+    escape: False
+    vars:
+      - ssh
 
 bootloader: grub
 partitioning:
