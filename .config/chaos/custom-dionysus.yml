@@ -337,6 +337,7 @@ aurHelpers:
 
 aurPackages:
   - pinta
+  - teleport-bin
   - diffnav
   - 1password-cli
   - asciinema-agg-bin
