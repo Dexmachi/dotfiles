@@ -8,7 +8,7 @@ local servers = {
   "gopls",
   "ruff",
   "ansiblels",
-  "pyright",
+  "basedpyright",
   "jsonls",
   "eslint",
 }
@@ -69,7 +69,10 @@ return {
 
       local lspconfig = require("lspconfig")
 
-      local on_attach = function(_, bufnr)
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.offsetEncoding = { "utf-16" }
+
+      local on_attach = function(client, bufnr)
         local map = function(mode, lhs, rhs, desc)
           vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, silent = true, desc = desc })
         end
@@ -78,11 +81,57 @@ return {
         map("n", "K", vim.lsp.buf.hover, "Hover")
         map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code action")
         map("n", "gi", vim.lsp.buf.implementation, "Implementation")
+        map("n", "<leader>cl", vim.lsp.codelens.run, "Run Code Lens")
+        map("n", "gr", require("telescope.builtin").lsp_references, "References")
+
+        if client.supports_method("textDocument/inlayHint") then
+          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        end
+
+        if client.supports_method("textDocument/codeLens") then
+          local codelens_group = vim.api.nvim_create_augroup("LSPCodeLens" .. bufnr, { clear = true })
+          vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+            buffer = bufnr,
+            group = codelens_group,
+            callback = function()
+              vim.lsp.codelens.refresh({ bufnr = bufnr })
+            end,
+          })
+        end
+
+        if client.supports_method("textDocument/formatting") then
+          map("n", "<leader>cf", function()
+            vim.lsp.buf.format({ bufnr = bufnr })
+          end, "Format")
+        end
       end
 
       for _, server in ipairs(servers) do
-        lspconfig[server].setup({ on_attach = on_attach })
+        if server ~= "basedpyright" then
+          lspconfig[server].setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+          })
+        end
       end
+
+      lspconfig.basedpyright.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+          basedpyright = {
+            typeCheckingMode = "basic",
+            analysis = {
+              inlayhints = {
+                variableTypes = true,
+                functionReturnTypes = true,
+                callArguments = true,
+                genericTypes = true,
+              },
+            },
+          },
+        },
+      })
     end,
   },
 
@@ -99,5 +148,23 @@ return {
   {
     "lark-parser/vim-lark-syntax",
     ft = "lark",
+  },
+
+  {
+
+    "filipdutescu/renamer.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("renamer").setup({})
+    end,
+    keys = {
+      {
+        "<leader>cr",
+        function()
+          require("renamer").rename()
+        end,
+        desc = "Rename Var",
+      },
+    },
   },
 }
