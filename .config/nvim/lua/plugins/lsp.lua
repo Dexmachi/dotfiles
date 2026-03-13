@@ -84,9 +84,9 @@ return {
         map("n", "<leader>cl", vim.lsp.codelens.run, "Run Code Lens")
         map("n", "gr", require("telescope.builtin").lsp_references, "References")
 
-        if client.supports_method("textDocument/inlayHint") then
-          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-        end
+        -- if client.supports_method("textDocument/inlayHint") then
+        --   vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        -- end
 
         if client.supports_method("textDocument/codeLens") then
           local codelens_group = vim.api.nvim_create_augroup("LSPCodeLens" .. bufnr, { clear = true })
