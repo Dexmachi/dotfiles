@@ -138,7 +138,6 @@ packages:
   - obsidian
   - onefetch
   - onlyoffice-bin
-  - openssl-1.1
   - openvpn
   - os-prober
   - otf-font-awesome
@@ -244,8 +243,8 @@ packages:
   - restic
   - ripgrep
   - rofi
-  - rust
   - ryujinx
+  - diffnav
   - sddm
   - shellcheck
   - shfmt
@@ -396,8 +395,6 @@ users:
 
 secrets:
   sec_mode: sops
-  sec_file: "/home/dexmachina/projetos/Ch-aOS/Ch-aronte/Ch-obolos/dex/secrets_custom-plug-dex.yml"
-  sec_sops: "/home/dexmachina/projetos/Ch-aOS/Ch-aronte/Ch-obolos/dex/sops-config.yml"
   templates:
   - from: templates/ssh_priv.j2
     to: ".ssh/id_ed25519"
