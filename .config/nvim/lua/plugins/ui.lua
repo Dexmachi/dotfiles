@@ -21,6 +21,10 @@ return {
           enabled = true,
         },
       },
+      render_modes = true,
+      anti_conceal = {
+        enabled = true,
+      },
       presets = {
         bottom_search = true,
         command_palette = true,

@@ -1,73 +1,25 @@
 return {
   {
-    "zk-org/zk-nvim",
-    dependencies = { "nvim-telescope/telescope.nvim" },
-    keys = {
-      {
-        "<leader>Z",
-        desc = "Zettelkasten",
-      },
-      {
-        "<leader>Zi",
-        ":ZkInsertLink<CR>",
-        mode = "n",
-        desc = "Inserir um link",
-      },
-      {
-        "<leader>Znn",
-        function()
-          local zk = require("zk")
-          local title = vim.fn.input("title: ")
-          if title ~= "" then
-            zk.new({ title = title })
-          end
-        end,
-        mode = "n",
-        desc = "nova nota zk",
-      },
-      {
-        "<leader>Zf",
-        function()
-          require("zk").pick_notes()
-        end,
-        mode = "n",
-        desc = "Listar notas",
-      },
-      {
-        "<leader>Zt",
-        function()
-          require("zk").pick_tags()
-        end,
-        mode = "n",
-        desc = "Tags ZK",
-      },
-    },
-
-    config = function()
-      local zk = require("zk")
-
-      zk.setup({
-        picker = "telescope", -- fzf, fzf_lua, etc
-        lsp = {
-          config = {
-            cmd = { "zk", "lsp" },
-            name = "zk",
-            filetypes = { "markdown" },
-          },
-          auto_attach = {
-            enabled = true,
-          },
-        },
-      })
-    end,
-  },
-
-  {
     "MeanderingProgrammer/render-markdown.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the mini.nvim suite
+    event = "VeryLazy",
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
-    opts = {},
+    opts = {
+      bullet = {
+        icons = {
+          "✸",
+          "✿",
+          "◉",
+          "○",
+        },
+        right_pad = 1,
+      },
+      heading = {
+        sign = false,
+        icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
+      },
+    },
   },
 
   {
