@@ -7,6 +7,16 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     opts = {
+      views = {
+        hover = {
+          win_options = {
+            winhighlight = {
+              Normal = "DexHoverNormal",
+              FloatBorder = "FloatBorder",
+            },
+          },
+        },
+      },
       lsp = {
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,

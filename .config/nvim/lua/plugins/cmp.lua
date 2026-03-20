@@ -78,12 +78,12 @@ return {
         window = {
           completion = cmp.config.window.bordered({
             border = "rounded",
-            winhighlight = "Normal:CmpHoverNormal,FloatBorder:CmpHoverNormal",
+            winhighlight = "Normal:DexHoverNormal,FloatBorder:CmpHoverNormal",
             winblend = 0,
           }),
           documentation = cmp.config.window.bordered({
             border = "rounded",
-            winhighlight = "Normal:CmpHoverNormal,FloatBorder:CmpHoverNormal",
+            winhighlight = "Normal:DexHoverNormal,FloatBorder:FloatBorder",
             winblend = 0,
           }),
         },
@@ -94,13 +94,7 @@ return {
         },
       })
 
-      vim.lsp.handlers["textDocument/hover"] = function(...)
-        if vim.api.nvim_get_mode().mode ~= "i" then
-          return vim.lsp.with(vim.lsp.handlers.hover, {
-            border = "rounded",
-          })(...)
-        end
-      end
+      vim.lsp.handlers["textDocument/hover"] = function(...) end
       cmp.setup.cmdline("/", {
         mapping = cmp.mapping.preset.cmdline(),
         sources = { { name = "buffer" } },

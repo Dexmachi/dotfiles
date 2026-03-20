@@ -74,15 +74,16 @@ return {
       })
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
         border = "rounded",
+        winhighlight = "Normal:LspHover",
       })
 
       vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
         border = "rounded",
+        winhighlight = "Normal:LspHover",
       })
       local lspconfig = require("lspconfig")
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities.offsetEncoding = { "utf-16" }
 
       local on_attach = function(client, bufnr)
         local map = function(mode, lhs, rhs, desc)
@@ -91,7 +92,7 @@ return {
 
         map("n", "gd", vim.lsp.buf.definition, "Definition")
         map("n", "K", function()
-          vim.lsp.buf.hover({ border = "rounded" })
+          vim.lsp.buf.hover({ border = "rounded", winhighlight = "Normal:LspHover" })
         end, "Hover")
         map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code action")
         map("n", "gi", vim.lsp.buf.implementation, "Implementation")
