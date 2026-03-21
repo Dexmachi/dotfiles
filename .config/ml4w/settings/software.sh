@@ -1,1 +1,1 @@
-$(cat ~/.config/ml4w/settings/terminal.sh) --title-placeholder dotfiles-floating -e pacseek
+$(cat ~/.config/ml4w/settings/terminal.sh) --title dotfiles-floating -e pacseek
