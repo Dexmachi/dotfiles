@@ -16,12 +16,12 @@
 @import '../../colors.css';
 @define-color blur_background @blur_background;
 @define-color backgroundlight #FFFFFF;
-@define-color backgrounddark @surface_container_lowest;
+@define-color backgrounddark @on_primary_fixed;
 @define-color workspacesbackground1 #FFFFFF;
 @define-color workspacesbackground2 #CCCCCC;
 @define-color workspacesbackground3 #FDB302;
 @define-color bordercolor #FFFFFF;
-@define-color textcolor1 @on_primary;
+@define-color textcolor1 @primary;
 @define-color textcolor2 #000000;
 @define-color textcolor3 #FFFFFF;
 @define-color iconcolor #FFFFFF;
@@ -51,7 +51,7 @@ window#waybar {
  * ----------------------------------------------------- */
 
 #workspaces {
-  background: @surface_container_lowest;
+  background: @backgrounddark;
   margin: 3px 1px 3px 1px;
   border-radius: 10px;
   border: 1px solid black;
@@ -66,17 +66,17 @@ window#waybar {
   margin: 6px 6px;
   border-radius: 15px;
   border: 0px;
-  color: @on_primary;
+  color: @primary;
   transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.empty {
-  color: @on_tertiary;
+  color: @inverse_primary;
 }
 
 #workspaces button.active {
-  color: @surface_container_lowest;
-  background: @on_primary;
+  color: @on_primary;
+  background: @primary;
   border-radius: 15px;
   min-width: 15px;
   transition: all 0.3s ease-in-out;
@@ -90,8 +90,8 @@ window#waybar {
 }
 
 #workspaces button:hover {
-  color: @surface_container_lowest;
-  background: @on_tertiary;
+  color: @on_primary;
+  background: @primary;
   border-radius: 15px;
 }
 
@@ -297,8 +297,8 @@ window#waybar.empty #window {
 }
 
 #custom-updates.red {
-  background-color: #dc2f2f;
-  color: #ffffff;
+  background-color: @error;
+  color: @on_error;
 }
 
 /* -----------------------------------------------------
@@ -434,8 +434,8 @@ window#waybar.empty #window {
 }
 
 #battery.critical:not(.charging) {
-  background-color: #f53c3c;
-  color: @textcolor3;
+  background-color: @error;
+  color: @on_error;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;

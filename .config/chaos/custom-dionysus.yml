@@ -1,7 +1,9 @@
+
 packages:
   - ansible-lint
   - perf
   - arch-install-scripts
+  - lazydocker
   - libtraceevent
   - libpfm
   - elfutils
@@ -336,8 +338,10 @@ aurHelpers:
 
 aurPackages:
   - pinta
+  - gittop
   - teleport-bin
-  - diffnav
+  - strace-tui-bin
+  - micasa-bin
   - 1password-cli
   - asciinema-agg-bin
   - bws-bin
@@ -364,6 +368,8 @@ aurPackages:
   - gnu-netcat
   - hunspell-pt-br
   - hyprshade
+  - openssl-1.1
+  - otf-departure-mono
   - icat
   - kind
   - localsend-bin
@@ -396,7 +402,7 @@ users:
 secrets:
   sec_mode: sops
   templates:
-  - from: templates/ssh_priv.j2
+  - from: ssh_priv.j2
     to: ".ssh/id_ed25519"
     owner: dexmachina
     mode: 0600
@@ -468,7 +474,7 @@ repos:
 
 dotfiles:
   - url: "https://github.com/Dexmachi/dotfiles.git"
-    pull: True
+    pull: true
     branch: "main"
     user: dexmachina
     links:
@@ -508,3 +514,9 @@ services:
     dense_service: true
 
   - name: sddm.service
+
+  - name: proton
+    dense_service: true
+
+  - name: throttled
+    dense_service: true
