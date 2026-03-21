@@ -86,7 +86,7 @@ window#waybar {
   margin: 0px 13px 0px 0px;
   padding: 0px;
   font-size: 18px;
-  color: @backgrounddark;
+  color: @primary;
 }
 
 #workspaces button:hover {
@@ -270,7 +270,7 @@ window#waybar.empty #window {
   margin: 0px 20px 0px 0px;
   padding: 0px;
   font-size: 18px;
-  color: @backgrounddark;
+  color: @primary;
 }
 
 /* -----------------------------------------------------
