@@ -193,7 +193,7 @@ window#waybar.empty #window {
 #custom-quicklink10,
 #custom-waybarthemes {
   margin-right: 16px;
-  color: @backgrounddark;
+  color: @primary;
   font-size: 18px;
   font-weight: bold;
   opacity: 0.8;
