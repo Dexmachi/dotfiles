@@ -1,0 +1,32 @@
+title: 4
+o4l: ENC[AES256_GCM,data:fGEsDowQD0gQ8ig=,iv:R23gqaJwm+Vq4KWzXHjRjMdbM/i96eUOi2dvGOyiyy8=,tag:4OVmJu44MVsqHdLvquTMdg==,type:str]
+gn4: ENC[AES256_GCM,data:EUTSLA==,iv:0rP4z5Xng0hDi8CckI9PmoQI3wYal5Xh71lFw9yAzIE=,tag:46zCJgT8RKjt/Db6u6D8yg==,type:str]
+s-i: ENC[AES256_GCM,data:Y8pcArQccNiRkWTQeP3Gog==,iv:LTC5QFC9GBNZyk/3yPsxbtao7AErWURMVY9wxomFeDA=,tag:5Gi+VW+b4eP02iYjxalt0g==,type:str]
+-4k: ENC[AES256_GCM,data:Ziyrs9jhcBI=,iv:DuTqhnl7VpcuzsYZH1XAOxNyZFk3L9EkLrczl+Gj/Ck=,tag:kfz7Ix4V8KPyFx9pJO1LSQ==,type:str]
+sops:
+    age:
+        - recipient: age1mse4sc2kmk59plkka3swwcrslq2gf55s6ej2edx9tk5cx9gn5a7qq09qmk
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBVZEtkeGF3WkRVdjNxR2pR
+            UWh4T1dlaXB3SGF4TUFIc2N1c0NLQWFlTFFRCkJXU0JDT29rVmJyWHA3WFZqSkJV
+            c2c3dTdjUkplU2VtOXd5SG92cm9nUU0KLS0tIEp1cjR0MlJZSGk3UnNSM3h3N0t0
+            VG5QUjV1T21WSDZUaEdIOUxrcisyaEUKy0ph+oUvZYR8IFL9pdqdbsuukRJm5vGF
+            o826UoZkq9LWt6DBGBsne5SakL8Ax5CmCUQoTxf1D9PK8IgohzpK6A==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-03-25T15:56:30Z"
+    mac: ENC[AES256_GCM,data:bcFiKduUHzC4xmgs+pKZzSj87iuCEtb3S7z+JHd/g6mX+LVDWCy+uzxT4YjXHmoKCzfkHw3L8YniJbx6lS3iyfCPUEJIR5U0qImaA7+cQCe95Bf2Y7K+32Aa+G8dblvlj0Dv74DhF0+VO8zOHWQtmwO3XXkjFaJX0MxFpbfbO90=,iv:KcvY/6GwG2c1tY5xnUkfHfMsFvE8q0VhH9XDUJIXrmk=,tag:swA+eXky1IVb4LjheT0eaQ==,type:str]
+    pgp:
+        - created_at: "2026-03-25T15:56:30Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DydTG8E33JcgSAQdAQ9jlYVPU3jLVqvlVRQzlag0253qF4AFYB7B4QT9kJ3Yw
+            0z/Axbg8yGFMqeMRtCWkzct0u21wXaW1T+AqXmNOQL6hZEKPMYmoQSH3wL90wYnx
+            0l4Bg/nCE7QB9RItSpS0dZ8WELlwmsJBkFwUrYhruyrwIcz7lwS/Ee6L6t9MBnEo
+            un+cKnkCpkcEEa3JFGI5VBo3oLX9HUFFpH3Jgr+7kEjFBCVtJ2znou0usqXglzC3
+            =FQEy
+            -----END PGP MESSAGE-----
+          fp: 0DEE1E3B758249FCFC573913529E8F90A6D61355
+    encrypted_regex: ^(o4l|gn4|s-i|-4k)$
+    version: 3.12.2

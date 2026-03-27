@@ -1,0 +1,5 @@
+title: team-clone
+concept: permitir o cloning de um repo de time diretamente do chaos
+what: Ele tem que clonar o repo -> fazer o symlink em ~/.local/share/chaos/teams/, pra fazer isso legal, vai precisar de um .chaos no time pra falar qual time ele é
+why: Pra facilitar o onboarding
+maybe: Trocar o chaos init team pra criar o time na pasta atual + criar um .chaos pra facilitar a criação? se n tiver um .git, ele dá git init

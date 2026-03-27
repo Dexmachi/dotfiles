@@ -1,0 +1,32 @@
+title: dataclass
+concept: Dataclasses para desacoplar args
+what: |
+  Básicamente: pra desacoplar `args` e poder criar uma API para o Ch-aOS, eu preciso desacoplar o Ch-aOS de args, pra fazer isso, eu preciso
+  criar "dataclasses" que vão ser o novo método de empacotamento de dados, vai ser quase a mesma estrutura, mas com menos refatoramento
+
+  O maior problema, contúdo, vai ser gerenciar o sistema de Providers e decrypt_secrets, que são super dependentes de args...
+  Pra gerenciar Providers, eu precisaria criar uma forma de gerenciar eles de forma automatizada... de alguma forma...
+scripts:
+  python: |
+      # Exemplo para o comando 'apply'
+      from dataclasses import dataclass
+
+      @dataclass
+      class ApplyOptions:
+          tags: list[str]
+          dry: bool
+          ikwid: bool
+          logbook: bool
+          # ... outros campos
+
+      # em cli.py
+      def handleApply(args, Console):
+        apply_options = ApplyOptions(
+            tags=args.tags,
+            dry=args.dry,
+            ikwid=args.i_know_what_im_doing,
+            logbook=args.logbook,
+            # ...
+        )
+        # ...
+        handleOrchestration(apply_options, ...)

@@ -1,0 +1,32 @@
+title: 5
+e-: ENC[AES256_GCM,data:uf8UDRMg/W/1M/0=,iv:ObCHBOu2cQUkSKD8Owe9yNHNjW9wwgB5kgNsdoUyp7E=,tag:zoMZYUCHs+PtxXIk/KvqrA==,type:str]
+lint-5: ENC[AES256_GCM,data:ZgLpew==,iv:7Kv8aBiAmfXNk5EoIV0GZekOvS3Y67+SA/fNmwAkkX4=,tag:hRaq+PJTxz1ptEgD/ZY0Yw==,type:str]
+se-521i: ENC[AES256_GCM,data:D2a/2A==,iv:V2/AEhQ5IDdX0dYDS4vUbttZD2zxkr+lXeODlMs8t6U=,tag:TKKOXU/W4pxSb/hm278eoA==,type:str]
+ph5hfe: ENC[AES256_GCM,data:PQ2+BOloQnc=,iv:rQAbfuZNz+qJfgCUhM+7amKSVSfq199V7XNYAttEzJI=,tag:nk69Tf7vVCA16sggHAHl1Q==,type:str]
+sops:
+    age:
+        - recipient: age1mse4sc2kmk59plkka3swwcrslq2gf55s6ej2edx9tk5cx9gn5a7qq09qmk
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA5YlQzTjB1WHhwME1JOFpZ
+            UVB3eFlPR0lYb0pBdnlwa0RHM09jNVNxVlFBClFRMmIvcWYwNll3cW5nYnpBbmc4
+            RlpsMEx3V253bjdjRHFjWWowWmJNYk0KLS0tIGpORldlazVpek5BcWF4OGVocC9Q
+            SG5WcFFLayswb2dMTHhMenZvSGs5WTQKwbDKngahH5yF8O4xz65RJ7V45T73tE+Z
+            NTNF1gI/bWmgtxVW6keuAvwweeOWdr9zmp6htFPZmOTd+Yd6AvmjDQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-03-25T15:56:32Z"
+    mac: ENC[AES256_GCM,data:ALBhvvCpE0pGLex/vlzBE7otPmoxESDYaootClNRz+A5dAlzERTouRKCE+XFG1HmjY3FnlRv8hhQUvyNYCBFIMKvXadO68MQ70y9qI2U4D3famaWlka+2Yv+PZziI60p+qxZbojsPcxFqJb9CEC3l9BgxoQ7L42uGTzdjKeTOK8=,iv:cu1pJI5S0BDxqyUzYvxBtsjTpGY69/xgUPBeenzgnuk=,tag:aHNhFhE3DIO02awhLK6OMw==,type:str]
+    pgp:
+        - created_at: "2026-03-25T15:56:32Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DydTG8E33JcgSAQdAXT/YDXGGAqr7yMfrQxjWO7g6zWrgfLYHFOgYslMvslcw
+            NCjd/bzbGbOFebH8+GiispvgN3D2FVo9Kxz/ZiovSBB7PVbMkzHuDzk/2Q37t6Go
+            0l4BEOBvRKKeILsfP236Ix0yzEv62TSY6hS5VnO1Ic388asCj2oTfgGxJQDeJfJJ
+            ihNCZcpFr7dwlRKUWRm+xA+OMEr5hl92aSn8bsE/QjOMu+saJZbj3C/zX6It8zSX
+            =WlcQ
+            -----END PGP MESSAGE-----
+          fp: 0DEE1E3B758249FCFC573913529E8F90A6D61355
+    encrypted_regex: ^(e-|lint-5|se-521i|ph5hfe)$
+    version: 3.12.2

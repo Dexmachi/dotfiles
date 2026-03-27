@@ -1,0 +1,37 @@
+title: eda2
+tags:
+    - lista
+    - tags
+concept: null
+what: ENC[AES256_GCM,data:Xj/ZTIE3,iv:ZqNLTCPgy47D+MmMmQDSH35omgrCvoHqjN2FmAaChjw=,tag:51J7VkmTJUsUhOWD3J+MPg==,type:str]
+why: null
+how: null
+scripts: null
+sops:
+    shamir_threshold: 1
+    age:
+        - recipient: age1mse4sc2kmk59plkka3swwcrslq2gf55s6ej2edx9tk5cx9gn5a7qq09qmk
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBKTG9kRDc0aUxPcU1pQndm
+            Qzh6TEpSTUtsUVFoODBUbXRmRWFlUFBiY1FjCkJPa3gyTW5mTDJadklBeExvZlNK
+            TWlWdCtiTFpCamswTEQ0eHo3dGphdUEKLS0tIFUxaWdDTWpHS1MxRjNjMmlWSW1U
+            RGNpekoyM3FHY1FVK1pMbHJrcjdCS2cK8Ath3qsTDZ8SwDYfXYtnc+nwA1P5dWh8
+            SRQmpuFRcf5gkVhDeX4ybqn0qYy9YIZuIyzPGKzqV2Ya+utwO10Giw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-12-12T16:22:25Z"
+    mac: ENC[AES256_GCM,data:AWnOdYexK3E6GY4csCkyqOKO/JzDMRL6bx9rGrtlXryqozesPcpO5Q7QedWlJDnAYsZSfNCB0G553McLfousZUOzdV7UFXw9AWDhIE3PKNPCobWgTkPBWDWTLpXv6Y2oB5H4w9HAisbyhMrf2bKW+GeU+5rd+ETz5EqSpYRLQm8=,iv:ckGqQsQfg/RsFqPEjUhTVEGUnhmhgni/PuMMrNDF+PE=,tag:8ieqpr6DZRnaBeAY7W0KjA==,type:str]
+    pgp:
+        - created_at: "2026-01-03T00:36:49Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DydTG8E33JcgSAQdAujWejHfdamyUwjgP6feX9MxawT79BcCVlOmb+tNkHC4w
+            KTmSOnYEluLIP9NIHmEkbJs0p7074yqWvuSQWB9iRDEgNjtBz+K+LwVIJjOsCVFq
+            0l4BU4VhjtalNePaihafk6YT8ZdlTUBxdkkMcCHB/YqAQ60Nr6MAPVrWUpEJPb7c
+            ecyiLJkYr3F6dC4DJjP/iizlS65FZLqL8SzT3uUCIvK8I0blyBjOGXLoTaDoRuOD
+            =JDDE
+            -----END PGP MESSAGE-----
+          fp: 0DEE1E3B758249FCFC573913529E8F90A6D61355
+    encrypted_regex: ^(what|why|how|scripts)$
+    version: 3.11.0

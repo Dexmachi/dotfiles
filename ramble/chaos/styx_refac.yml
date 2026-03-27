@@ -1,0 +1,5 @@
+title: styx_refac
+concept: Refatorar o Styx
+what: Refatorar o Styx pra ser, essêncialmente, um proxy do próprio PIP, permitindo gerenciamento de dependências (sem gerenciamento de versão para evitar problemas de versionamentos maliciosos.)
+why: Permitirá uma forma segura, gerenciada e fácil de manter do Styx, com resolução de dependências builtin de graça.
+how: N sei como vou gerenciar a verificação de SHA256, mas seria foda.

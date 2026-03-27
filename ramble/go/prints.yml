@@ -1,0 +1,10 @@
+title: prints
+tags:
+  - learning
+  - go
+concept: PRINTS NÃO SÃO PRINTS
+what: |
+      Mano, por algum motivo divino, prints em Go não são (sempre) prints... fmt.Fprinf é um printf que MANDA A PRAGA DA STRING PRA UM WRITTER,
+      o que significa que eu posso meter um &minhaVar e gg, eu consigo resettar minhaVar, mto foda, Sprintf _retorna_ essa string resultante, o que significa que é um 'f"{minhaVar}"'
+
+      pqp, adorei Go

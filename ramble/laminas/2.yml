@@ -1,0 +1,32 @@
+title: 2
+nome-2: ENC[AES256_GCM,data:YLpXZM4iPXkPgoYwOTESySc/JVYPssVSmyrGj9R9d4E6vTO5nk7s/dDc0uPQHCASnkHloxT/MuMVPFZyUcrj2/gT/vv7DPOMxjHAFzts0CV/CIGaSqYjguI13SDQjLF+jdvBhCmIpyIFBTDrsjwhrIM8ckI+lGGBydaI,iv:xLFLOOGw+Pyxn8NeTmUjWuE7bDMXutRSSFZuw+xbfyk=,tag:QeXvGtgkhpIeXUv5M+adng==,type:str]
+l-2: ENC[AES256_GCM,data:MoXKPQ==,iv:PIrWvdgR591DqN09Wvz/3xGAMOGuN7P1OXEb/vxi6yc=,tag:Q+3w74f11BfxoWCxVNT1RQ==,type:str]
+nh-2: ENC[AES256_GCM,data:4g63fivIcFv/MZolLE7z8Q==,iv:3umd7keWJxNptD7xnuQTb1UuKwIj9/K+H4zALv9nh20=,tag:VdgNFarqIyToJgn85WCK3w==,type:str]
+i-2: ENC[AES256_GCM,data:rOK7+B6mD2M=,iv:a5WrLFUKPelgXrR4kEm4z0ua6jVPnGWYrpAPsF8nq5E=,tag:fifziRrm5nctGQxzWtajMw==,type:str]
+sops:
+    age:
+        - recipient: age1mse4sc2kmk59plkka3swwcrslq2gf55s6ej2edx9tk5cx9gn5a7qq09qmk
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBkblJnVTYrbzdZVHlRTEti
+            VGdhT1dpenlKR0FuZk1tSFpGMVRaNjF6R2lJCmZGT2pOeUpZblB1eE5FM2NlbmZx
+            bHByTjE0RkwwZ0wvbGNkQTE5UzVUQ1kKLS0tIGZFaVZsWUJZZW0wSzMxM2tBNjFt
+            dU1FM3Y3c3Vxa0NCaEJZeGtZNHFjQWMKn8DRDLQImuinrNBJuMAm2HRz6TE7E3U0
+            MyM9XDE0GaSRZ/oWyTMqJgHJQ/cJl3q5n4oNuRiCDz0U2aPgjUKx/A==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-03-25T15:56:27Z"
+    mac: ENC[AES256_GCM,data:MvUciRTWTsQqUXNl9w6300OCw0zsXPKSIRxl9/9bb0KxYuQ/4VnS55t9oJwYtE9TAMxAQeh0sYmk/fNlPW6sKy0I8X3ECLiduon/0ot523a2GP/60oRF2FaLSmE+ObdNoQphd1vT7ghYgZonxhdsVPF79E1xJvlo+o/bnMnOdwE=,iv:L+CqZpeuo6XHR3axaMGq30Yxcc9zKtxNiBM0pb3cgDg=,tag:qMHlCZPl2jKzUov//DpHIg==,type:str]
+    pgp:
+        - created_at: "2026-03-25T15:56:27Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DydTG8E33JcgSAQdAjM36iGjrjdU2GpA71nvpKuOPyYbJmZq5E2xqIZmcS1cw
+            Yz7UB/aoySydZxtG+QoTwyYGTZpMbodkq9k740xEIyqmn5c2D1ApykfGa+v11AXO
+            0l4BliOfq8zGHk5RyE2iNHFGuAfOZzP+LYS4HvbdUXcQ0WmogN9VIGu3bZ4R5SrS
+            4GR7p8A7sDOobhzS3eER3BQ5aOfhKhZYp0fio7laPvT+Vm/Q0acM+/1y9IaVF5fo
+            =bepO
+            -----END PGP MESSAGE-----
+          fp: 0DEE1E3B758249FCFC573913529E8F90A6D61355
+    encrypted_regex: ^(nome-2|l-2|nh-2|i-2)$
+    version: 3.12.2

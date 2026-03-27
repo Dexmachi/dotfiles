@@ -1,0 +1,18 @@
+title: API
+concept: Desacoplar o Ch-aOS da CLI
+what: |
+  Básicamente: a lógica de getting vai ter que ser a mesma da API, mas a CLI vai precisar usar a mesma lógica pra fazer os tratamentos necessários para que
+  o sistema funcione da mesma forma em ambos o CLI e a API
+
+  Isso vai vir só depois do desacoplamento de args via dataclasses.
+
+  Nota: para operações que retornam None, eu preciso fazer elas retornarem um objeto de result
+
+scripts:
+  python: |
+      @dataclass
+      class OperationResult:
+          success: bool
+          message: str # Mensagem amigável para humanos (para o CLI)
+          details: Optional[Dict[str, Any]] = None # Dados estruturados para máquinas (para a API/TUI)
+          error: Optional[str] = None # Mensagem de erro, se houver

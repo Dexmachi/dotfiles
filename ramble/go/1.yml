@@ -1,0 +1,29 @@
+title: sobre detailContent
+tags:
+  - learning
+  - go
+what: |
+      Ok, isso aqui significa "detailContent = uma string que,
+
+      no seu início vem o título (com estilo rich)
+
+      no seu meio vem a string acumulada
+
+      e no final vem a hist (com estilo rich)"
+
+      Interessantemente, "list" não é (exatamente) uma lista, se liga: "var list strings.Builder"
+      Isso significa "oh, list é uma string _sendo construída_", o que significa que esse fmt.Fprintf tá _settando minha lista de strings_ pra isso
+scripts:
+  go: |
+      fmt.Fprintf(
+            &list,
+            "%s %s %s\n",
+            cursor,
+            lineStyle.Render(checkbox),
+            lineStyle.Render(tag),
+      )
+
+      detailContent = fmt.Sprintf("%s\n\n%s\n\n%s",
+            gloss.NewStyle().Bold(true).Render(title),
+            list.String(),
+            gloss.NewStyle().Foreground(colorMuted).Italic(true).Render(hint))
