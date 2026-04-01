@@ -5,7 +5,7 @@ creation_rules:
     - 0DEE1E3B758249FCFC573913529E8F90A6D61355
     age:
     - age1mse4sc2kmk59plkka3swwcrslq2gf55s6ej2edx9tk5cx9gn5a7qq09qmk
-- path_regex: .*\.local/share/chaos/ramblings/.*\.yml$
+- path_regex: .*\.local/share/chaos/ramble/.*\.yml$
   key_groups:
   - pgp:
     - 0DEE1E3B758249FCFC573913529E8F90A6D61355

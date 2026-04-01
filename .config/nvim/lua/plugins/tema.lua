@@ -10,7 +10,7 @@ return {
       vim.cmd.colorscheme("catppuccin")
     end,
     opts = {
-      transparent_background = false,
+      transparent_background = true,
       term_colors = true,
       integrations = {
         aerial = true,

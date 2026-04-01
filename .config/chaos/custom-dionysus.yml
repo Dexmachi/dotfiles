@@ -1,5 +1,11 @@
-
 packages:
+  - postgresql
+  - awww
+  - node-gyp
+  - nodejs-nopt
+  - perl-image-exiftool
+  - yyjson
+  - postgresql-libs
   - ansible-lint
   - perf
   - arch-install-scripts
@@ -263,7 +269,6 @@ packages:
   - strace
   - superfile
   - swaync
-  - swww
   - tealdeer
   - tectonic
   - telegram-desktop
@@ -315,6 +320,7 @@ packages:
   - inetutils
   - python-omegaconf
   - gitlogue
+  - television
   - remmina
 
 baseOverride:
@@ -398,6 +404,7 @@ users:
     groups:
       - wheel
       - input
+      - docker
 
 secrets:
   sec_mode: sops
