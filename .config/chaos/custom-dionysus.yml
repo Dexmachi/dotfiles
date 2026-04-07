@@ -301,8 +301,8 @@ packages:
   - xclip
   - xdg-desktop-portal-gtk
   - xf86-video-ati
-  - yazi
   - zen-browser-bin
+  - protontricks
   - zk
   - zoxide
   - yq
@@ -360,8 +360,6 @@ aurPackages:
   - pyinfra
   - terminal-rain-lightning
   - wvkbd
-  - protonvpn-cli-community
-  - protonvpn-applet
   - retroarch-assets-sounds
   - aurroamer
   - aurutils
@@ -380,14 +378,13 @@ aurPackages:
   - kind
   - localsend-bin
   - maple-mono-nf-cn
-  - matugen-bin
   - nautilus-open-any-terminal
+  - bookokrat-bin
   - peazip
-  - python-folium
   - rarsm
   - shell-color-scripts-git
-  - spicetify-cli
   - spotify
+  - python-xyzservices
   - ttc-monocraft
   - tuios-bin
   - velero-bin
@@ -502,6 +499,9 @@ dotfiles:
       - from: zsh
         to: .
         open: true
+
+      - from: ramble
+        to: .local/share/chaos/ramble
 
 mirrors:
   countries:

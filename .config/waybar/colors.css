@@ -106,3 +106,6 @@
 
     @define-color tertiary_fixed_dim #ebbbb5;
 
+@define-color magic_background @on_primary_fixed;
+@define-color magic_text @primary;
+@define-color magic_invert @inverse_primary;

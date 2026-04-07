@@ -1,0 +1,5 @@
+title: SESO
+concept: Power couple SOPS + ESO
+what: Juntar o poder do ESO (integração do Vaultwarden com k8s secrets) com o poder do sops (GitOps)
+why: Isso permite que eu efetivamente tenha apenas 1 provider no chap (ch-apetanios), mas que se integra com qualquer "provider-in-k8s" instanciado no cluster. Insano.
+how: Vou estudar pra isso. Mas já funciona na minha arquitetura.
