@@ -120,3 +120,11 @@ ns() {
 dline() {
     find "$1" | grep "$2$" | xargs -I {} cat {} | wc -l
 }
+
+dai() {
+    export CLAUDE_CODE_USE_OPENAI=1
+    export OPENAI_BASE_URL="https://integrate.api.nvidia.com/v1"
+    export OPENAI_API_KEY=$(chaos ramble read secrets.nv -v aaaa --no-pretty)
+    export OPENAI_MODEL="z-ai/glm5"
+    openclaude
+}
