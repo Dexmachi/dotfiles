@@ -262,7 +262,6 @@ packages:
   - slurp
   - smartmontools
   - socat
-  - sshs
   - starship
   - steam
   - stow
@@ -346,6 +345,7 @@ aurPackages:
   - pinta
   - gittop
   - teleport-bin
+  - purple-bin
   - strace-tui-bin
   - micasa-bin
   - 1password-cli
@@ -478,7 +478,7 @@ repos:
 
 dotfiles:
   - url: "https://github.com/Dexmachi/dotfiles.git"
-    pull: true
+    pull: false
     branch: "main"
     user: dexmachina
     links:
