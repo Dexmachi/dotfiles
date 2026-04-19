@@ -1,4 +1,0 @@
-title: pulumi
-concept: Ch-aOS no modo terraform
-what: Usar Pulumi como provisionador programático estilo pyinfra para o Ch-aOS, isso permitiria que a plataforma provisionasse E configurasse
-how: Provavelmente trocar o chaos apply de chaos apply <tags> pra chaos apply --config <tags_pyinfra> --provision <tags_pulumi>

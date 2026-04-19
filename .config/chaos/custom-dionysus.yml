@@ -1,6 +1,13 @@
 packages:
   - postgresql
+  - swaks
+  - perl-digest-hmac
+  - perl-digest-sha1
+  - perl-net-dns
+  - perl-net-ip
+  - perl-net-ssleay
   - awww
+  - bind
   - node-gyp
   - nodejs-nopt
   - perl-image-exiftool
@@ -527,3 +534,4 @@ services:
 
   - name: throttled
     dense_service: true
+
