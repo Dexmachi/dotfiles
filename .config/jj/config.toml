@@ -1,0 +1,16 @@
+[user]
+name = "Caio Rocha de Oliveira"
+email = "caiorocoli@gmail.com"
+signingkey = "0DEE1E3B758249FCFC573913529E8F90A6D61355"
+
+[ui]
+default-command = "log"
+
+[git]
+default-branch = "main"
+prune-remotes = true
+
+[signing]
+key = "0DEE1E3B758249FCFC573913529E8F90A6D61355"
+backend = "gpg"
+sign-all = true

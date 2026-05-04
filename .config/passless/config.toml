@@ -1,0 +1,71 @@
+# Passless Configuration File Example
+# Place this file at: ~/.config/passless/config.toml
+
+# Storage backend type: pass, tpm (experimental), or local (for testing)
+backend_type = "tpm"
+
+# Enable verbose logging
+verbose = true
+
+# Pass (password-store) backend configuration
+[pass]
+# Path to password store directory
+store_path = "/home/dexmachina/.password-store"
+
+# Relative path within password store for FIDO2 entries
+path = "fido2"
+
+# GPG backend: "gpgme" or "gnupg-bin"
+gpg_backend = "gnupg-bin"
+
+# TPM backend configuration
+[tpm]
+# Path to TPM storage directory
+path = "/home/dexmachina/.local/share/passless/tpm"
+
+# TPM TCTI (TPM Command Transmission Interface) configuration
+tcti = "device:/dev/tpmrm0"
+
+# Local backend configuration
+[local]
+# Path to local storage directory
+path = "/home/dexmachina/.local/share/passless/local"
+
+# Security configuration
+[security]
+# Check if mlock is available to prevent credentials from being swapped to disk
+check_mlock = true
+
+# Disable core dumps to prevent credential leakage
+disable_core_dumps = true
+
+# Enable constant signature counter to help RPs detect cloned authenticators
+constant_signature_counter = false
+
+# Always require user verification for all operations - When PIN is set + pin.enforcement="required": requires PIN - When PIN is set + pin.enforcement="optional": depends on context - When PIN is set + pin.enforcement="never": uses notification fallback - When PIN not set: uses notification
+always_uv = true
+
+# Show user verification notification during registration
+user_verification_registration = true
+
+# Show user verification notification during authentication
+user_verification_authentication = true
+
+# Notification timeout in seconds (0 = no timeout)
+notification_timeout = 30
+
+# PIN configuration
+[pin]
+# PIN enforcement policy when PIN is set: - "never": Always use notification fallback (backward compatible, convenience) - "optional": Use PIN only when always_uv=true or client requests UV - "required": Always require PIN when set (most secure)
+enforcement = "optional"
+
+# Minimum PIN length in characters (CTAP spec: 4-63)
+min_length = 4
+
+# Maximum PIN retry attempts before lockout (CTAP spec: 8)
+max_retries = 8
+
+# Auto-lock timeout in seconds after max failed attempts (0 = disabled) After lockout, authenticator must be reset to use PIN again
+auto_lock_timeout = 0
+
+

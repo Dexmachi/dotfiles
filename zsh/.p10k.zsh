@@ -35,6 +35,7 @@
     os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
+    jj_status               # jj status
     # =========================[ Line #2 ]=========================
     newline                 # \n
     prompt_char             # prompt symbol
@@ -365,6 +366,13 @@
   # https://github.com/romkatv/gitstatus/blob/master/gitstatus.plugin.zsh.
   function my_git_formatter() {
     emulate -L zsh
+
+    local -A vcs_comm
+    vcs_comm[detect_need_file]=working_copy
+    if VCS_INFO_bydir_detect .jj 2>/dev/null; then
+      typeset -g my_git_format=
+      return
+    fi
 
     if [[ -n $P9K_CONTENT ]]; then
       # If P9K_CONTENT is not empty, use it. It's either "loading" or from vcs_info (not from

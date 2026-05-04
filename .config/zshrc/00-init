@@ -13,7 +13,12 @@ export KUBECONFIG=/home/dexmachina/.kube/klusterlab
 
 
 export PATH='/home/dexmachina/.krew/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/home/dexmachina/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:/home/dexmachina/.cargo/bin/:/home/dexmachina/.cargo/bin/:/home/dexmachina/.local/bin/'
+export PATH="$HOME/go/bin/:$PATH"
 export KUBECTL_ENABLE_EXTERNAL_PLUGINS_AS_SUBCOMMANDS=true
+
+export TELEPORT_PROXY=teleport.clusterlab.lappis.rocks:443
+export TELEPORT_AUTH=passwordless
+export TELEPORT_USERNAME=dexmachina
 
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=none
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=none

@@ -65,6 +65,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zinit ice wait lucid
 zinit light olets/zsh-abbr
 
+source ~/.config/zshrc/scripts/p10k-jj-status.plugin.zsh
+
 # -----------------------------------------------------
 # ALIASES / BINDS
 # -----------------------------------------------------
