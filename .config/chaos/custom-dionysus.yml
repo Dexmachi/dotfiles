@@ -1,5 +1,12 @@
 packages:
+  - iw
   - postgresql
+  - docker-buildx
+  - tlp
+  - docker-compose
+  - nix
+  - thermald
+  - hdparm
   - swaks
   - perl-digest-hmac
   - perl-digest-sha1
@@ -13,7 +20,6 @@ packages:
   - perl-image-exiftool
   - yyjson
   - postgresql-libs
-  - ansible-lint
   - perf
   - arch-install-scripts
   - lazydocker
@@ -96,7 +102,6 @@ packages:
   - gum
   - gvfs
   - helm
-  - heroic-games-launcher-bin
   - hyfetch
   - hypridle
   - hyprland-protocols
@@ -114,7 +119,6 @@ packages:
   - kitty-terminfo
   - krew
   - kubectl
-  - kubetui
   - kustomize
   - lazygit
   - lib32-libffi
@@ -140,7 +144,6 @@ packages:
   - ncdu
   - network-manager-applet
   - nm-connection-editor
-  - noto-fonts-cjk
   - noto-fonts-emoji
   - noto-fonts-extra
   - npm
@@ -152,7 +155,6 @@ packages:
   - obs-studio
   - obsidian
   - onefetch
-  - onlyoffice-bin
   - openvpn
   - os-prober
   - otf-font-awesome
@@ -185,7 +187,6 @@ packages:
   - gst-plugin-pipewire
   - intel-ucode
   - kooha
-  - lazyjj
   - lib32-libdisplay-info
   - libcupsfilters
   - libnma-gtk4
@@ -198,7 +199,6 @@ packages:
   - miniupnpc
   - networkmanager-openvpn
   - networkmanager-vpn-plugin-openvpn
-  - nvidia-535xx-dkms
   - pappl
   - proton-vpn-daemon
   - python
@@ -226,7 +226,7 @@ packages:
   - ttf-hack
   - ttf-jetbrains-mono
   - ttyd
-  - vault
+  - openbao
   - vhs
   - vulkan-intel
   - wtype
@@ -338,7 +338,6 @@ baseOverride:
   - networkmanager
   - openssh
   - git
-  - ansible
   - neovim
   - vim
   - ex-vi-compat
@@ -349,8 +348,15 @@ aurHelpers:
   - paru
 
 aurPackages:
+  - spicetify-bin
+  - infisical-bin
+  - doppler-cli-bin
+  - thinkfan-ui
+  - thinkfan
+  - passless-bin
+  - lfk-bin
   - pinta
-  - gittop
+  - teleport-connect
   - teleport-bin
   - purple-bin
   - strace-tui-bin
@@ -517,15 +523,38 @@ mirrors:
   count: 25
 
 services:
-  - name: NetworkManager
-    dense_service: true
+  - name: NetworkManager.service
+
+  - name: NetworkManager-dispatcher.service
+    on_boot: true
+    running: false
 
   - name: bluetooth.service
 
   - name: sshd
 
-  - name: nvidia
-    dense_service: true
+  - name: nvidia-hibernate
+    on_boot: true
+    running: false
+
+  - name: nvidia-persistenced.service
+    on_boot: true
+    running: false
+
+  - name: nvidia-powerd.service
+    on_boot: true
+    running: false
+
+  - name: nvidia-resume.service
+    on_boot: true
+    running: false
+
+  - name: nvidia-suspend.service
+    on_boot: true
+    running: false
+
+  - name: thinkfan.service
+    on_boot: false
 
   - name: sddm.service
 
@@ -535,3 +564,40 @@ services:
   - name: throttled
     dense_service: true
 
+pelago:
+  - isle: chaosmox
+    name: "playground2"
+    config:
+      vm_name: "playground2"
+      target_node: "lappis2"
+      template_id: 4013
+      cores: 2
+      type: "x86-64-v2-AES"
+      memory: 2048
+      network_devices:
+        - bridge: "vmbr0"
+          model: "virtio"
+      ip_configs:
+        - ipv4:
+            address: "dhcp"
+      clone_full: true
+      admin_user: "dexmachina"
+      ssh_public_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHrUtVKtgovzDIQQBSz3ys77NPcqUTYG2IC7/2PJwyLb caiorocoli@gmail.com,232001371@aluno.unb.br"
+  - isle: chaosmox
+    name: "playground3"
+    config:
+      vm_name: "playground3"
+      target_node: "lappis2"
+      template_id: 4013
+      cores: 2
+      type: "x86-64-v2-AES"
+      memory: 2048
+      network_devices:
+        - bridge: "vmbr0"
+          model: "virtio"
+      ip_configs:
+        - ipv4:
+            address: "dhcp"
+      clone_full: true
+      admin_user: "dexmachina"
+      ssh_public_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHrUtVKtgovzDIQQBSz3ys77NPcqUTYG2IC7/2PJwyLb caiorocoli@gmail.com,232001371@aluno.unb.br"

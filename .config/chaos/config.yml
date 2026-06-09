@@ -1,6 +1,6 @@
-secrets_file: /home/dexmachina/.config/chaos/secrets.yml
+secrets_file: /home/dexmachina/.dotfiles/chaos/dotfiles/.config/chaos/secrets.yml
 chobolo_file: /home/dexmachina/.config/chaos/custom-dionysus.yml
-sops_file: /home/dexmachina/.config/chaos/sops-config.yml
+sops_file: /home/dexmachina/.dotfiles/chaos/dotfiles/.config/chaos/sops-config.yml
 limani: chrima
 secret_providers:
   default: bws.age
@@ -11,8 +11,19 @@ secret_providers:
     vault_id: 776dcc06-5fe4-497e-88a0-b3c101412272
     project_id: 6e4176f5-faf2-4199-a19b-b3bd016085e3
   bw:
-    organization_id: def0b785-842a-4ef4-a85a-b3ba0000080f
-    collection_id: a1abc960-54ea-4de4-a5c0-b3ba0000ab37
     gpg_id: ebf767f3-da27-4983-b9b7-b3c6017dfdf1
     age_id: 0d90984a-250f-472d-9063-b3c70009c3d8
-    vault_id: e6a1d1d9-2ca4-4ebe-bde5-b3c101415513
+    vault_id: c133e28a-e9da-40de-8908-1b1ff2ede48d
+    vault_prod_id: e2d00b81-90e1-4d5d-a09d-4a61b100329c
+  rbw:
+    age_id: 867343e4-fd71-44d8-a080-b3ca00ee7df7
+    vault_id: 2003abe7-907c-4dac-9e96-c636fdb70097
+    vault_prod_id: e2d00b81-90e1-4d5d-a09d-4a61b100329c
+  dp:
+    gpg_id: CHAOS_DECMACHINA_GPG_KEY:ch-aos:dev
+    age_id: TEST_YARA:ch-aos:dev
+  in:
+    age_id: TEST_INFISICAL
+    vault_id: CHAVE_TEST:c5eb1f8f-f527-46c7-8ad7-9d7aaf6f8c66
+  hcv:
+    vault_id: secret/chaos-tokens/hcv
