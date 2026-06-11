@@ -98,6 +98,7 @@ return {
         map("n", "gi", vim.lsp.buf.implementation, "Implementation")
         map("n", "<leader>cl", vim.lsp.codelens.run, "Run Code Lens")
         map("n", "gr", require("telescope.builtin").lsp_references, "References")
+        map("n", "<leader>ci", vim.lsp.inlay_hint.enable, "Inlay hints")
 
         -- if client.supports_method("textDocument/inlayHint") then
         --   vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
