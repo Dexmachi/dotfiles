@@ -16,7 +16,7 @@ export PATH='/home/dexmachina/.krew/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:
 export PATH="$HOME/go/bin/:$PATH"
 export KUBECTL_ENABLE_EXTERNAL_PLUGINS_AS_SUBCOMMANDS=true
 
-export TELEPORT_PROXY=teleport.clusterlab.lappis.rocks:443
+export TELEPORT_PROXY=teleport.lablivre.rocks:443
 export TELEPORT_AUTH=passwordless
 export TELEPORT_USERNAME=dexmachina
 
