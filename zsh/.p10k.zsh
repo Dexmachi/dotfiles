@@ -367,11 +367,24 @@
   function my_git_formatter() {
     emulate -L zsh
 
-    local -A vcs_comm
-    vcs_comm[detect_need_file]=working_copy
-    if VCS_INFO_bydir_detect .jj 2>/dev/null; then
-      typeset -g my_git_format=
-      return
+    local is_jj=0
+    [[ -n $VCS_STATUS_WORKDIR && -d "$VCS_STATUS_WORKDIR/.jj" ]] && is_jj=1
+
+    if (( ! is_jj )); then
+      if [[ -n $VCS_STATUS_LOCAL_BRANCH ]]; then
+        local branch=${(V)VCS_STATUS_LOCAL_BRANCH}
+        (( $#branch > 32 )) && branch[13,-13]="…"
+        res+="${clean}${(g::)POWERLEVEL9K_VCS_BRANCH_ICON}${branch//\%/%%}"
+      fi
+
+      if [[ -n $VCS_STATUS_TAG && -z $VCS_STATUS_LOCAL_BRANCH ]]; then
+        local tag=${(V)VCS_STATUS_TAG}
+        (( $#tag > 32 )) && tag[13,-13]="…"
+        res+="${meta}#${clean}${tag//\%/%%}"
+      fi
+
+      [[ -z $VCS_STATUS_LOCAL_BRANCH && -z $VCS_STATUS_TAG ]] &&
+        res+="${meta}@${clean}${VCS_STATUS_COMMIT[1,8]}"
     fi
 
     if [[ -n $P9K_CONTENT ]]; then
