@@ -2,6 +2,16 @@ secrets_file: /home/dexmachina/.dotfiles/chaos/dotfiles/.config/chaos/secrets.ym
 chobolo_file: /home/dexmachina/.config/chaos/custom-dionysus.yml
 sops_file: /home/dexmachina/.dotfiles/chaos/dotfiles/.config/chaos/sops-config.yml
 limani: chrima
+aliases:
+  all:
+  - packages
+  - users
+  - services
+  - region
+  - repositories
+  - reflector
+  - secrets
+
 secret_providers:
   default: bws.age
   bws:

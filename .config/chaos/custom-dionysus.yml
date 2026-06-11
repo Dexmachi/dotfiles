@@ -1,5 +1,12 @@
+fleet:
+  hosts:
+    "@local": {}
+
 packages:
   - iw
+  - vault
+  - mdfried
+  - typst
   - postgresql
   - docker-buildx
   - tlp
@@ -414,6 +421,8 @@ users:
     groups:
       - wheel
       - input
+      - fido
+      - tss
       - docker
 
 secrets:
@@ -427,7 +436,7 @@ secrets:
     vars:
       - ssh
 
-  - from: templates/ssh_pub.j2
+  - from: ssh_pub.j2
     to: ".ssh/id_ed25519.pub"
     owner: dexmachina
     mode: 0600
@@ -554,6 +563,13 @@ services:
     running: false
 
   - name: thinkfan.service
+    on_boot: false
+
+  - name: docker
+    dense_service: true
+    on_boot: false
+
+  - name: containerd.service
     on_boot: false
 
   - name: sddm.service
