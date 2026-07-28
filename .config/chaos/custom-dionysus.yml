@@ -450,8 +450,15 @@ secrets:
     mode: 0600
     escape: False
     vars:
-      - wg0_priv_key
+      - wg
 
+  - from: wg1_conf.j2
+    to: "/etc/wireguard/wg1.conf"
+    owner: root
+    mode: 0600
+    escape: False
+    vars:
+      - wg
 
 hostname: Dionysus
 bootloader: grub
