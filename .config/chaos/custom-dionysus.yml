@@ -1,12 +1,15 @@
-fleet:
-  hosts:
-    "@local": {}
+# fleet:
+#   hosts:
+#     "@local":
+#       packages: []
 
 packages:
   - iw
   - vault
   - mdfried
   - typst
+  - kind
+  - ghostty
   - postgresql
   - docker-buildx
   - tlp
@@ -187,7 +190,6 @@ packages:
   - cups-filters
   - dolphin-emu
   - dotnet-runtime-bin
-  - electron36
   - fwupd
   - jujutsu
   - glew
@@ -202,7 +204,6 @@ packages:
   - libspng
   - libwebsockets
   - lprint
-  - mbedtls2
   - miniupnpc
   - networkmanager-openvpn
   - networkmanager-vpn-plugin-openvpn
@@ -323,7 +324,6 @@ packages:
   - kde-gtk-config
   - tcpdump
   - python-passlib
-  - gemini-cli
   - qt5ct
   - wireguard-tools
   - xdg-desktop-portal-hyprland
@@ -356,10 +356,11 @@ aurHelpers:
 
 aurPackages:
   - spicetify-bin
-  - infisical-bin
+  - mbedtls2
   - doppler-cli-bin
   - thinkfan-ui
   - thinkfan
+  - electron36
   - passless-bin
   - lfk-bin
   - pinta
@@ -395,7 +396,6 @@ aurPackages:
   - openssl-1.1
   - otf-departure-mono
   - icat
-  - kind
   - localsend-bin
   - maple-mono-nf-cn
   - nautilus-open-any-terminal
@@ -444,6 +444,16 @@ secrets:
     vars:
       - ssh
 
+  - from: wg0_conf.j2
+    to: "/etc/wireguard/wg0.conf"
+    owner: root
+    mode: 0600
+    escape: False
+    vars:
+      - wg0_priv_key
+
+
+hostname: Dionysus
 bootloader: grub
 partitioning:
   disk: "/dev/sdb"
@@ -578,7 +588,16 @@ services:
     dense_service: true
 
   - name: throttled
-    dense_service: true
+    dense_service: True
+    on_boot: false
+
+region:
+  timezone: "America/Sao_Paulo"
+  keymap: "br-abnt2"
+  ntp: true
+  locale:
+    - pt_BR
+    - en_US
 
 pelago:
   - isle: chaosmox
@@ -617,3 +636,5 @@ pelago:
       clone_full: true
       admin_user: "dexmachina"
       ssh_public_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHrUtVKtgovzDIQQBSz3ys77NPcqUTYG2IC7/2PJwyLb caiorocoli@gmail.com,232001371@aluno.unb.br"
+
+

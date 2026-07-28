@@ -3,13 +3,12 @@ chobolo_file: /home/dexmachina/.config/chaos/custom-dionysus.yml
 sops_file: /home/dexmachina/.dotfiles/chaos/dotfiles/.config/chaos/sops-config.yml
 limani: chrima
 aliases:
-  all:
+  dionysus:
   - packages
   - users
   - services
   - region
   - repositories
-  - reflector
   - secrets
 
 secret_providers:
