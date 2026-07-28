@@ -1,0 +1,8 @@
+[Interface]
+PrivateKey = {{ wg.wg1_priv_key }}
+Address = {{wg.wg1_addr}}/{{ wg.wg1_cidr }}
+
+[Peer]
+PublicKey = 2OvkSRZuri/PsiWJQ8Oe/v9ebHlCXjRqsG3lN+8ZyUI=
+AllowedIPs = 192.168.0.0/20
+Endpoint = {{ wg.wg1_endpoint }}:{{ wg.wg1_port }}

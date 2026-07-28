@@ -1,8 +1,8 @@
 [Interface]
-PrivateKey = {{ wg0_priv_key }}
-Address = 172.31.31.8/32
+PrivateKey = {{ wg.wg0_priv_key }}
+Address = {{wg.wg0_addr}}/{{ wg.wg0_cidr }}
 
 [Peer]
 PublicKey = i/gUVS4o2y444rdo6U+0EUPjufpc4G5sLtUdOf9fCAE=
 AllowedIPs = 192.168.0.0/20
-Endpoint = 200.152.47.251:55169
+Endpoint = {{ wg.wg0_endpoint }}:{{ wg.wg0_port }}
