@@ -1,12 +1,11 @@
 theme = "dexmachina.toml"
 
-padding-x = 10
-padding-y = [5, 1]
+[panel]
+padding = [5, 1]
 
 confirm-before-quit = false
 
 [cursor]
-shape = 'underline'
 blinking = true
 blinking-interval = 500
 
@@ -15,38 +14,24 @@ program = "nvim"
 args = []
 
 [window]
-opacity = 0.85
+decorations = "enabled"
+blur=true
+opacity = 0.87
 
 [keyboard]
 use-kitty-keyboard-protocol = true
 
 [bell]
 visual = false
-audio = true
+audio = false
 
 [fonts]
 family = "Maple Mono NF CN"
-size = 16
+size = 16.2
 use-drawable-chars = true
 
-[fonts.regular]
-style = "Normal"
-weight = 650
-
-[fonts.bold]
-style = "Normal"
-weight = 900
-
-[fonts.italic]
-style = "Italic"
-weight = 650
-
-[fonts.bold-italic]
-style = "Italic"
-weight = 900
+[effects]
+trail-cursor = true
 
 [shell]
 program = "/bin/zsh"
-
-[renderer]
-#filters =[ "NewPixieCrt", "/home/dexmachina/Downloads/slang-shaders/crt/newpixie-crt.slangp" ]
