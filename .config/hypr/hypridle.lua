@@ -1,0 +1,59 @@
+---@module 'hl'
+
+hl.config({
+	general = {
+		lock_cmd = "pidof hyprlock || hyprlock",
+		-- avoid starting multiple hyprlock instances.
+		-- lock_cmd = playerctl --all-players pause && pidof hyprlock || hyprlock  # pause all system audio and avoid starting multiple hyprlock instances.
+		before_sleep_cmd = "loginctl lock-session",
+		-- lock before suspend.
+		after_sleep_cmd = "hyprctl dispatch dpms on",
+		-- to avoid having to press a key twice to turn on the display.
+	},
+})
+
+hl.config({
+	listener = {
+		timeout = 33600,
+		-- 8min.
+		on_timeout = "brightnessctl -s set 10",
+		-- set monitor backlight to minimum, avoid 0 on OLED monitor.
+		on_resume = "brightnessctl -r",
+		-- monitor backlight restore.
+	},
+})
+-- NOTE: Section 'listener' may be a plugin or custom section; verify the output
+
+-- turn off keyboard backlight, comment out this section if you dont have a keyboard backlight.
+
+-- listener {
+
+--     timeout = 480                                          # 8min.
+
+--     on-timeout = brightnessctl -sd rgb:kbd_backlight set 0 # turn off keyboard backlight.
+
+--     on-resume = brightnessctl -rd rgb:kbd_backlight        # turn on keyboard backlight.
+
+-- }
+
+hl.config({
+	listener = {
+		timeout = 33900,
+		-- 15min
+		on_timeout = "loginctl lock-session",
+		-- lock screen when timeout has passed
+	},
+})
+-- NOTE: Section 'listener' may be a plugin or custom section; verify the output
+
+hl.config({
+	listener = {
+		timeout = 33660,
+		-- 11min
+		on_timeout = "hyprctl dispatch dpms off",
+		-- screen off when timeout has passed
+		on_resume = "hyprctl dispatch dpms on && brightnessctl -r",
+		-- screen on when activity is detected after timeout has fired.
+	},
+})
+-- NOTE: Section 'listener' may be a plugin or custom section; verify the output

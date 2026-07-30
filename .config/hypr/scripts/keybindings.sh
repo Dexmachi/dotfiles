@@ -9,33 +9,34 @@
 # -----------------------------------------------------
 # Get keybindings location based on variation
 # -----------------------------------------------------
-config_file=$(<~/.config/hypr/conf/keybinding.conf)
-config_file=${config_file//source = ~//home/$USER}
+config_file="$HOME/.config/hypr/conf/keybindings/default.lua"
 
 # -----------------------------------------------------
 # Path to keybindings config file
 # -----------------------------------------------------
 echo "Reading from: $config_file"
 
-keybinds=$(awk -F'[=#]' '
-    $1 ~ /^bind/ {
-        # Replace the string "$mainMod" with "SUPER" (for the super key)
-        gsub(/\$mainMod/, "󰘳 ", $0)
-
-        gsub(/RETURN/, "󰌑 ", $0)
-        gsub(/SHIFT/, "󰘶 ", $0)
-        gsub(/ALT/, "󰘵 ", $0)
-
-        # Remove "bind" and extra spaces, if any, at the beginning of the line
-        gsub(/^bind[[:space:]]*=+[[:space:]]*/, "", $0)
-
-        # Split the keybinding part (e.g., "Mod1,Return") using a comma
-        split($1, kbarr, ",")
-
-        # Format the keybinding and associated command and prepare for output:
-        # Concatenate the two keybinding keys (e.g., "Mod1" + "Return") and append the command
-        print kbarr[1] "  + " kbarr[2] "\r" $2
+keybinds=$(awk '
+/hl\.bind\(/ {
+    match($0, /hl\.bind\(([^,]+),/)
+    keys = substr($0, RSTART+8, RLENGTH-9)
+    gsub(/mainMod/, "󰘳", keys)
+    gsub(/SHIFT/, "󰘶", keys)
+    gsub(/CTRL/, "󰘴", keys)
+    gsub(/ALT/, "󰘵", keys)
+    gsub(/RETURN/, "󰌑", keys)
+    gsub(/"/, "", keys)
+    gsub(/[ .]/, "", keys)
+    gsub(/\+/, " + ", keys)
+    current_keys = keys
+}
+/^-- / {
+    if (current_keys != "" && !match($0, /^-- TODO/)) {
+        desc = substr($0, 4)
+        print current_keys " \r " desc
+        current_keys = ""
     }
+}
 ' "$config_file")
 
 sleep 0.2
