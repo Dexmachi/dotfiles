@@ -9,6 +9,8 @@ packages:
   - kind
   - ghostty
   - postgresql
+  - grim
+  - grimblast-git
   - docker-buildx
   - tlp
   - docker-compose
@@ -306,7 +308,6 @@ packages:
   - jdk17-openjdk
   - inetutils
   - awww
-  - grimblast
   - python-omegaconf
   - gitlogue
 
