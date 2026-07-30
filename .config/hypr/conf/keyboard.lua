@@ -40,33 +40,64 @@ hl.config({
 	},
 })
 
-hl.device({
-	name = "at-translated-set-2-keyboard",
-	kb_layout = "br",
-	kb_variant = "abnt2",
-})
-
 if hl.plugin and hl.plugin.hyprgrass then
 	hl.config({
 		plugin = {
-			touch_gestures = {
+			hyprgrass = {
 				sensitivity = 4.0,
 				edge_margin = 30,
-			}
-		}
+			},
+		},
 	})
 
-	hl.plugin.hyprgrass.bind("", "edge:r:l", hl.dsp.exec_cmd("hyprctl dispatch workspace +1"))
-	hl.plugin.hyprgrass.bind("", "edge:l:r", hl.dsp.exec_cmd("hyprctl dispatch workspace -1"))
-	hl.plugin.hyprgrass.bind("", "edge:r:r", hl.dsp.exec_cmd("hyprctl dispatch workspace -1"))
-	hl.plugin.hyprgrass.bind("", "edge:l:l", hl.dsp.exec_cmd("hyprctl dispatch workspace +1"))
-	hl.plugin.hyprgrass.bind("", "swipe:4:r", hl.dsp.exec_cmd("hyprctl dispatch movetoworkspacesilent +1"))
-	hl.plugin.hyprgrass.bind("", "swipe:4:l", hl.dsp.exec_cmd("hyprctl dispatch movetoworkspacesilent -1"))
-	hl.plugin.hyprgrass.bind("", "edge:l:d", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -4%"))
-	hl.plugin.hyprgrass.bind("", "swipe:4:d", hl.dsp.exec_cmd("hyprctl dispatch killactive"))
-	hl.plugin.hyprgrass.bind("", "swipe:3:u", hl.dsp.exec_cmd("hyprctl dispatch fullscreen"))
-	hl.plugin.hyprgrass.bind("", "swipe:3:d", hl.dsp.exec_cmd("hyprctl dispatch togglefloating"))
-	hl.plugin.hyprgrass.bind("", "swipe:3:rd", hl.dsp.exec_cmd("kitty --title dotfiles-sidepad"))
-	hl.plugin.hyprgrass.bindm("", "longpress:3", hl.dsp.exec_cmd("hyprctl dispatch movewindow"))
-	hl.plugin.hyprgrass.bindm("", "longpress:2", hl.dsp.exec_cmd("hyprctl dispatch resizewindow"))
+	hl.plugin.hyprgrass.bind({
+		pattern = { kind = "edge", origin = "r", direction = "l" },
+		action = hl.dsp.exec_cmd("hyprctl dispatch workspace +1"),
+	})
+	hl.plugin.hyprgrass.bind({
+		pattern = { kind = "edge", origin = "l", direction = "r" },
+		action = hl.dsp.exec_cmd("hyprctl dispatch workspace -1"),
+	})
+	hl.plugin.hyprgrass.bind({
+		pattern = { kind = "edge", origin = "r", direction = "r" },
+		action = hl.dsp.exec_cmd("hyprctl dispatch workspace -1"),
+	})
+	hl.plugin.hyprgrass.bind({
+		pattern = { kind = "edge", origin = "l", direction = "l" },
+		action = hl.dsp.exec_cmd("hyprctl dispatch workspace +1"),
+	})
+	hl.plugin.hyprgrass.bind({
+		pattern = { kind = "swipe", fingers = 4, direction = "r" },
+		action = hl.dsp.exec_cmd("hyprctl dispatch movetoworkspacesilent +1"),
+	})
+	hl.plugin.hyprgrass.bind({
+		pattern = { kind = "swipe", fingers = 4, direction = "l" },
+		action = hl.dsp.exec_cmd("hyprctl dispatch movetoworkspacesilent -1"),
+	})
+	hl.plugin.hyprgrass.bind({
+		pattern = { kind = "edge", origin = "l", direction = "d" },
+		action = hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -4%"),
+	})
+	hl.plugin.hyprgrass.bind({
+		pattern = { kind = "swipe", fingers = 4, direction = "d" },
+		action = hl.dsp.exec_cmd("hyprctl dispatch killactive"),
+	})
+	hl.plugin.hyprgrass.bind({
+		pattern = { kind = "swipe", fingers = 3, direction = "u" },
+		action = hl.dsp.exec_cmd("hyprctl dispatch fullscreen"),
+	})
+	hl.plugin.hyprgrass.bind({
+		pattern = { kind = "swipe", fingers = 3, direction = "d" },
+		action = hl.dsp.exec_cmd("hyprctl dispatch togglefloating"),
+	})
+	hl.plugin.hyprgrass.bind({
+		pattern = { kind = "longpress", fingers = 3 },
+		action = hl.dsp.exec_cmd("hyprctl dispatch movewindow"),
+		mouse = true,
+	})
+	hl.plugin.hyprgrass.bind({
+		pattern = { kind = "longpress", fingers = 2 },
+		action = hl.dsp.exec_cmd("hyprctl dispatch resizewindow"),
+		mouse = true,
+	})
 end
