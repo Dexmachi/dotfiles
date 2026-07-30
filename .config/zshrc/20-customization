@@ -73,7 +73,6 @@ source ~/.config/zshrc/scripts/p10k-jj-status.plugin.zsh
 
 eval $(glab completion --shell zsh)
 eval $(sops completion zsh)
-eval $(thefuck --alias)
 tre() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
 
 # keybinds
