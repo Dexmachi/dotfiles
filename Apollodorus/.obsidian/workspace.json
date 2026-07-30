@@ -1,0 +1,271 @@
+{
+  "main": {
+    "id": "7752b3faebd0c7ed",
+    "type": "split",
+    "children": [
+      {
+        "id": "13af76cd52b33a5e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "06f15242911e525c",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Nova aba"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "67c0c6f18f7dd6a1",
+    "type": "split",
+    "children": [
+      {
+        "id": "b128c682457cdb41",
+        "type": "tabs",
+        "dimension": 68.18181818181819,
+        "children": [
+          {
+            "id": "feaf2d0abc66b502",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de arquivos"
+            }
+          },
+          {
+            "id": "0cefbf48be8c89e1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Procurar"
+            }
+          },
+          {
+            "id": "e2a747ca7e12299b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          },
+          {
+            "id": "329ec97642ba00fe",
+            "type": "leaf",
+            "state": {
+              "type": "journal-calendar",
+              "state": {},
+              "icon": "calendar-days",
+              "title": "Calendar"
+            }
+          },
+          {
+            "id": "bcbc4b337f00a2c6",
+            "type": "leaf",
+            "state": {
+              "type": "journal-calendar",
+              "state": {},
+              "icon": "calendar-days",
+              "title": "Calendar"
+            }
+          },
+          {
+            "id": "30c8dea3174ca013",
+            "type": "leaf",
+            "state": {
+              "type": "journal-calendar",
+              "state": {},
+              "icon": "calendar-days",
+              "title": "Calendar"
+            }
+          }
+        ]
+      },
+      {
+        "id": "08687de962aac8ee",
+        "type": "tabs",
+        "dimension": 31.81818181818182,
+        "children": [
+          {
+            "id": "819ae2500aa9b447",
+            "type": "leaf",
+            "state": {
+              "type": "journal-calendar",
+              "state": {},
+              "icon": "calendar-days",
+              "title": "Calendar"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 334.5
+  },
+  "right": {
+    "id": "e23cd310ebc2ff73",
+    "type": "split",
+    "children": [
+      {
+        "id": "b37cd54a806f2e1f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "449b66510d35b8e8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "07 Notes/Extras/A secret garden within the garden..md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for A secret garden within the garden."
+            }
+          },
+          {
+            "id": "8235c0f8c9af30eb",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "07 Notes/Extras/A secret garden within the garden..md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from A secret garden within the garden."
+            }
+          },
+          {
+            "id": "29c97841af2d2d48",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "6b7c0eb98c4eaf47",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "07 Notes/Extras/A secret garden within the garden..md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of A secret garden within the garden."
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir a troca rápida": false,
+      "graph:Abrir visualização em gráfico": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "random-note:Abrir nota aleatória": false,
+      "bases:Criar nova base": false,
+      "iconic:Open rulebook": false,
+      "cmdr:Journals: Open calendar": false,
+      "cmdr:Open daily note": false,
+      "cmdr:Time Garden Plugin: Reset Welcome Experience": false,
+      "cmdr:Time Garden Plugin: Open Time Garden Settings": false,
+      "pexels-banner:🚩 Pixel Banner Menu": false,
+      "obsidian42-brat:BRAT": false,
+      "callout-manager:Insert Callout": false
+    }
+  },
+  "active": "feaf2d0abc66b502",
+  "lastOpenFiles": [
+    "01 Daily/2026/07-July/2026-07-04-Saturday.md",
+    "01 Daily/2026/07-July/2026-07-05-Sunday.md",
+    "01 Daily/2026/07-July/2026-07-06-Monday.md",
+    "00 Dashboard/Welcome.md",
+    "07 Notes/Extras/A secret garden within the garden..md",
+    "01 Daily/2026/07-July",
+    "01 Daily/2026/05-May/2026-05-06-Wednesday.md",
+    "01 Daily/2026/05-May/2026-05-07-Thursday.md",
+    "02 Weekly/2026/2026-W19.md",
+    "02 Weekly/2026",
+    "01 Daily/2026/05-May",
+    "01 Daily/2026",
+    "01 Daily/2025/12-December/2025-12-19-Friday.md",
+    "01 Daily/2025/12-December",
+    "01 Daily/2025",
+    "my path",
+    "TODO.md",
+    "Script for merge tutorial.md",
+    "06 Templates/Images/Image Credits.md",
+    "06 Templates/Images/Secret.mp4",
+    "06 Templates/Images/QAIdeaBanner.gif",
+    "06 Templates/Images/Secret ambience 2.mp3",
+    "06 Templates/Images/Secret Ambience.mp3",
+    "06 Templates/Images/DashboardBanner.gif",
+    "My Path/01 Daily/2025/12-December/2025-12-20-Saturday.md",
+    "06 Templates/Parents/Daily.md",
+    "06 Templates/Components/DisableEasterEgg.md",
+    "07 Notes/Dev goals.md",
+    "My Path/06 Templates/Images/Secret.gif",
+    "My Path/06 Templates/Images/Chart example.png",
+    "My Path/06 Templates/Images/Banner directory.png",
+    "My Path/06 Templates/Images/Deleting a note in the calendar.png",
+    "My Path/06 Templates/Images/Reading view icon.png",
+    "My Path/07 Notes/Images/Pasted image 20251020164817.png",
+    "06 Templates/Components/Daily Banner Config.md",
+    "a review.md",
+    "00 Dashboard/Question ideas for Q&A.md",
+    "undefined01 Daily/2025/12-December/2025-12-20-Saturday.md",
+    "01 Daily/2025/11-November/2025-11-29-Saturday.md",
+    "My Path/01 Daily/2025/11-November/2025-11-30-Sunday.md",
+    "01 Daily/2025/11-November/2025-11-27-Thursday.md",
+    "01 Daily/2025/11-November/2025-11-16-Sunday.md",
+    "My Path/01 Daily/2025/12-December/2025-12-03-Wednesday.md",
+    "My Path/01 Daily/2025/12-December/2025-12-02-Tuesday.md",
+    "07 Notes/Images/whatsapp profile pic jpg.jpg",
+    "06 Templates/Images/Weekly Notes/WeeklyBanner4.gif"
+  ]
+}

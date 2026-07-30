@@ -1,0 +1,86 @@
+{
+  "data_version": 2,
+  "command_timeout": 5,
+  "templates_folder": "06 Templates",
+  "templates_pairs": [],
+  "trigger_on_file_creation_mode": "folder",
+  "auto_jump_to_cursor": true,
+  "jump_to_cursor_after_file_name": false,
+  "shell_path": "",
+  "user_scripts_folder": "",
+  "folder_templates": [
+    {
+      "folder": "01 Daily",
+      "template": "06 Templates/Parents/Daily.md"
+    },
+    {
+      "folder": "02 Weekly",
+      "template": "06 Templates/Parents/Weekly.md"
+    },
+    {
+      "folder": "03 Monthly",
+      "template": "06 Templates/Parents/Monthly.md"
+    },
+    {
+      "folder": "04 Quarterly",
+      "template": "06 Templates/Parents/Quarterly.md"
+    },
+    {
+      "folder": "05 Yearly",
+      "template": "06 Templates/Parents/Yearly.md"
+    }
+  ],
+  "file_templates": [
+    {
+      "regex": ".*/01 Daily/.*$",
+      "template": "06 Templates/Parents/Daily.md"
+    },
+    {
+      "regex": ".*/02 Weekly/.*$",
+      "template": "06 Templates/Parents/Weekly.md"
+    },
+    {
+      "regex": ".*/03 Monthly/.*$",
+      "template": "06 Templates/Parents/Monthly.md"
+    },
+    {
+      "regex": ".*/04 Quarterly/.*$",
+      "template": "06 Templates/Parents/Quarterly.md"
+    },
+    {
+      "regex": ".*/05 Yearly/.*$",
+      "template": "06 Templates/Parents/Yearly.md"
+    }
+  ],
+  "syntax_highlighting": true,
+  "syntax_highlighting_mobile": false,
+  "enabled_templates_hotkeys": [
+    "06 Templates/Components/New Progress.md",
+    "06 Templates/Components/New Idea.md",
+    "06 Templates/Components/New Highlight.md",
+    "06 Templates/Components/Weekly AI Summarize.md",
+    "06 Templates/Components/Weekly AI WheelOfLife.md",
+    "06 Templates/Components/Weekly AI Alias.md",
+    "06 Templates/Components/Daily AI Alias.md",
+    "06 Templates/Components/Daily AI Rate.md",
+    "06 Templates/Components/Daily AI RateAndAlias.md",
+    "06 Templates/Components/Monthly AI Alias.md",
+    "06 Templates/Components/Monthly AI Summarize.md",
+    "06 Templates/Components/Monthly AI WheelOfLife.md",
+    "06 Templates/Components/Quarterly AI Alias.md",
+    "06 Templates/Components/Quarterly AI Summarize.md",
+    "06 Templates/Components/Yearly AI Alias.md",
+    "06 Templates/Components/Yearly AI Summarize.md",
+    "06 Templates/Components/Yearly AI Review.md",
+    "06 Templates/Components/Weekly AI QA Execute.md",
+    "06 Templates/Components/Daily AI QA Execute.md",
+    "06 Templates/Components/Monthly AI QA Execute.md",
+    "06 Templates/Components/Quarterly AI QA Execute.md",
+    "06 Templates/Components/Yearly AI QA Execute.md",
+    "06 Templates/Components/DisableEasterEgg.md",
+    "06 Templates/Components/Debug Toggle.md"
+  ],
+  "startup_templates": [],
+  "intellisense_render": "1",
+  "ignore_folders_on_creation": []
+}

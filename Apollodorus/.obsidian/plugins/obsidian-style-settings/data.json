@@ -1,0 +1,13 @@
+{
+  "royal-velvet@@inline-document-title-color": "doc-title-h1",
+  "modular-css-layout-wv@@adj-rll-max-width": "500px",
+  "modular-css-layout-wv@@is-adj-rll": false,
+  "modular-css-layout-wv@@narrow-max-width": "1000px",
+  "Appearance-dark@@card-layout-open-dark": true,
+  "Appearance-dark@@theme-dark-style-select": "theme-dark-background-black",
+  "Appearance-dark@@accent-dark": "#70C27B",
+  "Appearance-dark@@accent-color-override-dark": false,
+  "Appearance-dark@@card-highlight-dark": true,
+  "Components@@tab-autohide": false,
+  "Components@@Ribbon-autohide": false
+}

@@ -6,24 +6,19 @@
 packages:
   - iw
   - vault
-  - mdfried
-  - typst
   - kind
   - ghostty
   - postgresql
   - docker-buildx
   - tlp
   - docker-compose
-  - nix
   - thermald
   - hdparm
-  - swaks
   - perl-digest-hmac
   - perl-digest-sha1
   - perl-net-dns
   - perl-net-ip
   - perl-net-ssleay
-  - awww
   - bind
   - node-gyp
   - nodejs-nopt
@@ -36,38 +31,28 @@ packages:
   - libtraceevent
   - libpfm
   - elfutils
-  - retroarch
   - turbostat
-  - retroarch-assets-glui
   - gst-plugin-va
   - gst-plugins-bad
   - oath-toolkit
   - pulumi
   - xorg-xhost
-  - retroarch-assets-ozone
-  - retroarch-assets-xmb
   - hyprtoolkit
-  - jrnl
   - prismlauncher
   - argocd
-  - atuin
   - baobab
-  - bat
   - bc
   - blueman
   - bluez-utils
   - bottom
   - breeze
   - brightnessctl
-  - btop
-  - cachyos-keyring
   - blanket
+  - cachyos-keyring
   - cachyos-mirrorlist
   - cachyos-v3-mirrorlist
   - cachyos-v4-mirrorlist
   - calcurse
-  - cava
-  - chafa
   - cliphist
   - cmake
   - cpio
@@ -97,16 +82,12 @@ packages:
   - gimp
   - git-filter-repo
   - github-cli
-  - gitui
   - glab
-  - glim
   - gnome-calculator
   - gnome-keyring
   - gnome-online-accounts
   - gnome-text-editor
   - go
-  - grim
-  - grimblast-git
   - grub
   - gtk4
   - gum
@@ -235,7 +216,6 @@ packages:
   - ttf-jetbrains-mono
   - ttyd
   - openbao
-  - vhs
   - vulkan-intel
   - wtype
   - xf86-input-wacom
@@ -263,10 +243,8 @@ packages:
   - qt6ct
   - rclone
   - reflector
-  - restic
   - ripgrep
   - rofi
-  - ryujinx
   - diffnav
   - sddm
   - shellcheck
@@ -279,15 +257,12 @@ packages:
   - socat
   - starship
   - steam
-  - stow
   - strace
-  - superfile
   - swaync
   - tealdeer
   - tectonic
   - telegram-desktop
   - testdisk
-  - thefuck
   - tree
   - tree-sitter-cli
   - ttf-dejavu
@@ -317,7 +292,6 @@ packages:
   - xf86-video-ati
   - zen-browser-bin
   - protontricks
-  - zk
   - zoxide
   - yq
   - rio
@@ -331,10 +305,10 @@ packages:
   - python-regex
   - jdk17-openjdk
   - inetutils
+  - awww
+  - grimblast
   - python-omegaconf
   - gitlogue
-  - television
-  - remmina
 
 baseOverride:
   - linux-cachyos-headers
@@ -366,22 +340,15 @@ aurPackages:
   - pinta
   - teleport-connect
   - teleport-bin
-  - purple-bin
-  - strace-tui-bin
-  - micasa-bin
   - 1password-cli
   - asciinema-agg-bin
   - bws-bin
-  - gobw-bin
-  - howdy-git
   - k6-bin
   - libinput-gestures
-  - linux-enable-ir-emitter
   - lisgd
   - pyinfra
   - terminal-rain-lightning
   - wvkbd
-  - retroarch-assets-sounds
   - aurroamer
   - aurutils
   - bibata-cursor-theme-bin
@@ -401,16 +368,12 @@ aurPackages:
   - nautilus-open-any-terminal
   - bookokrat-bin
   - peazip
-  - rarsm
   - shell-color-scripts-git
   - spotify
   - python-xyzservices
   - ttc-monocraft
-  - tuios-bin
-  - velero-bin
   - vencord
   - wallust
-  - smassh-bin
   - yaru-icon-theme
   - zsh-abbr
 
@@ -541,6 +504,9 @@ dotfiles:
 
       - from: ramble
         to: .local/share/chaos/ramble
+
+      - from: Apollodorus
+        to: Apollodorus
 
 mirrors:
   countries:
