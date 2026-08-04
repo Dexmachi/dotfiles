@@ -7,6 +7,8 @@ packages:
   - iw
   - vault
   - kind
+  - peazip
+  - pinta
   - ghostty
   - postgresql
   - grim
@@ -338,7 +340,6 @@ aurPackages:
   - electron36
   - passless-bin
   - lfk-bin
-  - pinta
   - teleport-connect
   - teleport-bin
   - 1password-cli
@@ -368,7 +369,6 @@ aurPackages:
   - maple-mono-nf-cn
   - nautilus-open-any-terminal
   - bookokrat-bin
-  - peazip
   - shell-color-scripts-git
   - spotify
   - python-xyzservices
