@@ -10,7 +10,6 @@ cssclasses:
 tR += await tp.file.include("[[Yearly Banner Config]]"); %>
 date: <% moment(tp.file.title, 'YYYY').startOf('year').format("YYYY-MM-DD") %>
 alias:
-aiAnswer: ""
 YearSummary: ""
 yearlyWheelOfLifeCategoryChartType: line
 journal: yearly
@@ -31,11 +30,7 @@ tR += await tp.file.include("[[Yearly MetaBindAlias]]");
 tR += await tp.file.include("[[Yearly MetaBindSummary]]"); 
 %>
 
-<%*
-tR += await tp.file.include("[[Yearly MetaBindAiButton]]");
-%>
-
-## Ratings ✮⋆˙
+## Ratings
 ---
 <%*
 // Yearly average rating
@@ -46,7 +41,7 @@ tR += await tp.file.include("[[Yearly Rating Average]]");
 dv.view("06 Templates/Scripts/templater/dataviewjs/yearly/yearlyRatingChart", {container: this.container})
 ```
 
-## Top Days ✮⋆˙
+## Top Days
 ---
 ```dataview
 TABLE WITHOUT ID file.link as Date, alias as Day
@@ -100,9 +95,3 @@ dv.view("06 Templates/Scripts/templater/dataviewjs/yearly/yearlyWheelOfLifeProgr
 ```
 ## Q&A
 ---
-<%*
-// wheel of Life chart
- tR += await tp.file.include("[[Yearly MetaBindAiQA]]")
-%>
-
-<%* app.workspace.activeLeaf.view.editor?.focus(); %>

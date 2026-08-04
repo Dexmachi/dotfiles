@@ -12,7 +12,7 @@
   "showQuickSwitcherIcons": true,
   "showMoveFileIcons": true,
   "showItemName": "desktop",
-  "biggerSearchResults": "mobile",
+  "useSearchKeywords": "on",
   "maxSearchResults": 50,
   "colorPicker1": "list",
   "colorPicker2": "rgb",
@@ -44,9 +44,6 @@
     },
     "00 Dashboard/Question ideas for Q&A.md": {
       "icon": "lucide-hand-heart"
-    },
-    "00 Dashboard/Welcome.md": {
-      "icon": "lucide-hand"
     },
     "01 Daily": {
       "icon": "lucide-sparkle",
@@ -119,5 +116,6 @@
   "ribbonIcons": {},
   "fileRules": [],
   "folderRules": [],
+  "biggerSearchResults": "mobile",
   "rememberDeletedItems": false
 }

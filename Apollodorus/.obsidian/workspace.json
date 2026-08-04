@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "13af76cd52b33a5e",
+        "id": "87398f395f6f38c3",
         "type": "tabs",
         "children": [
           {
-            "id": "06f15242911e525c",
+            "id": "32cc324153d71b08",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "01 Daily/2026/07-July/2026-07-29-Wednesday.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nova aba"
+              "title": "2026-07-29-Wednesday"
             }
           }
         ]
@@ -41,7 +45,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Explorador de arquivos"
+              "title": "Files"
             }
           },
           {
@@ -77,8 +81,8 @@
             "state": {
               "type": "journal-calendar",
               "state": {},
-              "icon": "calendar-days",
-              "title": "Calendar"
+              "icon": "lucide-ghost",
+              "title": "journal-calendar"
             }
           },
           {
@@ -87,12 +91,22 @@
             "state": {
               "type": "journal-calendar",
               "state": {},
-              "icon": "calendar-days",
-              "title": "Calendar"
+              "icon": "lucide-ghost",
+              "title": "journal-calendar"
             }
           },
           {
             "id": "30c8dea3174ca013",
+            "type": "leaf",
+            "state": {
+              "type": "journal-calendar",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "journal-calendar"
+            }
+          },
+          {
+            "id": "c9baf4b41cfeba11",
             "type": "leaf",
             "state": {
               "type": "journal-calendar",
@@ -138,7 +152,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "07 Notes/Extras/A secret garden within the garden..md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -148,7 +161,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for A secret garden within the garden."
+              "title": "Links inversos"
             }
           },
           {
@@ -204,68 +217,69 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Abrir a troca rápida": false,
-      "graph:Abrir visualização em gráfico": false,
-      "command-palette:Abrir paleta de comandos": false,
-      "random-note:Abrir nota aleatória": false,
-      "bases:Criar nova base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "command-palette:Open command palette": false,
+      "random-note:Open random note": false,
+      "bases:Create new base": false,
       "iconic:Open rulebook": false,
+      "pexels-banner:🚩 Pixel Banner Menu": false,
+      "obsidian42-brat:BRAT": false,
+      "callout-manager:Insert Callout": false,
+      "templater-obsidian:Templater": false,
       "cmdr:Journals: Open calendar": false,
       "cmdr:Open daily note": false,
       "cmdr:Time Garden Plugin: Reset Welcome Experience": false,
-      "cmdr:Time Garden Plugin: Open Time Garden Settings": false,
-      "pexels-banner:🚩 Pixel Banner Menu": false,
-      "obsidian42-brat:BRAT": false,
-      "callout-manager:Insert Callout": false
+      "cmdr:Time Garden Plugin: Open Time Garden Settings": false
     }
   },
-  "active": "feaf2d0abc66b502",
+  "active": "32cc324153d71b08",
   "lastOpenFiles": [
+    "01 Daily/2026/07-July/2026-07-31-Friday.md",
+    "01 Daily/2026/07-July/2026-07-30-Thursday.md",
+    "01 Daily/2026/07-July/2026-07-29-Wednesday.md",
+    "06 Templates/Components/Quarterly WheelOfLifeCategoryChart.md",
+    "02 Weekly/Untitled.md",
+    "06 Templates/Parents/Daily.md",
+    "01 Daily/2026/07-July",
+    "01 Daily/2026",
+    "06 Templates/Parents/Yearly.md",
+    "06 Templates/Parents/Quarterly.md",
+    "06 Templates/Parents/Weekly.md",
+    "06 Templates/Parents/Monthly.md",
+    "06 Templates/Components/Daily AI Rate.md",
+    "06 Templates/Images/Daily Notes/WednesdayBanner.avif",
+    "01 Daily/2026/07-julho/2026-07-28-terça-feira.md",
+    "01 Daily/2026/07-julho/2026-07-29-quarta-feira.md",
+    "07 Notes/Extras/A secret garden within the garden..md",
+    "01 Daily/2026/07-julho",
+    "06 Templates/Images/Monthly Notes/MonthlyBanner4.gif",
+    "06 Templates/Images/Monthly Notes/MonthlyBanner3.gif",
+    "06 Templates/Images/Monthly Notes/MonthlyBanner2.gif",
+    "06 Templates/Images/Monthly Notes/MonthlyBanner1.gif",
+    "06 Templates/Images/Quarterly Notes/QuarterlyBanner4.gif",
+    "06 Templates/Images/Quarterly Notes/QuarterlyBanner3.gif",
+    "06 Templates/Images/Quarterly Notes/QuarterlyBanner2.gif",
+    "06 Templates/Images/Quarterly Notes/QuarterlyBanner1.gif",
+    "06 Templates/Images/Weekly Notes/WeeklyBanner4.gif",
+    "06 Templates/Images/Secret ambience 2.mp3",
+    "06 Templates/Images/Secret Ambience.mp3",
+    "06 Templates/Images/Secret.mp4",
+    "06 Templates/Images/Image Credits.md",
+    "06 Templates/Images/How I felt.mp4",
+    "06 Templates/Components/Daily AI Alias.md",
     "01 Daily/2026/07-July/2026-07-04-Saturday.md",
     "01 Daily/2026/07-July/2026-07-05-Sunday.md",
     "01 Daily/2026/07-July/2026-07-06-Monday.md",
     "00 Dashboard/Welcome.md",
-    "07 Notes/Extras/A secret garden within the garden..md",
-    "01 Daily/2026/07-July",
     "01 Daily/2026/05-May/2026-05-06-Wednesday.md",
     "01 Daily/2026/05-May/2026-05-07-Thursday.md",
     "02 Weekly/2026/2026-W19.md",
     "02 Weekly/2026",
     "01 Daily/2026/05-May",
-    "01 Daily/2026",
     "01 Daily/2025/12-December/2025-12-19-Friday.md",
     "01 Daily/2025/12-December",
-    "01 Daily/2025",
-    "my path",
     "TODO.md",
-    "Script for merge tutorial.md",
-    "06 Templates/Images/Image Credits.md",
-    "06 Templates/Images/Secret.mp4",
-    "06 Templates/Images/QAIdeaBanner.gif",
-    "06 Templates/Images/Secret ambience 2.mp3",
-    "06 Templates/Images/Secret Ambience.mp3",
-    "06 Templates/Images/DashboardBanner.gif",
-    "My Path/01 Daily/2025/12-December/2025-12-20-Saturday.md",
-    "06 Templates/Parents/Daily.md",
-    "06 Templates/Components/DisableEasterEgg.md",
-    "07 Notes/Dev goals.md",
-    "My Path/06 Templates/Images/Secret.gif",
-    "My Path/06 Templates/Images/Chart example.png",
-    "My Path/06 Templates/Images/Banner directory.png",
-    "My Path/06 Templates/Images/Deleting a note in the calendar.png",
-    "My Path/06 Templates/Images/Reading view icon.png",
-    "My Path/07 Notes/Images/Pasted image 20251020164817.png",
-    "06 Templates/Components/Daily Banner Config.md",
-    "a review.md",
-    "00 Dashboard/Question ideas for Q&A.md",
-    "undefined01 Daily/2025/12-December/2025-12-20-Saturday.md",
-    "01 Daily/2025/11-November/2025-11-29-Saturday.md",
-    "My Path/01 Daily/2025/11-November/2025-11-30-Sunday.md",
-    "01 Daily/2025/11-November/2025-11-27-Thursday.md",
-    "01 Daily/2025/11-November/2025-11-16-Sunday.md",
-    "My Path/01 Daily/2025/12-December/2025-12-03-Wednesday.md",
-    "My Path/01 Daily/2025/12-December/2025-12-02-Tuesday.md",
-    "07 Notes/Images/whatsapp profile pic jpg.jpg",
-    "06 Templates/Images/Weekly Notes/WeeklyBanner4.gif"
+    "Script for merge tutorial.md"
   ]
 }

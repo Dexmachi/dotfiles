@@ -39,14 +39,9 @@ tR += await tp.file.include("[[Daily MetaBindNavBar]]");
 tR += await tp.file.include("[[Daily MetaBindAlias]]");
 %>
 ---
-- <% tp.file.cursor(0) %>
+- 
 
-
-<%*
-tR += await tp.file.include("[[Daily MetaBindAiButtons]]");
-%>
----
-### 📁 Pictures
+### Pictures
 
 
 ### <p hidden>PicturesEnd</p>
@@ -55,7 +50,7 @@ tR += await tp.file.include("[[Daily MetaBindAiButtons]]");
 tR += await tp.file.include("[[Daily MetaBindRating]]");
 %>
 
-### ⚡︎ Quick Notes
+### Quick Notes
 ---
 <p hidden>placer</p>
 
@@ -69,17 +64,3 @@ tR += await tp.file.include("[[Daily YearNoteThrowback]]");
 
 ### Q&A
 ---
-<%*
-tR += await tp.file.include("[[Daily MetaBindAiQA]]");
-%>
-
-<%*
-// delete this manually to remove the share letter as an alternative to pressing the button!
-const dv = app.plugins.plugins.dataview.api;
-
-const shareLetterPage = dv.page(window?.timeGarden?.rootPath.substring(1) + "07 Notes/Extras/A secret garden within the garden.");
-
-if (shareLetterPage && shareLetterPage.showYourself === true) {
-    tR += "\n\n[[A secret garden within the garden.]]";
-} else {}
-%>

@@ -10,7 +10,6 @@ cssclasses:
 tR += await tp.file.include("[[Quarterly Banner Config]]"); %>
 date: <% moment(tp.file.title, 'YYYY-[Q]Q').startOf('quarter').format("YYYY-MM-DD") %>
 alias:
-aiAnswer: ""
 QuarterSummary: ""
 quarterlyWheelOfLifeCategoryChartType: line
 quarterRating: 0
@@ -33,11 +32,7 @@ tR += await tp.file.include("[[Quarterly MetaBindAlias]]");
 tR += await tp.file.include("[[Quarterly MetaBindSummary]]"); 
 %>
 
-<%*
-tR += await tp.file.include("[[Quarterly MetaBindAiButton]]");
-%>
-
-## Ratings ✮⋆˙
+## Ratings
 ---
 <%*
 // Quarterly average rating
@@ -87,9 +82,3 @@ tR += await tp.file.include("[[Quarterly WheelOfLifeCategoryChart]]");
 
 ## Q&A
 ---
-<%*
-// wheel of Life chart
- tR += await tp.file.include("[[Quarterly MetaBindAiQA]]")
-%>
-
-<%* app.workspace.activeLeaf.view.editor?.focus(); %>

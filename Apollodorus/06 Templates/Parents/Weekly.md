@@ -15,7 +15,6 @@ journal-date: <% moment(tp.file.title, 'YYYY-[W]WW').format("YYYY-MM-DD") %>
 journal-start-date: <% moment(tp.file.title, 'YYYY-[W]WW').isoWeekday(1).format("YYYY-MM-DD") %>
 journal-end-date: <% moment(tp.file.title, 'YYYY-[W]WW').isoWeekday(7).format("YYYY-MM-DD") %>
 alias:
-aiAnswer: ""
 WeekSummary: ""
 wheelOfLife:
   spiritual: 
@@ -50,11 +49,7 @@ tR += await tp.file.include("[[Weekly MetaBindAlias]]");
 tR += await tp.file.include("[[Weekly MetaBindSummary]]"); 
 %>
 
-<%*
-  tR += await tp.file.include("[[Weekly MetaBindAiButton]]");
-%>
-
-## Ratings ✮⋆˙
+## Ratings
 ---
 <%*
 // the weekly average
@@ -111,9 +106,3 @@ tR += await tp.file.include("[[weekly MetaBindWheelOfLifeDisplay]]")
 ---
 ## Q&A
 ---
-<%*
-// wheel of Life chart
- tR += await tp.file.include("[[Weekly MetaBindAiQA]]")
-%>
-
-<%* app.workspace.activeLeaf.view.editor?.focus(); %>

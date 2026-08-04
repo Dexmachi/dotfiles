@@ -10,7 +10,6 @@ cssclasses:
 tR += await tp.file.include("[[Monthly Banner Config]]"); %>
 date: <% moment(tp.file.title, 'YYYY-MM-MMMM').startOf('month').format("YYYY-MM-DD") %>
 alias:
-aiAnswer: ""
 MonthSummary: ""
 monthlyWheelOfLifeCategoryChartType: line
 journal: monthly
@@ -32,11 +31,7 @@ tR += await tp.file.include("[[Monthly MetaBindAlias]]");
 tR += await tp.file.include("[[Monthly MetaBindSummary]]"); 
 %>
 
-<%*
-tR += await tp.file.include("[[Monthly MetaBindAiButton]]");
-%>
-
-## Ratings ✮⋆˙
+## Ratings
 ---
 <%*
 // Monthly average rating
@@ -85,9 +80,3 @@ tR += await tp.file.include("[[Monthly WheelOfLifeCategoryChart]]");
 
 ## Q&A
 ---
-<%*
-// wheel of Life chart
- tR += await tp.file.include("[[Monthly MetaBindAiQA]]")
-%>
-
-<%* app.workspace.activeLeaf.view.editor?.focus(); %>

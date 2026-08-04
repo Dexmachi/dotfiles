@@ -41,12 +41,7 @@
     "yearlyQAModel": "phi4",
     "yearlyReviewModel": "phi4",
     "chunkingModel": "phi4",
-    "installedModels": [
-      "phi4-mini",
-      "deepseek-r1:1.5b",
-      "mistral:instruct",
-      "phi4"
-    ]
+    "installedModels": []
   },
   "installationMode": "standard",
   "showModelIndicators": true,

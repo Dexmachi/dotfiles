@@ -202,9 +202,9 @@
   # Default prompt symbol.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIINS_CONTENT_EXPANSION='󰘧'
   # Prompt symbol in command vi mode.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VICMD_CONTENT_EXPANSION='❮'
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VICMD_CONTENT_EXPANSION='󰏉'
   # Prompt symbol in visual vi mode.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIVIS_CONTENT_EXPANSION='V'
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIVIS_CONTENT_EXPANSION='󰇂'
   # Prompt symbol in overwrite vi mode.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIOWR_CONTENT_EXPANSION='▶'
   typeset -g POWERLEVEL9K_PROMPT_CHAR_OVERWRITE_STATE=true
@@ -370,23 +370,6 @@
     local is_jj=0
     [[ -n $VCS_STATUS_WORKDIR && -d "$VCS_STATUS_WORKDIR/.jj" ]] && is_jj=1
 
-    if (( ! is_jj )); then
-      if [[ -n $VCS_STATUS_LOCAL_BRANCH ]]; then
-        local branch=${(V)VCS_STATUS_LOCAL_BRANCH}
-        (( $#branch > 32 )) && branch[13,-13]="…"
-        res+="${clean}${(g::)POWERLEVEL9K_VCS_BRANCH_ICON}${branch//\%/%%}"
-      fi
-
-      if [[ -n $VCS_STATUS_TAG && -z $VCS_STATUS_LOCAL_BRANCH ]]; then
-        local tag=${(V)VCS_STATUS_TAG}
-        (( $#tag > 32 )) && tag[13,-13]="…"
-        res+="${meta}#${clean}${tag//\%/%%}"
-      fi
-
-      [[ -z $VCS_STATUS_LOCAL_BRANCH && -z $VCS_STATUS_TAG ]] &&
-        res+="${meta}@${clean}${VCS_STATUS_COMMIT[1,8]}"
-    fi
-
     if [[ -n $P9K_CONTENT ]]; then
       # If P9K_CONTENT is not empty, use it. It's either "loading" or from vcs_info (not from
       # gitstatus plugin). VCS_STATUS_* parameters are not available in this case.
@@ -412,32 +395,27 @@
 
     local res
 
-    if [[ -n $VCS_STATUS_LOCAL_BRANCH ]]; then
-      local branch=${(V)VCS_STATUS_LOCAL_BRANCH}
-      # If local branch name is at most 32 characters long, show it in full.
-      # Otherwise show the first 12 … the last 12.
-      # Tip: To always show local branch name in full without truncation, delete the next line.
-      (( $#branch > 32 )) && branch[13,-13]="…"  # <-- this line
-      res+="${clean}${(g::)POWERLEVEL9K_VCS_BRANCH_ICON}${branch//\%/%%}"
-    fi
+    if (( ! is_jj )); then
+      if [[ -n $VCS_STATUS_LOCAL_BRANCH ]]; then
+        local branch=${(V)VCS_STATUS_LOCAL_BRANCH}
+        (( $#branch > 32 )) && branch[13,-13]="…"  # <-- this line
+        res+="${clean}${(g::)POWERLEVEL9K_VCS_BRANCH_ICON}${branch//\%/%%}"
+      fi
 
-    if [[ -n $VCS_STATUS_TAG
-          # Show tag only if not on a branch.
-          # Tip: To always show tag, delete the next line.
-          && -z $VCS_STATUS_LOCAL_BRANCH  # <-- this line
-        ]]; then
-      local tag=${(V)VCS_STATUS_TAG}
-      # If tag name is at most 32 characters long, show it in full.
-      # Otherwise show the first 12 … the last 12.
-      # Tip: To always show tag name in full without truncation, delete the next line.
-      (( $#tag > 32 )) && tag[13,-13]="…"  # <-- this line
-      res+="${meta}#${clean}${tag//\%/%%}"
-    fi
+      if [[ -n $VCS_STATUS_TAG
+            # Show tag only if not on a branch.
+            # Tip: To always show tag, delete the next line.
+            && -z $VCS_STATUS_LOCAL_BRANCH  # <-- this line
+          ]]; then
+        local tag=${(V)VCS_STATUS_TAG}
+        # Tip: To always show tag name in full without truncation, delete the next line.
+        (( $#tag > 32 )) && tag[13,-13]="…"  # <-- this line
+        res+="${meta}#${clean}${tag//\%/%%}"
+      fi
 
-    # Display the current Git commit if there is no branch and no tag.
-    # Tip: To always display the current Git commit, delete the next line.
-    [[ -z $VCS_STATUS_LOCAL_BRANCH && -z $VCS_STATUS_TAG ]] &&  # <-- this line
-      res+="${meta}@${clean}${VCS_STATUS_COMMIT[1,8]}"
+      [[ -z $VCS_STATUS_LOCAL_BRANCH && -z $VCS_STATUS_TAG ]] &&  # <-- this line
+        res+="${meta}@${clean}${VCS_STATUS_COMMIT[1,8]}"
+    fi
 
     # Show tracking branch name if it differs from local branch.
     if [[ -n ${VCS_STATUS_REMOTE_BRANCH:#$VCS_STATUS_LOCAL_BRANCH} ]]; then

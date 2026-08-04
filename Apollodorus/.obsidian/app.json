@@ -10,5 +10,6 @@
   "promptDelete": false,
   "livePreview": true,
   "attachmentFolderPath": "07 Notes/Images",
-  "settingsPopoutWindow": false
+  "settingsPopoutWindow": false,
+  "vimMode": false
 }

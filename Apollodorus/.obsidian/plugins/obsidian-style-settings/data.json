@@ -9,5 +9,9 @@
   "Appearance-dark@@accent-color-override-dark": false,
   "Appearance-dark@@card-highlight-dark": true,
   "Components@@tab-autohide": false,
-  "Components@@Ribbon-autohide": false
+  "Components@@Ribbon-autohide": false,
+  "fancy-a-story@@fas-adaptive-accent": true,
+  "encore-settings@@theme-dark": "encore-theme-dark-carbon",
+  "encore-settings@@colors": "encore-colors-colorful",
+  "encore-settings@@encore-translucency": true
 }
