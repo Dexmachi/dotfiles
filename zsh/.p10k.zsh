@@ -413,8 +413,12 @@
         res+="${meta}#${clean}${tag//\%/%%}"
       fi
 
-      [[ -z $VCS_STATUS_LOCAL_BRANCH && -z $VCS_STATUS_TAG ]] &&  # <-- this line
-        res+="${meta}@${clean}${VCS_STATUS_COMMIT[1,8]}"
+    fi
+
+    # Display the current Git commit if there is no branch and no tag.
+    # Alternatively, always display it when using jj.
+    if (( is_jj )) || [[ -z $VCS_STATUS_LOCAL_BRANCH && -z $VCS_STATUS_TAG ]]; then
+      res+="${meta}@${clean}${VCS_STATUS_COMMIT[1,8]}"
     fi
 
     # Show tracking branch name if it differs from local branch.
