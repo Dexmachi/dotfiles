@@ -419,15 +419,15 @@ hl.bind("code:238", hl.dsp.exec_cmd("brightnessctl -d smc::kbd_backlight s +10")
 
 hl.bind("code:237", hl.dsp.exec_cmd("brightnessctl -d smc::kbd_backlight s 10-"))
 
-hl.bind(mainMod .. " + " .. "A", hl.dsp.exec_cmd("hyprctl keyword general:layout dwindle"))
+hl.bind(mainMod .. " + " .. "A", hl.dsp.exec_cmd("hyprctl eval \"hl.config({ general = { layout = 'dwindle' } })\""))
 
 -- Modo DWINDLE (tiling normal, golden ratio)
 
-hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "M", hl.dsp.exec_cmd("hyprctl keyword general:layout master"))
+hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "M", hl.dsp.exec_cmd("hyprctl eval \"hl.config({ general = { layout = 'master' } })\""))
 
 --Work mode
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "N", hl.dsp.exec_cmd("hyprctl keyword general:layout scrolling"))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "N", hl.dsp.exec_cmd("hyprctl eval \"hl.config({ general = { layout = 'scrolling' } })\""))
 
 --Scroller mode
 
@@ -467,25 +467,25 @@ hl.bind(mainMod .. " + " .. "CTRL + ALT" .. " + " .. "P", hl.dsp.exec_cmd("kitty
 
 -- Zoom
 
-hl.bind(
-	mainMod .. " + " .. "SHIFT" .. " + " .. "Z",
-	hl.dsp.exec_cmd(
-		"hyprctl keyword cursor:zoom_factor $(awk BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print $2}') + 0.5} )"
-	)
-)
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "Z", function()
+	local cur = tonumber(hl.get_config("cursor:zoom_factor")) or 1.0
+	hl.config({ cursor = { zoom_factor = cur + 0.5 } })
+end)
 
 -- Increase display zoom
 
-hl.bind(
-	mainMod .. " + " .. "CTRL" .. " + " .. "Z",
-	hl.dsp.exec_cmd(
-		"hyprctl keyword cursor:zoom_factor $(awk BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print $2}') - 0.5} )"
-	)
-)
+hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "Z", function()
+	local cur = tonumber(hl.get_config("cursor:zoom_factor")) or 1.0
+	if cur > 1.0 then
+		hl.config({ cursor = { zoom_factor = math.max(1.0, cur - 0.5) } })
+	end
+end)
 
 -- Decrease display zoom
 
-hl.bind(mainMod .. " + " .. "ALT" .. " + " .. "Z", hl.dsp.exec_cmd("hyprctl keyword cursor:zoom_factor 1"))
+hl.bind(mainMod .. " + " .. "ALT" .. " + " .. "Z", function()
+	hl.config({ cursor = { zoom_factor = 1.0 } })
+end)
 
 -- Reset display zoom
 

@@ -14,25 +14,34 @@
 
 -- Assigning workspace to a certain monitor. Below are just examples
 
+for i = 1, 10 do
+    hl.workspace_rule({
+        workspace = tostring(i),
+        persistent = true,
+    })
+end
+
 hl.workspace_rule({
     workspace = 1,
     layout = "master",
+    persistent = true,
 })
 
 hl.workspace_rule({
     workspace = 2,
     layout = "scrolling",
+    persistent = true,
 })
 
 hl.workspace_rule({
     workspace = 3,
     layout = "dwindle",
+    persistent = true,
 })
 
 hl.window_rule({
-    name  = "float_on",
     match = {
-        workspace = "4",
+        workspace = "5",
     },
     float = true,
 })

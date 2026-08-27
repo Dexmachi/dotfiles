@@ -38,7 +38,7 @@
 }
 
 window#waybar {
-  background: @blur_background;
+  background: @blur_background8;
   border-bottom: 0px solid #ffffff;
   transition-property: background-color;
   transition-duration: 0.5s;

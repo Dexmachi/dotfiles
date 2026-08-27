@@ -1,2 +1,2 @@
-hyprctl keyword monitor eDP-1,preferred,auto,1,transform,0
-hyprctl keyword input:touchdevice:transform 0
+#!/usr/bin/env bash
+hyprctl eval "hl.monitor({ output = 'eDP-1', mode = 'preferred', position = 'auto', scale = 1, transform = 0 }); hl.config({ input = { touchdevice = { transform = 0 } } })"

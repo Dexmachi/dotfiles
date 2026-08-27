@@ -118,7 +118,6 @@ packages:
   - lazygit
   - lib32-libffi
   - lib32-libpulse
-  - lib32-openal
   - libadwaita
   - libffi
   - libfm-qt
@@ -337,6 +336,7 @@ aurPackages:
   - doppler-cli-bin
   - thinkfan-ui
   - thinkfan
+  - lib32-openal
   - electron36
   - passless-bin
   - lfk-bin

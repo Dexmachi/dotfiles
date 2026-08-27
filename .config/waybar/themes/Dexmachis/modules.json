@@ -3,13 +3,15 @@
   // Workspaces
   "hyprland/workspaces": {
     "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
     "active-only": false,
     "all-outputs": true,
     "format": "{icon}",
     "format-icons": {
       "active": "󰮯",
-      "persistent": "",
-      "empty": ""
+      "empty": "",
+      "default": ""
     },
     "persistent-workspaces": {
       "*": 10
@@ -197,7 +199,7 @@
   // Clock
   "clock": {
     "format": "{:%H:%M %a}",
-    "on-click": "hyprctl dispatch exec 'EDITOR=nvim kitty --title calendario -e calcurse'",
+    "on-click": "EDITOR=nvim kitty --class calendario --title calendario -e calcurse",
     "timezone": "",
     "tooltip": false
   },
@@ -282,11 +284,9 @@
       "critical": 15
     },
     "format": "{icon}   {capacity}%",
-    "format-charging": "  {capacity}%",
-    "format-plugged": "  {capacity}%",
-    "format-alt": "{icon}  {time}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
+    "format-charging": "   {capacity}%",
+    "format-plugged": "   {capacity}%",
+    "format-alt": "{icon}   {time}",
     "format-icons": [" ", " ", " ", " ", " "]
   },
 

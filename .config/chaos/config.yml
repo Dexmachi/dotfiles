@@ -29,10 +29,10 @@ secret_providers:
     vault_id: 2003abe7-907c-4dac-9e96-c636fdb70097
     vault_prod_id: e2d00b81-90e1-4d5d-a09d-4a61b100329c
   dp:
-    gpg_id: CHAOS_DECMACHINA_GPG_KEY:ch-aos:dev
-    age_id: TEST_YARA:ch-aos:dev
+    gpg_id: ch-aos/dev/CHAOS_DECMACHINA_GPG_KEY
+    age_id: ch-aos/dev/TEST_YARA
   in:
     age_id: TEST_INFISICAL
-    vault_id: CHAVE_TEST:c5eb1f8f-f527-46c7-8ad7-9d7aaf6f8c66
+    vault_id: c5eb1f8f-f527-46c7-8ad7-9d7aaf6f8c66/CHAVE_TEST
   hcv:
     vault_id: secret/chaos-tokens/hcv
