@@ -62,24 +62,47 @@ window#waybar {
 }
 
 #workspaces button {
-  padding: 0px 5px;
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome 7 Free", "Font Awesome 6 Free", FontAwesome, sans-serif;
+  padding: 0px 6px;
   margin: 6px 6px;
   border-radius: 15px;
   border: 0px;
   color: @primary;
+  font-weight: normal;
+  box-shadow: none;
+  text-shadow: none;
   transition: all 0.3s ease-in-out;
+}
+
+#workspaces button label {
+  padding: 0px;
+  margin: 0px;
 }
 
 #workspaces button.empty {
   color: @inverse_primary;
+  padding: 0px 6px;
+  margin: 6px 6px;
 }
 
 #workspaces button.active {
-  color: @on_primary;
+  color: @inverse_primary;
+  padding: 0px 24px;
+  margin: 6px 6px;
+}
+
+#workspaces button.active {
+  color: @primary;
   background: @primary;
   border-radius: 15px;
   min-width: 15px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#workspaces button:hover {
+  color: @on_primary;
+  background: @primary;
+  border-radius: 15px;
 }
 
 #power-profiles-daemon {
@@ -87,12 +110,6 @@ window#waybar {
   padding: 0px;
   font-size: 18px;
   color: @primary;
-}
-
-#workspaces button:hover {
-  color: @on_primary;
-  background: @primary;
-  border-radius: 15px;
 }
 
 /* -----------------------------------------------------
