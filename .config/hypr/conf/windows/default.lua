@@ -13,14 +13,14 @@
 -- -----------------------------------------------------
 
 hl.config({
-    general = {
-        gaps_in = 3,
-        gaps_out = 6,
-        border_size = 1,
-        resize_on_border = true,
-        col = {
-            active_border = "rgba(6c6f75ff)",
-            inactive_border = color8,
-        },
-    },
+	general = {
+		gaps_in = 3,
+		gaps_out = 6,
+		border_size = 1,
+		resize_on_border = true,
+		col = {
+			active_border = "rgba(6c6f75ff)",
+			inactive_border = color8,
+		},
+	},
 })

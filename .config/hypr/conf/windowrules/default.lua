@@ -76,26 +76,6 @@ hl.window_rule({
 	pin = true,
 })
 
-hl.window_rule({
-	match = {
-		title = ".*calendario.*",
-	},
-	float = true,
-	size = "60% 70%",
-	move = { "(monitor_w-window_w)-16", "65" },
-	pin = true,
-})
-
-hl.window_rule({
-	match = {
-		initial_title = ".*calendario.*",
-	},
-	float = true,
-	size = "60% 70%",
-	move = { "(monitor_w-window_w)-16", "65" },
-	pin = true,
-})
-
 -- ML4W Sidebar floating
 hl.window_rule({
 	match = {

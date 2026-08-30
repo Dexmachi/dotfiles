@@ -21,11 +21,11 @@ secret_providers:
     project_id: 6e4176f5-faf2-4199-a19b-b3bd016085e3
   bw:
     gpg_id: ebf767f3-da27-4983-b9b7-b3c6017dfdf1
-    age_id: 0d90984a-250f-472d-9063-b3c70009c3d8
+    age_id: f6b73af8-ba22-4c3a-a08c-b46400d65f20
     vault_id: c133e28a-e9da-40de-8908-1b1ff2ede48d
     vault_prod_id: e2d00b81-90e1-4d5d-a09d-4a61b100329c
   rbw:
-    age_id: 867343e4-fd71-44d8-a080-b3ca00ee7df7
+    age_id: f6b73af8-ba22-4c3a-a08c-b46400d65f20
     vault_id: 2003abe7-907c-4dac-9e96-c636fdb70097
     vault_prod_id: e2d00b81-90e1-4d5d-a09d-4a61b100329c
   dp:
