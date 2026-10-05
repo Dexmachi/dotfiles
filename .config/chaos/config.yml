@@ -10,9 +10,22 @@ aliases:
   - region
   - repositories
   - secrets
-
+auth:
+  oidc:
+    providers:
+    - id: github
+      name: github
+      display_name: Github
+      issuer: https://github.com
+      client_id: Ov23liGZHl6XRqAmkr8L
+      scopes: read:user user:email read:org
+      default_role: developer
+      role_mapping:
+        Ch-aOS-Ch/Reviewers Styx: admin
+        Reviewers Styx: admin
+        reviewers-styx: admin
 secret_providers:
-  default: bws.age
+  default: rbw.age
   bws:
     age_id: 196d32ab-4194-479a-b23e-b3c70009da9c
     gpg_id: abee5306-83c9-43b8-a5b4-b3c6017f5e9c
@@ -30,7 +43,7 @@ secret_providers:
     vault_prod_id: e2d00b81-90e1-4d5d-a09d-4a61b100329c
   dp:
     gpg_id: ch-aos/dev/CHAOS_DECMACHINA_GPG_KEY
-    age_id: ch-aos/dev/TEST_YARA
+    age_id: ch-aos/dev_personal/MINHA_AGE_SSH
   in:
     age_id: TEST_INFISICAL
     vault_id: c5eb1f8f-f527-46c7-8ad7-9d7aaf6f8c66/CHAVE_TEST

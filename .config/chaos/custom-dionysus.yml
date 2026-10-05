@@ -1,12 +1,138 @@
-# fleet:
-#   hosts:
-#     "@local":
-#       packages: []
+fleet:
+  hosts:
+    "@local":
+      tags:
+        - workstation
+
+  restrictions:
+    black_tags:
+      rke2:
+        - workstation
+      ssh_keys:
+        - workstation
+
+pelago:
+  - name: "k8s-test-hw"
+    isle: "chaosmox"
+    config:
+      cluster_name: "k8s-dev"
+      target_node: "lappis5"
+      admin_user: "chaos"
+      template_id: "9009"
+      clone_full: true
+      ssh_public_keys:
+        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHrUtVKtgovzDIQQBSz3ys77NPcqUTYG2IC7/2PJwyLb caiorocoli@gmail.com,232001371@aluno.unb.br
+        - ~/.ssh/ssh-ed25519_chaos_imported_1788984576.1238034.pub
+
+      etcd:
+        count: 1
+        cores: 2
+        memory: 4096
+        disks:
+          - size: 40
+            interface: "scsi0"
+            datastore_id: "local-lvm"
+
+      control_plane:
+        count: 1
+        cores: 2
+        memory: 4096
+        disks:
+          - size: 40
+            interface: "scsi0"
+            datastore_id: "local-lvm"
+
+      worker:
+        count: 1
+        cores: 4
+        memory: 16384
+        disks:
+          - size: 100
+            interface: "scsi0"
+            datastore_id: "local-lvm"
+
+          - size: 50
+            interface: "scsi1"
+            datastore_id: "local-lvm"
+
+      storage:
+        count: 0
+
+rke2:
+  version: "v1.35.6+rke2r1"
+  secrets_encryption: true
 
 packages:
   - iw
+  - fluxcd
+  - hyprpm
+  - alsa-plugins
+  - steam-devices
+  - lib32-alsa-lib
+  - lib32-alsa-plugins
+  - lib32-brotli
+  - lib32-bzip2
+  - lib32-curl
+  - lib32-e2fsprogs
+  - lib32-expat
+  - lib32-fontconfig
+  - lib32-freetype2
+  - lib32-gmp
+  - lib32-gnutls
+  - lib32-icu
+  - lib32-json-c
+  - lib32-keyutils
+  - lib32-krb5
+  - lib32-libdrm
+  - lib32-libelf
+  - lib32-libglvnd
+  - lib32-libidn2
+  - lib32-libldap
+  - lib32-libnghttp2
+  - lib32-libnghttp3
+  - lib32-libngtcp2
+  - lib32-libnm
+  - lib32-libpciaccess
+  - lib32-libpipewire
+  - lib32-libpng
+  - lib32-libpsl
+  - lib32-libssh2
+  - lib32-libtasn1
+  - lib32-libunistring
+  - lib32-libva
+  - lib32-libx11
+  - lib32-libxcrypt-compat
+  - lib32-libxdamage
+  - lib32-libxext
+  - lib32-libxfixes
+  - lib32-libxinerama
+  - lib32-libxml2
+  - lib32-libxshmfence
+  - lib32-libxss
+  - lib32-libxxf86vm
+  - lib32-llvm-libs
+  - lib32-lm_sensors
+  - lib32-mesa-git
+  - lib32-ncurses
+  - lib32-nettle
+  - lib32-nspr
+  - lib32-nss
+  - lib32-openssl
+  - lib32-p11-kit
+  - lib32-pipewire
+  - lib32-spirv-tools
+  - lib32-sqlite
+  - lib32-vulkan-icd-loader
+  - lib32-wayland
+  - libxcrypt-compat
+  - lsb-release
+  - lsof
+  - xorg-xrandr
+  - zenity
   - vault
   - kind
+  - soft-serve
+  - opentofu
   - peazip
   - pinta
   - ghostty
@@ -43,8 +169,6 @@ packages:
   - pulumi
   - xorg-xhost
   - hyprtoolkit
-  - prismlauncher
-  - argocd
   - baobab
   - bc
   - blueman
@@ -52,7 +176,6 @@ packages:
   - bottom
   - breeze
   - brightnessctl
-  - blanket
   - cachyos-keyring
   - cachyos-mirrorlist
   - cachyos-v3-mirrorlist
@@ -148,7 +271,6 @@ packages:
   - nwg-dock-hyprland
   - nwg-look
   - obs-studio
-  - obsidian
   - onefetch
   - openvpn
   - os-prober
@@ -173,14 +295,12 @@ packages:
   - cachyos-st-config
   - cups
   - cups-filters
-  - dolphin-emu
   - dotnet-runtime-bin
   - fwupd
   - jujutsu
   - glew
   - gst-plugin-pipewire
   - intel-ucode
-  - kooha
   - lib32-libdisplay-info
   - libcupsfilters
   - libnma-gtk4
@@ -297,7 +417,6 @@ packages:
   - protontricks
   - zoxide
   - yq
-  - rio
   - kde-gtk-config
   - tcpdump
   - python-passlib
@@ -340,7 +459,6 @@ aurPackages:
   - electron36
   - passless-bin
   - lfk-bin
-  - teleport-connect
   - teleport-bin
   - 1password-cli
   - asciinema-agg-bin
@@ -356,7 +474,6 @@ aurPackages:
   - bibata-cursor-theme-bin
   - catppuccin-gtk-theme-mocha
   - cbonsai
-  - citra-appimage
   - cmatrix-git
   - evince-no-gnome
   - gnu-netcat
@@ -506,9 +623,6 @@ dotfiles:
       - from: ramble
         to: .local/share/chaos/ramble
 
-      - from: Apollodorus
-        to: Apollodorus
-
 mirrors:
   countries:
     - "br"
@@ -572,43 +686,4 @@ region:
   locale:
     - pt_BR
     - en_US
-
-pelago:
-  - isle: chaosmox
-    name: "playground2"
-    config:
-      vm_name: "playground2"
-      target_node: "lappis2"
-      template_id: 4013
-      cores: 2
-      type: "x86-64-v2-AES"
-      memory: 2048
-      network_devices:
-        - bridge: "vmbr0"
-          model: "virtio"
-      ip_configs:
-        - ipv4:
-            address: "dhcp"
-      clone_full: true
-      admin_user: "dexmachina"
-      ssh_public_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHrUtVKtgovzDIQQBSz3ys77NPcqUTYG2IC7/2PJwyLb caiorocoli@gmail.com,232001371@aluno.unb.br"
-  - isle: chaosmox
-    name: "playground3"
-    config:
-      vm_name: "playground3"
-      target_node: "lappis2"
-      template_id: 4013
-      cores: 2
-      type: "x86-64-v2-AES"
-      memory: 2048
-      network_devices:
-        - bridge: "vmbr0"
-          model: "virtio"
-      ip_configs:
-        - ipv4:
-            address: "dhcp"
-      clone_full: true
-      admin_user: "dexmachina"
-      ssh_public_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHrUtVKtgovzDIQQBSz3ys77NPcqUTYG2IC7/2PJwyLb caiorocoli@gmail.com,232001371@aluno.unb.br"
-
 
