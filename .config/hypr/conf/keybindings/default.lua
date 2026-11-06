@@ -24,7 +24,7 @@ local DEXCRIPTS = "~/.config/hypr/dexcripts"
 
 -- Applications
 
-hl.bind(mainMod .. " + " .. "RETURN", hl.dsp.exec_cmd("kitty"))
+hl.bind(mainMod .. " + " .. "RETURN", hl.dsp.exec_cmd("ghostty"))
 
 -- Open the terminal
 
@@ -64,6 +64,10 @@ hl.bind(mainMod .. " + " .. "F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + " .. "M", hl.dsp.window.fullscreen())
 
 -- Maximize Window
+
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "M", hl.dsp.exec_cmd("quickshell ipc call bar toggleMediaExpanded"))
+
+-- Open expanded media widget (MP3 deck)
 
 hl.bind(mainMod .. " + " .. "T", hl.dsp.window.float())
 
@@ -129,11 +133,11 @@ hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "A", hl.dsp.exec_cmd("~/.config/
 
 -- Toggle animations
 
-hl.bind("PRINT", hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot.sh"))
+hl.bind("PRINT", hl.dsp.exec_cmd("quickshell ipc call bar toggleScreenshot"))
 
 -- Take a screenshot
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "S", hl.dsp.exec_cmd("~/.config/hypr/scripts/screenshot.sh"))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "S", hl.dsp.exec_cmd("quickshell ipc call bar toggleScreenshot"))
 
 -- Take a screenshot
 
@@ -153,11 +157,11 @@ hl.bind(mainMod .. " + " .. "ALT" .. " + " .. "W", hl.dsp.exec_cmd("~/.config/hy
 
 -- Start random wallpaper script
 
-hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "RETURN", hl.dsp.exec_cmd("pkill rofi || rofi -show drun -replace -i"))
+hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "RETURN", hl.dsp.exec_cmd("quickshell ipc call bar toggleSpotlight"))
 
 -- Open application launcher
 
-hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "K", hl.dsp.exec_cmd("~/.config/hypr/scripts/keybindings.sh"))
+hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "K", hl.dsp.exec_cmd("quickshell ipc call bar toggleKeybindings"))
 
 -- Show keybindings
 
@@ -177,15 +181,15 @@ hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "R", hl.dsp.exec_cmd("~/.config/
 
 -- Reload hyprland config
 
-hl.bind(mainMod .. " + " .. "V", hl.dsp.exec_cmd("~/.config/ml4w/scripts/cliphist.sh"))
+hl.bind(mainMod .. " + " .. "V", hl.dsp.exec_cmd("quickshell ipc call bar toggleClipboard"))
 
 -- Open clipboard manager
 
-hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "T", hl.dsp.exec_cmd("~/.config/waybar/themeswitcher.sh"))
+hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "T", hl.dsp.exec_cmd("quickshell ipc call bar togglePosition"))
 
--- Open waybar theme switcher
+-- Toggle bar position (top/bottom)
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "H", hl.dsp.exec_cmd("~/.config/hypr/scripts/hyprshade.sh"))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "H", hl.dsp.exec_cmd("quickshell ipc call bar toggleNightLight"))
 
 -- Toggle screenshader
 
@@ -207,11 +211,11 @@ hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "H", hl.dsp.exec_cmd("~/.config/m
 
 -- Close Sidepad
 
-hl.bind(mainMod .. " + " .. "S", hl.dsp.exec_cmd("kitty --title dotfiles-sidepad"))
+hl.bind(mainMod .. " + " .. "S", hl.dsp.exec_cmd("ghostty --title=dotfiles-sidepad --class=dotfiles-sidepad"))
 
 -- Init Sidepad
 
-hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "S", hl.dsp.exec_cmd("~/.config/ml4w/scripts/sidepad.sh --select"))
+hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "S", hl.dsp.exec_cmd("quickshell ipc call bar toggleSidepad"))
 
 -- Workspaces
 
@@ -423,11 +427,17 @@ hl.bind(mainMod .. " + " .. "A", hl.dsp.exec_cmd("hyprctl eval \"hl.config({ gen
 
 -- Modo DWINDLE (tiling normal, golden ratio)
 
-hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "M", hl.dsp.exec_cmd("hyprctl eval \"hl.config({ general = { layout = 'master' } })\""))
+hl.bind(
+	mainMod .. " + " .. "CTRL" .. " + " .. "M",
+	hl.dsp.exec_cmd("hyprctl eval \"hl.config({ general = { layout = 'master' } })\"")
+)
 
 --Work mode
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "N", hl.dsp.exec_cmd("hyprctl eval \"hl.config({ general = { layout = 'scrolling' } })\""))
+hl.bind(
+	mainMod .. " + " .. "SHIFT" .. " + " .. "N",
+	hl.dsp.exec_cmd("hyprctl eval \"hl.config({ general = { layout = 'scrolling' } })\"")
+)
 
 --Scroller mode
 
@@ -435,7 +445,7 @@ hl.bind(mainMod .. " + " .. "P", hl.dsp.window.pseudo())
 
 --pseudo
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "P", hl.dsp.exec_cmd("rofi-rbw"))
+hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "P", hl.dsp.exec_cmd("quickshell ipc call bar toggleRbw"))
 
 --password manager
 
@@ -455,13 +465,13 @@ hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "J", hl.dsp.exec_cmd("hyprctl di
 
 hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "N", hl.dsp.exec_cmd("~/.config/hypr/dexcripts/nvim.sh"))
 
--- Abre o kitty com nvim
+-- Abre o ghostty com nvim
 
-hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "D", hl.dsp.exec_cmd("kitty -e nvim ~/GDrive/rpg/Diario/"))
+hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "D", hl.dsp.exec_cmd("ghostty -e nvim ~/GDrive/rpg/Diario/"))
 
 -- Abrir diário
 
-hl.bind(mainMod .. " + " .. "CTRL + ALT" .. " + " .. "P", hl.dsp.exec_cmd("kitty -e poketex"))
+hl.bind(mainMod .. " + " .. "CTRL + ALT" .. " + " .. "P", hl.dsp.exec_cmd("ghostty -e poketex"))
 
 --Pokedex
 
@@ -481,6 +491,8 @@ hl.bind(mainMod .. " + " .. "CTRL" .. " + " .. "Z", function()
 	end
 end)
 
+hl.bind(mainMod .. " + " .. "C", hl.dsp.exec_cmd("ghostty -e chap"))
+
 -- Decrease display zoom
 
 hl.bind(mainMod .. " + " .. "ALT" .. " + " .. "Z", function()
@@ -489,7 +501,7 @@ end)
 
 -- Reset display zoom
 
-hl.bind(mainMod .. " + " .. "I", hl.dsp.exec_cmd("kitty --title dotfiles-sidepad -e aurroamer -f"))
+hl.bind(mainMod .. " + " .. "I", hl.dsp.exec_cmd("ghostty --title=dotfiles-sidepad --class=dotfiles-sidepad -e aurroamer -f"))
 
 hl.bind("ALT" .. " + " .. "up", hl.dsp.exec_cmd("~/.config/hypr/dexcripts/rotate-up.sh"))
 

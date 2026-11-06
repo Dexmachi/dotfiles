@@ -34,7 +34,7 @@ hl.config({
 			-- Touchpad scroll factor
 			disable_while_typing = false,
 		},
-		force_no_accel = true,
+		force_no_accel = false,
 		sensitivity = 1.0,
 		-- Pointer speed: -1.0 - 1.0, 0 means no modification.
 	},
@@ -95,7 +95,7 @@ if hl.plugin and hl.plugin.hyprgrass then
 	})
 	hl.plugin.hyprgrass.bind({
 		pattern = { kind = "swipe", fingers = 3, direction = "d" },
-		action = hl.dsp.exec_cmd("kitty --title dotfiles-sidepad"),
+		action = hl.dsp.exec_cmd("ghostty --title=dotfiles-sidepad --class=dotfiles-sidepad"),
 	})
 
 	hl.plugin.hyprgrass.bind({

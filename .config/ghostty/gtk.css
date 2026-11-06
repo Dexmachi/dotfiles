@@ -1,0 +1,165 @@
+/* Ghostty Ultra-Thin Flat Tab Indicator */
+
+* {
+    transition: none !important;
+    animation: none !important;
+}
+
+headerbar {
+    display: none !important;
+    min-height: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+tabbar,
+tabbar *,
+tabbox,
+tabbox *,
+tab,
+tab * {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    min-width: 0 !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+tabbar {
+    background: transparent !important;
+    background-color: transparent !important;
+    min-height: 4px !important;
+    height: 4px !important;
+    max-height: 4px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+tabbar revealer,
+tabbar scrolledwindow,
+tabbar stack,
+tabbar box,
+tabbar .box {
+    min-height: 0 !important;
+    height: 4px !important;
+    max-height: 4px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+tabbar tabbox,
+tabbox {
+    background: transparent !important;
+    min-height: 4px !important;
+    height: 4px !important;
+    max-height: 4px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+tabbar tabbox tab,
+tabbar tab,
+tabbox tab,
+tab {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 2px !important;
+    padding: 0 !important;
+    min-height: 3px !important;
+    height: 3px !important;
+    max-height: 3px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    width: 36px !important;
+    box-shadow: none !important;
+}
+
+tabbar tab:hover,
+tabbox tab:hover,
+tab:hover {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+tabbar tab:selected,
+tabbar tab:checked,
+tabbox tab:selected,
+tabbox tab:checked,
+tab:selected,
+tab:checked {
+    background-color: #FFA036 !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    width: 36px !important;
+    min-height: 3px !important;
+    height: 3px !important;
+    max-height: 3px !important;
+    box-shadow: none !important;
+}
+
+/* Hide all action buttons (+ button, close buttons, menu buttons, arrows) */
+tabbar button,
+tabbox button,
+tab button,
+button.image-button,
+button.flat,
+button.close,
+.start-action,
+.end-action,
+.action-bar,
+.action-button,
+.new-tab-button {
+    display: none !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+/* Hide all text, labels, titles, images, and indicators */
+tab label,
+tab .tab-label,
+tab title,
+tab image,
+tab .indicator,
+tab .needs-attention,
+label.title,
+.dim-label {
+    display: none !important;
+    font-size: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+}
+
+/* Hide all separators, shadows, and scroll indicators */
+tabbar separator,
+tabbox separator,
+separator,
+overshoot,
+undershoot {
+    display: none !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    background: transparent !important;
+}

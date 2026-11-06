@@ -1,5 +1,6 @@
 ---@module 'hl'
-package.path = package.path .. ";/home/dexmachina/.config/hypr/conf/?.lua;/home/dexmachina/.config/hypr/conf/keybindings/?.lua"
+package.path = package.path
+	.. ";/home/dexmachina/.config/hypr/conf/?.lua;/home/dexmachina/.config/hypr/conf/keybindings/?.lua"
 
 --  _   _                  _                 _
 -- | | | |_   _ _ __  _ __| | __ _ _ __   __| |
@@ -99,6 +100,10 @@ local animation = require("animation")
 local custom = require("custom")
 
 hl.env("WLR_NO_HARDWARE_CURSORS", 1)
+
+hl.env("FREETYPE_PROPERTIES", "freetype:interpreter-version=40 cff:no-stem-darkening=0 autofitter:no-stem-darkening=0")
+
+hl.env("QT_SCALE_FACTOR_ROUNDING_POLICY", "RoundPreferFloor")
 
 -- Autostart
 hl.on("hyprland.start", function()

@@ -76,6 +76,26 @@ hl.window_rule({
 	pin = true,
 })
 
+hl.window_rule({
+	match = {
+		initial_title = ".*calendario.*",
+	},
+	float = true,
+	size = "60% 70%",
+	move = { "(monitor_w-window_w)-16", "65" },
+	pin = true,
+})
+
+hl.window_rule({
+	match = {
+		title = ".*calendario.*",
+	},
+	float = true,
+	size = "60% 70%",
+	move = { "(monitor_w-window_w)-16", "65" },
+	pin = true,
+})
+
 -- ML4W Sidebar floating
 hl.window_rule({
 	match = {
@@ -182,6 +202,24 @@ hl.window_rule({
 	center = true,
 })
 
+hl.window_rule({
+	match = {
+		initial_title = "dotfiles-floating",
+	},
+	float = true,
+	size = "1000 700",
+	center = true,
+})
+
+hl.window_rule({
+	match = {
+		title = "dotfiles-floating",
+	},
+	float = true,
+	size = "1000 700",
+	center = true,
+})
+
 -- Floating for Ghostty
 hl.window_rule({
 	match = {
@@ -207,6 +245,16 @@ hl.window_rule({
 hl.window_rule({
 	match = {
 		initial_title = "dotfiles-sidepad",
+	},
+	float = true,
+	size = "85% 70%",
+	center = true,
+	pin = true,
+})
+
+hl.window_rule({
+	match = {
+		title = "dotfiles-sidepad",
 	},
 	float = true,
 	size = "85% 70%",
@@ -302,6 +350,41 @@ hl.layer_rule({
 
 hl.layer_rule({
 	match = {
+		namespace = "quickshell-bar",
+	},
+	blur = true,
+	ignore_alpha = 0.08,
+})
+
+hl.layer_rule({
+	match = {
+		namespace = "quickshell-popup",
+	},
+	blur = true,
+	ignore_alpha = 0.08,
+	no_anim = true,
+})
+
+hl.layer_rule({
+	match = {
+		namespace = "quickshell-spotlight",
+	},
+	blur = true,
+	ignore_alpha = 0.08,
+	no_anim = true,
+})
+
+hl.layer_rule({
+	match = {
+		namespace = "quickshell-toast",
+	},
+	blur = true,
+	ignore_alpha = 0.08,
+	no_anim = true,
+})
+
+hl.layer_rule({
+	match = {
 		namespace = "swaync-control-center",
 	},
 	blur = true,
@@ -332,3 +415,4 @@ hl.env("MOZ_ENABLE_WAYLAND", 1)
 hl.env("XCURSOR_SIZE", 24)
 hl.env("OZONE_PLATFORM", "wayland")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
+hl.env("GDK_WAYLAND_DISABLE", "ext_background_effect_manager_v1")

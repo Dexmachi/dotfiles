@@ -241,7 +241,7 @@ M.palettes = {
     diag_info = "#90E0EF",
     diag_hint = "#A7C957",
   },
-  abyssal = {
+  chaos_dark = {
     keyword = "#A855F7",
     function_ = "#EC4899",
     string = "#14B8A6",
@@ -264,6 +264,30 @@ M.palettes = {
     diag_warn = "#38BDF8",
     diag_info = "#60A5FA",
     diag_hint = "#14B8A6",
+  },
+  chaos = {
+    keyword = "#7E22CE",
+    function_ = "#BE185D",
+    string = "#0D9488",
+    type = "#0E7490",
+    var = "#DB2777",
+    number = "#1D4ED8",
+    boolean = "#E11D48",
+    comment = "#64748B",
+    operator = "#6D28D9",
+    constant = "#0284C7",
+    param = "#334155",
+    delimiter = "#64748B",
+    match_paren = "#0284C7",
+    match_bg = "#CCFBF1",
+    border = "#0D9488",
+    title = "#BE185D",
+    pmenu_sel = "#0D9488",
+    pmenu_sel_fg = "#FFFFFF",
+    diag_err = "#E11D48",
+    diag_warn = "#D97706",
+    diag_info = "#0284C7",
+    diag_hint = "#0D9488",
   },
   mochi = {
     keyword = "#E09F3E",
@@ -461,13 +485,14 @@ M.palettes = {
 
 function M.get_highlights(name, colors)
   local c = M.palettes[name] or M.palettes.harmony
+  local is_light = (name and name:match("light")) or (vim.o.background == "light")
 
   return {
     -- 🧱 Base UI & Janelas Flutuantes
     NormalFloat = { fg = c.border, bg = "NONE" },
     FloatBorder = { fg = c.border, bg = "NONE" },
     FloatTitle = { fg = c.title, bg = "NONE", bold = true },
-    DexHoverNormal = { fg = c.string, bg = "#292628" },
+    DexHoverNormal = { fg = c.string, bg = is_light and "#E2E8F0" or "#292628" },
     Transparent = { bg = "NONE" },
     CursorLineNr = { fg = c.operator, bold = true },
 
@@ -582,8 +607,8 @@ function M.get_highlights(name, colors)
     DiagnosticUnderlineHint = { sp = c.diag_hint, undercurl = true },
 
     -- ⛓️ StatusLine
-    StatusLine = { fg = "#ffd1ea", bg = "#1a0e17" },
-    StatusLineNC = { fg = "#cfa5b6", bg = "#1a0e17" },
+    StatusLine = is_light and { fg = "#334155", bg = "#E2E8F0" } or { fg = "#ffd1ea", bg = "#1a0e17" },
+    StatusLineNC = is_light and { fg = "#64748B", bg = "#CBD5E1" } or { fg = "#cfa5b6", bg = "#1a0e17" },
 
     -- ✨ Outros / Custom Tags
     Hack = { fg = "#f79e45", bg = "NONE", bold = true },
@@ -595,6 +620,11 @@ end
 
 function M.apply(name)
   local theme_name = name or "harmony"
+  if theme_name:match("light") then
+    vim.o.background = "light"
+  else
+    vim.o.background = "dark"
+  end
   vim.g.dex_theme = theme_name
 
   -- Aplica a base do catppuccin

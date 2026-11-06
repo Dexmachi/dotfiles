@@ -46,7 +46,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("~/.config/hypr/scripts/xdg.sh")
 	hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 	hl.exec_cmd("~/.config/hypr/scripts/wallpaper-restore.sh")
-	hl.exec_cmd("swaync")
+	-- hl.exec_cmd("swaync") -- Substituído pelo servidor de notificações nativo do Quickshell
 	hl.exec_cmd("~/.config/hypr/scripts/gtk.sh")
 	hl.exec_cmd("hypridle")
 	hl.exec_cmd("wl-paste --watch cliphist store")

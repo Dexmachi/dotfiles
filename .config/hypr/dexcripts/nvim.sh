@@ -1,1 +1,1 @@
-kitty -e nvim
+ghostty -e nvim

@@ -1,0 +1,3 @@
+# Sidepad configuration for Ghostty
+SIDEPAD_APP="ghostty --class=dotfiles-sidepad --title=dotfiles-sidepad"
+SIDEPAD_CLASS="dotfiles-sidepad"

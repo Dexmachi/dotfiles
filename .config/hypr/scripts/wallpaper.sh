@@ -137,16 +137,17 @@ $HOME/.cargo/bin/wallust run --config-dir /home/dexmachina/.config/wallust $used
 # -----------------------------------------------------
 
 _writeLog "Execute matugen with $used_wallpaper"
+mkdir -p ~/.cache/matugen ~/.cache/wallust ~/.config/ghostty/themes
 if [ "$THEME_PREF" -eq 1 ]; then
     matugen image $used_wallpaper -m "dark" -t scheme-content
-    cat ~/.cache/matugen/gostty-ui.conf >~/.config/ghostty/themes/tema-wallust-matugen.conf
+    cat ~/.cache/matugen/ghostty-ui.conf >~/.config/ghostty/themes/tema-wallust-matugen.conf
     cat ~/.config/rio/cache/colors_matugen.toml >~/.config/rio/themes/dexmachina.toml
     echo "@define-color magic_background @on_primary_fixed;" >>~/.config/waybar/colors.css
     echo "@define-color magic_text @primary;" >>~/.config/waybar/colors.css
     echo "@define-color magic_invert @inverse_primary;" >>~/.config/waybar/colors.css
 else
     matugen image $used_wallpaper -m "light" -t scheme-content
-    cat ~/.cache/matugen/gostty-ui.conf >~/.config/ghostty/themes/tema-wallust-matugen.conf
+    cat ~/.cache/matugen/ghostty-ui.conf >~/.config/ghostty/themes/tema-wallust-matugen.conf
     cat ~/.config/rio/cache/colors_matugen.toml >~/.config/rio/themes/dexmachina.toml
     echo "@define-color magic_background @primary_fixed;" >>~/.config/waybar/colors.css
     echo "@define-color magic_text @on_primary_fixed;" >>~/.config/waybar/colors.css

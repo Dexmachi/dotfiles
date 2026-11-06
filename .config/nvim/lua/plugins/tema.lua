@@ -51,7 +51,7 @@ return {
         which_key = true,
       },
       custom_highlights = function(colors)
-        local theme = vim.g.dex_theme or "harmony"
+        local theme = vim.g.dex_theme or "chaos_dark"
         return require("config.themes_data").get_highlights(theme, colors)
       end,
     },

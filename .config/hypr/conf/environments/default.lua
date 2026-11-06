@@ -13,3 +13,4 @@
 -- -----------------------------------------------------
 
 -- Default Settings in ml4w.conf
+hl.env("GTK_IM_MODULE", "simple")

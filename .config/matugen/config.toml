@@ -14,6 +14,10 @@ post_hook = 'hyprctl reload'
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
 
+[templates.quickshell]
+input_path = '~/.config/matugen/templates/quickshell-colors.json'
+output_path = '~/.config/quickshell/colors.json'
+
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/colors.rasi'
@@ -59,9 +63,9 @@ output_path = '~/.config/qt6ct/style-colors.conf'
 input_path = '~/.config/matugen/templates/qtct-colors.conf'
 output_path = '~/.config/qt5ct/style-colors.conf'
 
-#[templates.ghostty_ui]
-#input_path = '~/.config/matugen/templates/ghostty'
-#output_path = '~/.cache/matugen/gostty-ui.conf'
+[templates.ghostty_ui]
+input_path = '~/.config/matugen/templates/ghostty'
+output_path = '~/.cache/matugen/ghostty-ui.conf'
 
 [templates.rio]
 input_path = '~/.config/matugen/templates/rio'

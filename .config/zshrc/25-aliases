@@ -83,3 +83,9 @@ alias degrep='env | rg'
 alias 'tempo'='wthrr -f d brasil -f w -f t'
 alias 'vi'='nvim'
 alias 'prev-dvpn'= 'wg-quick down wg0'
+
+# -----------------------------------------------------
+# Ch-aOS
+# -----------------------------------------------------
+
+alias sync='chaos secrets cat sudo_pass -vp rbw.age | chaos apply -sp rbw.age dionysus'

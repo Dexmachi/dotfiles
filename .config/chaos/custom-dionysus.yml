@@ -63,8 +63,17 @@ rke2:
   secrets_encryption: true
 
 packages:
+  - ansible
+  - quickshell
+  - pacman
+  - playerctl
+  - cpptrace
+  - libdwarf
+  - tmux
   - iw
+  - libutempter
   - fluxcd
+  - packer
   - hyprpm
   - alsa-plugins
   - steam-devices
@@ -451,9 +460,16 @@ aurHelpers:
 
 aurPackages:
   - spicetify-bin
+  - thinkfan-ui
+  - wordcraft-bin
   - mbedtls2
   - doppler-cli-bin
-  - thinkfan-ui
+  - deckcraft-bin
+  - designcraft-bin
+  - lightcraft-bin
+  - pdfcraft-bin
+  - photocraft-bin
+  - vectorcraft-bin
   - thinkfan
   - lib32-openal
   - electron36
@@ -672,8 +688,7 @@ services:
 
   - name: sddm.service
 
-  - name: proton
-    dense_service: true
+  - name: proton.VPN.service
 
   - name: throttled
     dense_service: True

@@ -4,11 +4,8 @@ tags:
   - go
 what: |
       Ok, isso aqui significa "detailContent = uma string que,
-
       no seu início vem o título (com estilo rich)
-
       no seu meio vem a string acumulada
-
       e no final vem a hist (com estilo rich)"
 
       Interessantemente, "list" não é (exatamente) uma lista, se liga: "var list strings.Builder"
